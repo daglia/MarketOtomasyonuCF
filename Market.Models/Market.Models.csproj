@@ -48,7 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Kategori.cs" />
+    <Compile Include="Entities\Satis.cs" />
+    <Compile Include="Entities\SatisDetay.cs" />
     <Compile Include="Entities\Urun.cs" />
+    <Compile Include="Enums\OdemeYontemi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

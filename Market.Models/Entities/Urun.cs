@@ -35,5 +35,7 @@ namespace Market.Models.Entities
         public int KategoriId { get; set; }
         [ForeignKey("KategoriId")]
         public virtual Kategori Kategori { get; set; }
+
+        public virtual ICollection<SatisDetay> SatisDetaylari { get; set; } = new HashSet<SatisDetay>();
     }
 }

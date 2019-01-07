@@ -34,7 +34,9 @@ namespace Market.DAL.Migrations
                 .PrimaryKey(t => t.UrunId)
                 .ForeignKey("dbo.Kategoriler", t => t.KategoriId, cascadeDelete: true)
                 .Index(t => t.KategoriId);
-            
+
+            Sql("ALTER TABLE dbo.Urunler DROP COLUMN Stok");
+            Sql("ALTER TABLE dbo.Urunler ADD [Stok] as ([Kutu] * [KutuBasinaAdet])");
         }
         
         public override void Down()
