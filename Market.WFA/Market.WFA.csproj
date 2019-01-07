@@ -92,6 +92,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UrunIslemleri.resx">
       <DependentUpon>UrunIslemleri.cs</DependentUpon>
@@ -115,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dialogs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\content_20-ekim-2017-cuma-bim-aktuel-urunler-katalogu-bu-hafta-indirim_10ukU5EuiC370Vk.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

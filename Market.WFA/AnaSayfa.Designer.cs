@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnaSayfa));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.işlemlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.satışİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.işlemlerToolStripMenuItem,
             this.çıkışToolStripMenuItem});
@@ -80,6 +82,7 @@
             // 
             // çıkışToolStripMenuItem
             // 
+            this.çıkışToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
             this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.çıkışToolStripMenuItem.Text = "Çıkış";
@@ -89,10 +92,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Market.WFA.Properties.Resources.content_20_ekim_2017_cuma_bim_aktuel_urunler_katalogu_bu_hafta_indirim_10ukU5EuiC370Vk;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(676, 445);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
