@@ -33,7 +33,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnEkle = new System.Windows.Forms.Button();
-            this.btnAra = new System.Windows.Forms.Button();
+            this.btnBarkodOku = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,14 +90,15 @@
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
             // 
-            // btnAra
+            // btnBarkodOku
             // 
-            this.btnAra.Location = new System.Drawing.Point(319, 25);
-            this.btnAra.Name = "btnAra";
-            this.btnAra.Size = new System.Drawing.Size(170, 23);
-            this.btnAra.TabIndex = 24;
-            this.btnAra.Text = "Ara";
-            this.btnAra.UseVisualStyleBackColor = true;
+            this.btnBarkodOku.Location = new System.Drawing.Point(319, 25);
+            this.btnBarkodOku.Name = "btnBarkodOku";
+            this.btnBarkodOku.Size = new System.Drawing.Size(170, 23);
+            this.btnBarkodOku.TabIndex = 24;
+            this.btnBarkodOku.Text = "Barkod Oku";
+            this.btnBarkodOku.UseVisualStyleBackColor = true;
+            this.btnBarkodOku.Click += new System.EventHandler(this.btnBarkodOku_Click);
             // 
             // contextMenuStrip1
             // 
@@ -242,7 +243,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtKategoriAdi);
             this.Controls.Add(this.btnEkle);
-            this.Controls.Add(this.btnAra);
+            this.Controls.Add(this.btnBarkodOku);
             this.Controls.Add(this.btnStogaEkle);
             this.Controls.Add(this.nudKutu);
             this.Controls.Add(this.label9);
@@ -269,7 +270,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnAra;
+        private System.Windows.Forms.Button btnBarkodOku;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;

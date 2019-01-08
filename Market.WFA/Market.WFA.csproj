@@ -58,6 +58,13 @@
     <Compile Include="AnaSayfa.Designer.cs">
       <DependentUpon>AnaSayfa.cs</DependentUpon>
     </Compile>
+    <Compile Include="BarkodOkuma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarkodOkuma.Designer.cs">
+      <DependentUpon>BarkodOkuma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Barkod\Ean13.cs" />
     <Compile Include="MalKabul.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="AnaSayfa.resx">
       <DependentUpon>AnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarkodOkuma.resx">
+      <DependentUpon>BarkodOkuma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MalKabul.resx">
       <DependentUpon>MalKabul.cs</DependentUpon>
@@ -130,6 +140,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\content_20-ekim-2017-cuma-bim-aktuel-urunler-katalogu-bu-hafta-indirim_10ukU5EuiC370Vk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Market.BLL\Market.BLL.csproj">
+      <Project>{5BA68B34-608B-48BE-8E1F-DFC4F16A03D4}</Project>
+      <Name>Market.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Market.Models\Market.Models.csproj">
+      <Project>{8B4F1EBF-6B0C-4839-98D4-A84C2B1F7B49}</Project>
+      <Name>Market.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

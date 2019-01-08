@@ -38,7 +38,7 @@
             this.cbKategori = new System.Windows.Forms.ComboBox();
             this.btnEkle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBarkodNo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudBirimFiyat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKutuBasinaAdet)).BeginInit();
             this.SuspendLayout();
@@ -116,6 +116,7 @@
             this.btnEkle.TabIndex = 24;
             this.btnEkle.Text = "İşlemi Tamamla";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // label1
             // 
@@ -126,20 +127,20 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Barkod";
             // 
-            // textBox1
+            // txtBarkodNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 26;
+            this.txtBarkodNo.Location = new System.Drawing.Point(107, 13);
+            this.txtBarkodNo.Name = "txtBarkodNo";
+            this.txtBarkodNo.ReadOnly = true;
+            this.txtBarkodNo.Size = new System.Drawing.Size(121, 20);
+            this.txtBarkodNo.TabIndex = 26;
             // 
             // UrunIslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 217);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBarkodNo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.label8);
@@ -155,6 +156,7 @@
             this.MinimizeBox = false;
             this.Name = "UrunIslemleri";
             this.Text = "Ürün İşlemleri";
+            this.Load += new System.EventHandler(this.UrunIslemleri_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudBirimFiyat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKutuBasinaAdet)).EndInit();
             this.ResumeLayout(false);
@@ -174,6 +176,6 @@
         private System.Windows.Forms.ComboBox cbKategori;
         private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBarkodNo;
     }
 }

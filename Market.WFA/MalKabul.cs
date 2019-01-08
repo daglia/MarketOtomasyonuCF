@@ -26,5 +26,11 @@ namespace Market.WFA
         {
 
         }
+
+        private void btnBarkodOku_Click(object sender, EventArgs e)
+        {
+            BarkodOkuma barkod = new BarkodOkuma();
+            barkod.Show();
+        }
     }
 }
