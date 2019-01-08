@@ -21,5 +21,22 @@ namespace Market.WFA
         {
 
         }
+
+        private void cbPoset_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbPoset.CheckState == CheckState.Checked) nudPoset.Enabled = true;
+            else nudPoset.Enabled = false;
+        }
+
+        private void rbNakit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbNakit.Checked == true) pnlNakit.Visible = true;
+            else pnlNakit.Visible = false;
+        }
+
+        private void rbKrediKarti_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
