@@ -24,6 +24,7 @@ namespace Market.Models.Entities
         public int KutuBasinaAdet { get; set; }
         [Required]
         public decimal BirimFiyat { get; set; }
+        public decimal Indirim { get; set; } = 0;
         public int Kutu { get; set; } = 0;
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public int Stok
