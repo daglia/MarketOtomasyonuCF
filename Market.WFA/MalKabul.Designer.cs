@@ -83,12 +83,13 @@
             // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(305, 190);
+            this.btnEkle.Location = new System.Drawing.Point(305, 229);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(57, 34);
             this.btnEkle.TabIndex = 19;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // btnBarkodOku
             // 
@@ -122,14 +123,36 @@
             // 
             // nudKar
             // 
-            this.nudKar.Location = new System.Drawing.Point(368, 159);
+            this.nudKar.DecimalPlaces = 2;
+            this.nudKar.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.nudKar.Location = new System.Drawing.Point(368, 198);
+            this.nudKar.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudKar.Name = "nudKar";
             this.nudKar.Size = new System.Drawing.Size(121, 20);
             this.nudKar.TabIndex = 31;
             // 
             // nudKDV
             // 
-            this.nudKDV.Location = new System.Drawing.Point(368, 131);
+            this.nudKDV.DecimalPlaces = 2;
+            this.nudKDV.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.nudKDV.Location = new System.Drawing.Point(368, 170);
+            this.nudKDV.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudKDV.Name = "nudKDV";
             this.nudKDV.Size = new System.Drawing.Size(121, 20);
             this.nudKDV.TabIndex = 30;
@@ -137,7 +160,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(339, 159);
+            this.label3.Location = new System.Drawing.Point(339, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 13);
             this.label3.TabIndex = 29;
@@ -146,7 +169,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 133);
+            this.label2.Location = new System.Drawing.Point(333, 172);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 28;
@@ -155,7 +178,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(298, 107);
+            this.label1.Location = new System.Drawing.Point(298, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 27;
@@ -163,14 +186,14 @@
             // 
             // txtKategoriAdi
             // 
-            this.txtKategoriAdi.Location = new System.Drawing.Point(368, 104);
+            this.txtKategoriAdi.Location = new System.Drawing.Point(368, 143);
             this.txtKategoriAdi.Name = "txtKategoriAdi";
             this.txtKategoriAdi.Size = new System.Drawing.Size(121, 20);
             this.txtKategoriAdi.TabIndex = 26;
             // 
             // btnGuncelle
             // 
-            this.btnGuncelle.Location = new System.Drawing.Point(368, 190);
+            this.btnGuncelle.Location = new System.Drawing.Point(368, 229);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(57, 34);
             this.btnGuncelle.TabIndex = 32;
@@ -179,7 +202,7 @@
             // 
             // btnSil
             // 
-            this.btnSil.Location = new System.Drawing.Point(432, 190);
+            this.btnSil.Location = new System.Drawing.Point(432, 229);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(57, 34);
             this.btnSil.TabIndex = 33;
@@ -189,7 +212,7 @@
             // lblUrunBilgileri
             // 
             this.lblUrunBilgileri.AutoSize = true;
-            this.lblUrunBilgileri.Location = new System.Drawing.Point(272, 243);
+            this.lblUrunBilgileri.Location = new System.Drawing.Point(272, 282);
             this.lblUrunBilgileri.Name = "lblUrunBilgileri";
             this.lblUrunBilgileri.Size = new System.Drawing.Size(65, 13);
             this.lblUrunBilgileri.TabIndex = 34;
@@ -226,6 +249,7 @@
             this.tvUrunler.Name = "tvUrunler";
             this.tvUrunler.Size = new System.Drawing.Size(249, 345);
             this.tvUrunler.TabIndex = 35;
+            this.tvUrunler.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvUrunler_AfterSelect);
             // 
             // MalKabul
             // 
