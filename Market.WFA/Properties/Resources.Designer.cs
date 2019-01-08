@@ -63,6 +63,16 @@ namespace Market.WFA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bim_logo_0CC436083A_seeklogo_com {
+            get {
+                object obj = ResourceManager.GetObject("Bim-logo-0CC436083A-seeklogo.com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap content_20_ekim_2017_cuma_bim_aktuel_urunler_katalogu_bu_hafta_indirim_10ukU5EuiC370Vk {
             get {
                 object obj = ResourceManager.GetObject("content_20-ekim-2017-cuma-bim-aktuel-urunler-katalogu-bu-hafta-indirim_10ukU5EuiC" +

@@ -33,7 +33,11 @@
             this.işlemlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.satışİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.malKabulİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.raporOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raporİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raporGörüntüleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dışarıAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pDFDosyasıOlarakAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelDosyasıOlarakAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +59,7 @@
             this.işlemlerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.satışİşlemleriToolStripMenuItem,
             this.malKabulİşlemleriToolStripMenuItem,
-            this.raporOluşturToolStripMenuItem});
+            this.raporİşlemleriToolStripMenuItem});
             this.işlemlerToolStripMenuItem.Name = "işlemlerToolStripMenuItem";
             this.işlemlerToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.işlemlerToolStripMenuItem.Text = "İşlemler";
@@ -74,11 +78,42 @@
             this.malKabulİşlemleriToolStripMenuItem.Text = "Mal Kabul İşlemleri";
             this.malKabulİşlemleriToolStripMenuItem.Click += new System.EventHandler(this.malKabulİşlemleriToolStripMenuItem_Click);
             // 
-            // raporOluşturToolStripMenuItem
+            // raporİşlemleriToolStripMenuItem
             // 
-            this.raporOluşturToolStripMenuItem.Name = "raporOluşturToolStripMenuItem";
-            this.raporOluşturToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.raporOluşturToolStripMenuItem.Text = "Rapor Oluştur";
+            this.raporİşlemleriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.raporGörüntüleToolStripMenuItem,
+            this.dışarıAktarToolStripMenuItem});
+            this.raporİşlemleriToolStripMenuItem.Name = "raporİşlemleriToolStripMenuItem";
+            this.raporİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.raporİşlemleriToolStripMenuItem.Text = "Rapor İşlemleri";
+            // 
+            // raporGörüntüleToolStripMenuItem
+            // 
+            this.raporGörüntüleToolStripMenuItem.Name = "raporGörüntüleToolStripMenuItem";
+            this.raporGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.raporGörüntüleToolStripMenuItem.Text = "Rapor Görüntüle";
+            this.raporGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.raporGörüntüleToolStripMenuItem_Click);
+            // 
+            // dışarıAktarToolStripMenuItem
+            // 
+            this.dışarıAktarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pDFDosyasıOlarakAktarToolStripMenuItem,
+            this.excelDosyasıOlarakAktarToolStripMenuItem});
+            this.dışarıAktarToolStripMenuItem.Name = "dışarıAktarToolStripMenuItem";
+            this.dışarıAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dışarıAktarToolStripMenuItem.Text = "Dışarı Aktar";
+            // 
+            // pDFDosyasıOlarakAktarToolStripMenuItem
+            // 
+            this.pDFDosyasıOlarakAktarToolStripMenuItem.Name = "pDFDosyasıOlarakAktarToolStripMenuItem";
+            this.pDFDosyasıOlarakAktarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.pDFDosyasıOlarakAktarToolStripMenuItem.Text = "PDF Dosyası Olarak Aktar";
+            // 
+            // excelDosyasıOlarakAktarToolStripMenuItem
+            // 
+            this.excelDosyasıOlarakAktarToolStripMenuItem.Name = "excelDosyasıOlarakAktarToolStripMenuItem";
+            this.excelDosyasıOlarakAktarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.excelDosyasıOlarakAktarToolStripMenuItem.Text = "Excel Dosyası Olarak Aktar";
             // 
             // çıkışToolStripMenuItem
             // 
@@ -119,7 +154,11 @@
         private System.Windows.Forms.ToolStripMenuItem işlemlerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem satışİşlemleriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem malKabulİşlemleriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem raporOluşturToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raporİşlemleriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem çıkışToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raporGörüntüleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dışarıAktarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pDFDosyasıOlarakAktarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excelDosyasıOlarakAktarToolStripMenuItem;
     }
 }

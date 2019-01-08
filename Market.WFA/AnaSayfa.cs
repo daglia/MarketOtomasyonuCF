@@ -19,6 +19,7 @@ namespace Market.WFA
 
         private UrunSatis urunSatis;
         private MalKabul malKabul;
+        private Rapor rapor;
 
         private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -46,6 +47,18 @@ namespace Market.WFA
                     MdiParent = this
                 };
                 malKabul.Show();
+            }
+        }
+
+        private void raporGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rapor == null || rapor.IsDisposed)
+            {
+                rapor = new Rapor
+                {
+                    MdiParent = this
+                };
+                rapor.Show();
             }
         }
     }

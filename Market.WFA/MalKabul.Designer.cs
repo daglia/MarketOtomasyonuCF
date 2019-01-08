@@ -29,15 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lstUrunler = new System.Windows.Forms.ListBox();
             this.txtAra = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtBarkod = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnEkle = new System.Windows.Forms.Button();
-            this.btnStogaEkle = new System.Windows.Forms.Button();
-            this.nudKutu = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnAra = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,20 +46,15 @@
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.lblUrunBilgileri = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.nudKutu)).BeginInit();
+            this.label9 = new System.Windows.Forms.Label();
+            this.nudKutu = new System.Windows.Forms.NumericUpDown();
+            this.btnStogaEkle = new System.Windows.Forms.Button();
+            this.tvUrunler = new System.Windows.Forms.TreeView();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudKar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKDV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKutu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lstUrunler
-            // 
-            this.lstUrunler.FormattingEnabled = true;
-            this.lstUrunler.Location = new System.Drawing.Point(13, 52);
-            this.lstUrunler.Name = "lstUrunler";
-            this.lstUrunler.Size = new System.Drawing.Size(248, 342);
-            this.lstUrunler.TabIndex = 0;
-            this.lstUrunler.ContextMenuStripChanged += new System.EventHandler(this.lstUrunler_ContextMenuStripChanged);
             // 
             // txtAra
             // 
@@ -81,13 +71,6 @@
             this.label11.Size = new System.Drawing.Size(37, 13);
             this.label11.TabIndex = 16;
             this.label11.Text = "Arama";
-            // 
-            // txtBarkod
-            // 
-            this.txtBarkod.Location = new System.Drawing.Point(368, 26);
-            this.txtBarkod.Name = "txtBarkod";
-            this.txtBarkod.Size = new System.Drawing.Size(121, 20);
-            this.txtBarkod.TabIndex = 8;
             // 
             // label5
             // 
@@ -107,36 +90,11 @@
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
             // 
-            // btnStogaEkle
-            // 
-            this.btnStogaEkle.Location = new System.Drawing.Point(368, 52);
-            this.btnStogaEkle.Name = "btnStogaEkle";
-            this.btnStogaEkle.Size = new System.Drawing.Size(121, 23);
-            this.btnStogaEkle.TabIndex = 23;
-            this.btnStogaEkle.Text = "Stoğa Ekle";
-            this.btnStogaEkle.UseVisualStyleBackColor = true;
-            // 
-            // nudKutu
-            // 
-            this.nudKutu.Location = new System.Drawing.Point(319, 54);
-            this.nudKutu.Name = "nudKutu";
-            this.nudKutu.Size = new System.Drawing.Size(43, 20);
-            this.nudKutu.TabIndex = 21;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(284, 56);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 13);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Kutu";
-            // 
             // btnAra
             // 
             this.btnAra.Location = new System.Drawing.Point(319, 25);
             this.btnAra.Name = "btnAra";
-            this.btnAra.Size = new System.Drawing.Size(43, 23);
+            this.btnAra.Size = new System.Drawing.Size(170, 23);
             this.btnAra.TabIndex = 24;
             this.btnAra.Text = "Ara";
             this.btnAra.UseVisualStyleBackColor = true;
@@ -236,11 +194,44 @@
             this.lblUrunBilgileri.TabIndex = 34;
             this.lblUrunBilgileri.Text = "Ürün Bilgileri";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(284, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Kutu";
+            // 
+            // nudKutu
+            // 
+            this.nudKutu.Location = new System.Drawing.Point(319, 54);
+            this.nudKutu.Name = "nudKutu";
+            this.nudKutu.Size = new System.Drawing.Size(43, 20);
+            this.nudKutu.TabIndex = 21;
+            // 
+            // btnStogaEkle
+            // 
+            this.btnStogaEkle.Location = new System.Drawing.Point(368, 52);
+            this.btnStogaEkle.Name = "btnStogaEkle";
+            this.btnStogaEkle.Size = new System.Drawing.Size(121, 23);
+            this.btnStogaEkle.TabIndex = 23;
+            this.btnStogaEkle.Text = "Stoğa Ekle";
+            this.btnStogaEkle.UseVisualStyleBackColor = true;
+            // 
+            // tvUrunler
+            // 
+            this.tvUrunler.Location = new System.Drawing.Point(12, 54);
+            this.tvUrunler.Name = "tvUrunler";
+            this.tvUrunler.Size = new System.Drawing.Size(249, 345);
+            this.tvUrunler.TabIndex = 35;
+            // 
             // MalKabul
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 411);
+            this.Controls.Add(this.tvUrunler);
             this.Controls.Add(this.lblUrunBilgileri);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnGuncelle);
@@ -258,34 +249,26 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtAra);
-            this.Controls.Add(this.txtBarkod);
-            this.Controls.Add(this.lstUrunler);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MalKabul";
             this.Text = "Mal Kabul";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nudKutu)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudKar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKDV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKutu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lstUrunler;
         private System.Windows.Forms.TextBox txtAra;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnEkle;
-        private System.Windows.Forms.TextBox txtBarkod;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnStogaEkle;
-        private System.Windows.Forms.NumericUpDown nudKutu;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAra;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
@@ -299,6 +282,10 @@
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Label lblUrunBilgileri;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown nudKutu;
+        private System.Windows.Forms.Button btnStogaEkle;
+        private System.Windows.Forms.TreeView tvUrunler;
     }
 }
 

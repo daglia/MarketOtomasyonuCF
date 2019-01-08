@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Market.WFA
 {
-    public partial class UrunSatis : Form
+    public partial class Rapor : Form
     {
-        public UrunSatis()
+        public Rapor()
         {
             InitializeComponent();
-        }
-
-        private void lstSatis_ContextMenuStripChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
