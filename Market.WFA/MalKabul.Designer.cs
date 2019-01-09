@@ -107,18 +107,18 @@
             this.güncelleToolStripMenuItem,
             this.silToolStripMenuItem});
             this.cmsUrunIslemleri.Name = "contextMenuStrip1";
-            this.cmsUrunIslemleri.Size = new System.Drawing.Size(181, 70);
+            this.cmsUrunIslemleri.Size = new System.Drawing.Size(121, 48);
             // 
             // güncelleToolStripMenuItem
             // 
             this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
-            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.güncelleToolStripMenuItem.Text = "Güncelle";
             // 
             // silToolStripMenuItem
             // 
             this.silToolStripMenuItem.Name = "silToolStripMenuItem";
-            this.silToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.silToolStripMenuItem.Text = "Sil";
             // 
             // nudKar
@@ -199,6 +199,7 @@
             this.btnGuncelle.TabIndex = 32;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnSil
             // 
@@ -208,6 +209,7 @@
             this.btnSil.TabIndex = 33;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // lblUrunBilgileri
             // 

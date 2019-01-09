@@ -80,11 +80,36 @@ namespace Market.WFA
         private int urunId;
         private int kategoriId;
         Urun urun;
+        Kategori kategori;
         private void tvUrunler_AfterSelect(object sender, TreeViewEventArgs e)
         {
             urunId = (int)e.Node.Tag;
             kategoriId = (int)e.Node.Tag;
             urun = new UrunRepo().GetById(urunId);
+            kategori = new KategoriRepo().GetById(kategoriId);
+            txtKategoriAdi.Text = kategori.KategoriAdi;
+            nudKar.Value = kategori.Kar;
+            nudKDV.Value = kategori.KDV;
+
+            if (urun == null) return;
+
+            lblUrunBilgileri.Text= $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            var secilikategori = new KategoriRepo().Queryable().First(x => x.KategoriId == kategori.KategoriId);
+            secilikategori.KategoriAdi = txtKategoriAdi.Text;
+            secilikategori.KDV = nudKDV.Value;
+            secilikategori.Kar = nudKar.Value;
+            new KategoriRepo().Update();
+            KategorileriGetir();
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            new KategoriRepo().Delete(kategori);
+            KategorileriGetir();
         }
     }
 }
