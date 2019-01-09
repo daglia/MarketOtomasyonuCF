@@ -32,7 +32,7 @@ namespace Market.WFA
             {
                 urunSatis = new UrunSatis
                 {
-                    MdiParent = this
+                    MdiParent = this,
                 };
                 urunSatis.Show();
             }
@@ -60,6 +60,11 @@ namespace Market.WFA
                 };
                 rapor.Show();
             }
+        }
+
+        private void AnaSayfa_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

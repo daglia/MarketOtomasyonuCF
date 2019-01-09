@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,18 +25,25 @@ namespace Market.WFA
 
         private void UrunSatis_Load(object sender, EventArgs e)
         {
+            this.Dock = DockStyle.Fill;
+            this.ControlBox = false;
             UrunleriGetir();
+            SatislariGetir();
+        }
+
+        private void SatislariGetir()
+        {
+            lstSatis.Items.Clear();
+            foreach (var _satis in satis)
+            {
+                lstSatis.Items.Add(_satis);
+            }
         }
 
         private void UrunleriGetir()
         {
             var urunler = new UrunRepo().GetAll().ToList();
             lstUrunler.DataSource = urunler;
-        }
-
-        private void lstSatis_ContextMenuStripChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cbPoset_CheckedChanged(object sender, EventArgs e)
@@ -62,11 +70,6 @@ namespace Market.WFA
         }
 
         private void rbKrediKarti_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nudAlinanPara_KeyUp(object sender, KeyEventArgs e)
         {
 
         }
@@ -112,7 +115,7 @@ namespace Market.WFA
             ToplamHesapla();
         }
 
-        private void ToplamHesapla()
+        private decimal ToplamHesapla()
         {
             lstSatis.Items.Clear();
             foreach (var item in satis)
@@ -121,6 +124,27 @@ namespace Market.WFA
             }
             var toplam = satis.Sum(x => x.SonFiyat);
             lblToplam.Text = $"{toplam:c2}";
+
+            return toplam;
+        }
+
+        private void nudAlinanPara_ValueChanged(object sender, EventArgs e)
+        {
+            lblParaUstu.Text = (nudAlinanPara.Value - ToplamHesapla()).ToString("C2", CultureInfo.CurrentCulture);
+        }
+
+        private void silToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstSatis.SelectedItem == null) return;
+
+            var seciliSatis = lstSatis.SelectedItem as SatisViewModel;
+            lstSatis.Items.Remove(seciliSatis);
+            SatislariGetir();
+        }
+
+        private void btnIslemiBitir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

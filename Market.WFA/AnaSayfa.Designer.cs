@@ -44,13 +44,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Franklin Gothic Book", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.menuStrip1.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.işlemlerToolStripMenuItem,
             this.çıkışToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(676, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(676, 34);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,20 +62,20 @@
             this.malKabulİşlemleriToolStripMenuItem,
             this.raporİşlemleriToolStripMenuItem});
             this.işlemlerToolStripMenuItem.Name = "işlemlerToolStripMenuItem";
-            this.işlemlerToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.işlemlerToolStripMenuItem.Size = new System.Drawing.Size(95, 30);
             this.işlemlerToolStripMenuItem.Text = "İşlemler";
             // 
             // satışİşlemleriToolStripMenuItem
             // 
             this.satışİşlemleriToolStripMenuItem.Name = "satışİşlemleriToolStripMenuItem";
-            this.satışİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.satışİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
             this.satışİşlemleriToolStripMenuItem.Text = "Satış İşlemleri";
             this.satışİşlemleriToolStripMenuItem.Click += new System.EventHandler(this.satışİşlemleriToolStripMenuItem_Click);
             // 
             // malKabulİşlemleriToolStripMenuItem
             // 
             this.malKabulİşlemleriToolStripMenuItem.Name = "malKabulİşlemleriToolStripMenuItem";
-            this.malKabulİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.malKabulİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
             this.malKabulİşlemleriToolStripMenuItem.Text = "Mal Kabul İşlemleri";
             this.malKabulİşlemleriToolStripMenuItem.Click += new System.EventHandler(this.malKabulİşlemleriToolStripMenuItem_Click);
             // 
@@ -84,13 +85,13 @@
             this.raporGörüntüleToolStripMenuItem,
             this.dışarıAktarToolStripMenuItem});
             this.raporİşlemleriToolStripMenuItem.Name = "raporİşlemleriToolStripMenuItem";
-            this.raporİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.raporİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
             this.raporİşlemleriToolStripMenuItem.Text = "Rapor İşlemleri";
             // 
             // raporGörüntüleToolStripMenuItem
             // 
             this.raporGörüntüleToolStripMenuItem.Name = "raporGörüntüleToolStripMenuItem";
-            this.raporGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.raporGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
             this.raporGörüntüleToolStripMenuItem.Text = "Rapor Görüntüle";
             this.raporGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.raporGörüntüleToolStripMenuItem_Click);
             // 
@@ -100,26 +101,26 @@
             this.pDFDosyasıOlarakAktarToolStripMenuItem,
             this.excelDosyasıOlarakAktarToolStripMenuItem});
             this.dışarıAktarToolStripMenuItem.Name = "dışarıAktarToolStripMenuItem";
-            this.dışarıAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dışarıAktarToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
             this.dışarıAktarToolStripMenuItem.Text = "Dışarı Aktar";
             // 
             // pDFDosyasıOlarakAktarToolStripMenuItem
             // 
             this.pDFDosyasıOlarakAktarToolStripMenuItem.Name = "pDFDosyasıOlarakAktarToolStripMenuItem";
-            this.pDFDosyasıOlarakAktarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.pDFDosyasıOlarakAktarToolStripMenuItem.Size = new System.Drawing.Size(320, 30);
             this.pDFDosyasıOlarakAktarToolStripMenuItem.Text = "PDF Dosyası Olarak Aktar";
             // 
             // excelDosyasıOlarakAktarToolStripMenuItem
             // 
             this.excelDosyasıOlarakAktarToolStripMenuItem.Name = "excelDosyasıOlarakAktarToolStripMenuItem";
-            this.excelDosyasıOlarakAktarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.excelDosyasıOlarakAktarToolStripMenuItem.Size = new System.Drawing.Size(320, 30);
             this.excelDosyasıOlarakAktarToolStripMenuItem.Text = "Excel Dosyası Olarak Aktar";
             // 
             // çıkışToolStripMenuItem
             // 
             this.çıkışToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
-            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(67, 30);
             this.çıkışToolStripMenuItem.Text = "Çıkış";
             this.çıkışToolStripMenuItem.Click += new System.EventHandler(this.çıkışToolStripMenuItem_Click);
             // 
@@ -141,6 +142,7 @@
             this.Name = "AnaSayfa";
             this.Text = "AnaSayfa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.AnaSayfa_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

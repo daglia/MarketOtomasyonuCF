@@ -61,12 +61,12 @@ namespace Market.WFA.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap Bim_logo_0CC436083A_seeklogo_com {
+        internal static System.Drawing.Icon bim_logo_0cc436083a_seeklogo_com_Zqj_icon {
             get {
-                object obj = ResourceManager.GetObject("Bim-logo-0CC436083A-seeklogo.com", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("bim_logo_0cc436083a_seeklogo_com_Zqj_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

@@ -151,5 +151,8 @@
       <Name>Market.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bim_logo_0cc436083a_seeklogo_com_Zqj_icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

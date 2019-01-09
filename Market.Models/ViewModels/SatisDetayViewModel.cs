@@ -19,6 +19,6 @@ namespace Market.Models.ViewModels
         public decimal KDV { get; set; }
         public decimal Indirim { get; set; }
         public int Adet { get; set; }
-        public override string ToString() => $"{UrunAdi} ⨯ {Adet}      %{KDV}      {SonFiyat:c2}";
+        public override string ToString() => $"{UrunAdi,-40} ⨯ {Adet,-6} %{KDV,-6} {SonFiyat:c2}";
     }
 }

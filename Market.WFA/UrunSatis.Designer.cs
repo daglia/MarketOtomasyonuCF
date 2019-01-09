@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lstSatis = new System.Windows.Forms.ListBox();
+            this.cmsSatis = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lstUrunler = new System.Windows.Forms.ListBox();
             this.txtBarkod = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,18 +50,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.nudAlinanPara = new System.Windows.Forms.NumericUpDown();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsSatis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPoset)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.pnlNakit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAlinanPara)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstSatis
             // 
+            this.lstSatis.ContextMenuStrip = this.cmsSatis;
             this.lstSatis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lstSatis.FormattingEnabled = true;
             this.lstSatis.ItemHeight = 25;
@@ -67,7 +68,20 @@
             this.lstSatis.Name = "lstSatis";
             this.lstSatis.Size = new System.Drawing.Size(593, 554);
             this.lstSatis.TabIndex = 0;
-            this.lstSatis.ContextMenuStripChanged += new System.EventHandler(this.lstSatis_ContextMenuStripChanged);
+            // 
+            // cmsSatis
+            // 
+            this.cmsSatis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.silToolStripMenuItem});
+            this.cmsSatis.Name = "contextMenuStrip1";
+            this.cmsSatis.Size = new System.Drawing.Size(87, 26);
+            // 
+            // silToolStripMenuItem
+            // 
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.silToolStripMenuItem.Text = "Sil";
+            this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
             // 
             // lstUrunler
             // 
@@ -145,10 +159,20 @@
             this.nudPoset.Enabled = false;
             this.nudPoset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudPoset.Location = new System.Drawing.Point(393, 358);
+            this.nudPoset.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudPoset.Name = "nudPoset";
             this.nudPoset.Size = new System.Drawing.Size(92, 31);
             this.nudPoset.TabIndex = 7;
             this.nudPoset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPoset.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // groupBox1
             // 
@@ -191,7 +215,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label2.Location = new System.Drawing.Point(1009, 633);
+            this.label2.Location = new System.Drawing.Point(848, 633);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(158, 37);
             this.label2.TabIndex = 10;
@@ -202,11 +226,12 @@
             this.lblToplam.AutoSize = true;
             this.lblToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblToplam.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblToplam.Location = new System.Drawing.Point(1268, 633);
+            this.lblToplam.Location = new System.Drawing.Point(1116, 633);
             this.lblToplam.Name = "lblToplam";
             this.lblToplam.Size = new System.Drawing.Size(82, 37);
             this.lblToplam.TabIndex = 11;
             this.lblToplam.Text = "0 TL";
+            this.lblToplam.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnIslemiBitir
             // 
@@ -217,6 +242,7 @@
             this.btnIslemiBitir.TabIndex = 16;
             this.btnIslemiBitir.Text = "İşlemi Bitir";
             this.btnIslemiBitir.UseVisualStyleBackColor = true;
+            this.btnIslemiBitir.Click += new System.EventHandler(this.btnIslemiBitir_Click);
             // 
             // pnlNakit
             // 
@@ -265,24 +291,16 @@
             this.nudAlinanPara.DecimalPlaces = 2;
             this.nudAlinanPara.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudAlinanPara.Location = new System.Drawing.Point(91, 21);
+            this.nudAlinanPara.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudAlinanPara.Name = "nudAlinanPara";
             this.nudAlinanPara.Size = new System.Drawing.Size(279, 31);
             this.nudAlinanPara.TabIndex = 16;
             this.nudAlinanPara.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudAlinanPara.KeyUp += new System.Windows.Forms.KeyEventHandler(this.nudAlinanPara_KeyUp);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.silToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(87, 26);
-            // 
-            // silToolStripMenuItem
-            // 
-            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
-            this.silToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
-            this.silToolStripMenuItem.Text = "Sil";
+            this.nudAlinanPara.ValueChanged += new System.EventHandler(this.nudAlinanPara_ValueChanged);
             // 
             // UrunSatis
             // 
@@ -306,6 +324,7 @@
             this.Name = "UrunSatis";
             this.Text = "Ürün Satış";
             this.Load += new System.EventHandler(this.UrunSatis_Load);
+            this.cmsSatis.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPoset)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -313,7 +332,6 @@
             this.pnlNakit.ResumeLayout(false);
             this.pnlNakit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAlinanPara)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,7 +358,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nudAlinanPara;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip cmsSatis;
         private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
     }
 }
