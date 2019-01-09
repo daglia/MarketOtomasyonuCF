@@ -125,7 +125,7 @@ namespace Market.WFA
         }
         private void silToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
+            var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
             new UrunRepo().Delete(urun);
             KategorileriGetir();
         }
