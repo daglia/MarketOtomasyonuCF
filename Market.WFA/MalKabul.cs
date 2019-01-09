@@ -81,18 +81,23 @@ namespace Market.WFA
         Urun urun;
         Kategori kategori;
         private void tvUrunler_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            urunId = (int)e.Node.Tag;
-            kategoriId = (int)e.Node.Tag;
-            urun = new UrunRepo().GetById(urunId);
-            kategori = new KategoriRepo().GetById(kategoriId);
-            txtKategoriAdi.Text = kategori.KategoriAdi;
-            nudKar.Value = kategori.Kar;
-            nudKDV.Value = kategori.KDV;
-
-            if (urun == null) return;
-
-            lblUrunBilgileri.Text= $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
+        {           
+            if (new UrunRepo().Queryable().FirstOrDefault(x=>x.UrunAdi==e.Node.Text)!=null)
+            {
+                urunId = (int)e.Node.Tag;
+                urun = new UrunRepo().GetById((urunId));
+                if (urun == null) return;
+                lblUrunBilgileri.Text = $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
+            }
+            if (new KategoriRepo().Queryable().FirstOrDefault(x => x.KategoriAdi == e.Node.Text) != null)
+            {
+                kategoriId = (int)e.Node.Tag;
+                kategori = new KategoriRepo().GetById(kategoriId);
+                if (kategori == null) return;
+                txtKategoriAdi.Text = kategori.KategoriAdi;
+                nudKar.Value = kategori.Kar;
+                nudKDV.Value = kategori.KDV;
+            }
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -120,7 +125,7 @@ namespace Market.WFA
         }
         private void silToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
+            //var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
             new UrunRepo().Delete(urun);
             KategorileriGetir();
         }
