@@ -302,6 +302,7 @@
             this.MinimizeBox = false;
             this.Name = "UrunSatis";
             this.Text = "Ürün Satış";
+            this.Load += new System.EventHandler(this.UrunSatis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPoset)).EndInit();
             this.groupBox1.ResumeLayout(false);

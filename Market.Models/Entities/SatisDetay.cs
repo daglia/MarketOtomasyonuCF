@@ -19,6 +19,7 @@ namespace Market.Models.Entities
         public int UrunId { get; set; }
         [Required]
         public int Adet { get; set; }
+        public decimal SonFiyat { get; set; }
         [ForeignKey("SatisId")]
         public virtual Satis Satis { get; set; }
 

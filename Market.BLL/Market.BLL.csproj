@@ -50,6 +50,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\KategoriRepo.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\SatisDetayRepo.cs" />
+    <Compile Include="Repository\SatisRepo.cs" />
     <Compile Include="Repository\UrunRepo.cs" />
   </ItemGroup>
   <ItemGroup>

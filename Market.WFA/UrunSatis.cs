@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Market.BLL.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,24 @@ namespace Market.WFA
         public UrunSatis()
         {
             InitializeComponent();
+        }
+
+        private void UrunSatis_Load(object sender, EventArgs e)
+        {
+            UrunleriGetir();
+            SatisDetaylariGetir();
+        }
+
+        private void SatisDetaylariGetir()
+        {
+            var urunler = new UrunRepo().GetAll().ToList();
+            lstUrunler.DataSource = urunler;
+        }
+
+        private void UrunleriGetir()
+        {
+            var satisDetaylar = new SatisDetayRepo().GetAll().ToList();
+            lstSatis.DataSource = satisDetaylar;
         }
 
         private void lstSatis_ContextMenuStripChanged(object sender, EventArgs e)

@@ -38,5 +38,7 @@ namespace Market.Models.Entities
         public virtual Kategori Kategori { get; set; }
 
         public virtual ICollection<SatisDetay> SatisDetaylari { get; set; } = new HashSet<SatisDetay>();
+
+        public override string ToString() => $"{UrunAdi}";
     }
 }
