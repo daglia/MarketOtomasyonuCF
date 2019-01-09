@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.txtAra = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnEkle = new System.Windows.Forms.Button();
             this.btnBarkodOku = new System.Windows.Forms.Button();
             this.cmsUrunIslemleri = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -46,46 +45,36 @@
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.lblUrunBilgileri = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.nudKutu = new System.Windows.Forms.NumericUpDown();
-            this.btnStogaEkle = new System.Windows.Forms.Button();
             this.tvUrunler = new System.Windows.Forms.TreeView();
             this.cmsUrunIslemleri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudKar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKDV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudKutu)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAra
             // 
-            this.txtAra.Location = new System.Drawing.Point(13, 26);
+            this.txtAra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAra.Location = new System.Drawing.Point(81, 107);
             this.txtAra.Name = "txtAra";
-            this.txtAra.Size = new System.Drawing.Size(248, 20);
+            this.txtAra.Size = new System.Drawing.Size(315, 31);
             this.txtAra.TabIndex = 8;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 9);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.Location = new System.Drawing.Point(81, 79);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 13);
+            this.label11.Size = new System.Drawing.Size(74, 25);
             this.label11.TabIndex = 16;
             this.label11.Text = "Arama";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(272, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Barkod";
-            // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(305, 229);
+            this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnEkle.Location = new System.Drawing.Point(908, 336);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(57, 34);
+            this.btnEkle.Size = new System.Drawing.Size(115, 45);
             this.btnEkle.TabIndex = 19;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
@@ -93,9 +82,10 @@
             // 
             // btnBarkodOku
             // 
-            this.btnBarkodOku.Location = new System.Drawing.Point(319, 25);
+            this.btnBarkodOku.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBarkodOku.Location = new System.Drawing.Point(477, 145);
             this.btnBarkodOku.Name = "btnBarkodOku";
-            this.btnBarkodOku.Size = new System.Drawing.Size(170, 23);
+            this.btnBarkodOku.Size = new System.Drawing.Size(249, 53);
             this.btnBarkodOku.TabIndex = 24;
             this.btnBarkodOku.Text = "Barkod Oku";
             this.btnBarkodOku.UseVisualStyleBackColor = true;
@@ -108,97 +98,104 @@
             this.silToolStripMenuItem});
             this.cmsUrunIslemleri.Name = "contextMenuStrip1";
             this.cmsUrunIslemleri.ShowImageMargin = false;
-            this.cmsUrunIslemleri.Size = new System.Drawing.Size(156, 70);
+            this.cmsUrunIslemleri.Size = new System.Drawing.Size(96, 48);
             // 
             // güncelleToolStripMenuItem
             // 
             this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
-            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.güncelleToolStripMenuItem.Text = "Güncelle";
             this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
             // 
             // silToolStripMenuItem
             // 
             this.silToolStripMenuItem.Name = "silToolStripMenuItem";
-            this.silToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.silToolStripMenuItem.Text = "Sil";
             this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
             // 
             // nudKar
             // 
             this.nudKar.DecimalPlaces = 2;
+            this.nudKar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudKar.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.nudKar.Location = new System.Drawing.Point(368, 198);
+            this.nudKar.Location = new System.Drawing.Point(971, 264);
             this.nudKar.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudKar.Name = "nudKar";
-            this.nudKar.Size = new System.Drawing.Size(121, 20);
+            this.nudKar.Size = new System.Drawing.Size(146, 31);
             this.nudKar.TabIndex = 31;
             // 
             // nudKDV
             // 
             this.nudKDV.DecimalPlaces = 2;
+            this.nudKDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudKDV.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.nudKDV.Location = new System.Drawing.Point(368, 170);
+            this.nudKDV.Location = new System.Drawing.Point(971, 203);
             this.nudKDV.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudKDV.Name = "nudKDV";
-            this.nudKDV.Size = new System.Drawing.Size(121, 20);
+            this.nudKDV.Size = new System.Drawing.Size(146, 31);
             this.nudKDV.TabIndex = 30;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(339, 198);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(884, 267);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.Size = new System.Drawing.Size(45, 25);
             this.label3.TabIndex = 29;
             this.label3.Text = "Kâr";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 172);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(874, 206);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(55, 25);
             this.label2.TabIndex = 28;
             this.label2.Text = "KDV";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(298, 146);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(800, 145);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.Size = new System.Drawing.Size(129, 25);
             this.label1.TabIndex = 27;
             this.label1.Text = "Kategori Adı";
             // 
             // txtKategoriAdi
             // 
-            this.txtKategoriAdi.Location = new System.Drawing.Point(368, 143);
+            this.txtKategoriAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtKategoriAdi.Location = new System.Drawing.Point(971, 142);
             this.txtKategoriAdi.Name = "txtKategoriAdi";
-            this.txtKategoriAdi.Size = new System.Drawing.Size(121, 20);
+            this.txtKategoriAdi.Size = new System.Drawing.Size(249, 31);
             this.txtKategoriAdi.TabIndex = 26;
             // 
             // btnGuncelle
             // 
-            this.btnGuncelle.Location = new System.Drawing.Point(368, 229);
+            this.btnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGuncelle.Location = new System.Drawing.Point(1029, 336);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(57, 34);
+            this.btnGuncelle.Size = new System.Drawing.Size(115, 45);
             this.btnGuncelle.TabIndex = 32;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
@@ -206,9 +203,10 @@
             // 
             // btnSil
             // 
-            this.btnSil.Location = new System.Drawing.Point(432, 229);
+            this.btnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSil.Location = new System.Drawing.Point(1150, 336);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(57, 34);
+            this.btnSil.Size = new System.Drawing.Size(115, 45);
             this.btnSil.TabIndex = 33;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
@@ -217,42 +215,19 @@
             // lblUrunBilgileri
             // 
             this.lblUrunBilgileri.AutoSize = true;
-            this.lblUrunBilgileri.Location = new System.Drawing.Point(272, 282);
+            this.lblUrunBilgileri.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUrunBilgileri.Location = new System.Drawing.Point(477, 267);
             this.lblUrunBilgileri.Name = "lblUrunBilgileri";
-            this.lblUrunBilgileri.Size = new System.Drawing.Size(65, 13);
+            this.lblUrunBilgileri.Size = new System.Drawing.Size(134, 25);
             this.lblUrunBilgileri.TabIndex = 34;
             this.lblUrunBilgileri.Text = "Ürün Bilgileri";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(284, 56);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 13);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Kutu";
-            // 
-            // nudKutu
-            // 
-            this.nudKutu.Location = new System.Drawing.Point(319, 54);
-            this.nudKutu.Name = "nudKutu";
-            this.nudKutu.Size = new System.Drawing.Size(43, 20);
-            this.nudKutu.TabIndex = 21;
-            // 
-            // btnStogaEkle
-            // 
-            this.btnStogaEkle.Location = new System.Drawing.Point(368, 52);
-            this.btnStogaEkle.Name = "btnStogaEkle";
-            this.btnStogaEkle.Size = new System.Drawing.Size(121, 23);
-            this.btnStogaEkle.TabIndex = 23;
-            this.btnStogaEkle.Text = "Stoğa Ekle";
-            this.btnStogaEkle.UseVisualStyleBackColor = true;
-            // 
             // tvUrunler
             // 
-            this.tvUrunler.Location = new System.Drawing.Point(12, 54);
+            this.tvUrunler.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tvUrunler.Location = new System.Drawing.Point(81, 145);
             this.tvUrunler.Name = "tvUrunler";
-            this.tvUrunler.Size = new System.Drawing.Size(249, 345);
+            this.tvUrunler.Size = new System.Drawing.Size(315, 479);
             this.tvUrunler.TabIndex = 35;
             this.tvUrunler.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvUrunler_AfterSelect);
             // 
@@ -260,7 +235,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 411);
+            this.ClientSize = new System.Drawing.Size(1346, 702);
             this.Controls.Add(this.tvUrunler);
             this.Controls.Add(this.lblUrunBilgileri);
             this.Controls.Add(this.btnSil);
@@ -273,13 +248,9 @@
             this.Controls.Add(this.txtKategoriAdi);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.btnBarkodOku);
-            this.Controls.Add(this.btnStogaEkle);
-            this.Controls.Add(this.nudKutu);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtAra);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MalKabul";
@@ -288,7 +259,6 @@
             this.cmsUrunIslemleri.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudKar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKDV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudKutu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,7 +268,6 @@
         private System.Windows.Forms.TextBox txtAra;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnEkle;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnBarkodOku;
         private System.Windows.Forms.ContextMenuStrip cmsUrunIslemleri;
         private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
@@ -312,9 +281,6 @@
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Label lblUrunBilgileri;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown nudKutu;
-        private System.Windows.Forms.Button btnStogaEkle;
         private System.Windows.Forms.TreeView tvUrunler;
     }
 }

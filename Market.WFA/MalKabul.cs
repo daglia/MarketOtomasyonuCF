@@ -20,6 +20,8 @@ namespace Market.WFA
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.Dock = DockStyle.Fill;
+            this.ControlBox = false;
             KategorileriGetir();
         }
         public void KategorileriGetir()

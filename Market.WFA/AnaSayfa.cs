@@ -36,6 +36,7 @@ namespace Market.WFA
                 };
                 urunSatis.Show();
             }
+            else urunSatis.Activate();
         }
 
         private void malKabulİşlemleriToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,6 +49,7 @@ namespace Market.WFA
                 };
                 malKabul.Show();
             }
+            else malKabul.Activate();
         }
 
         private void raporGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,6 +62,7 @@ namespace Market.WFA
                 };
                 rapor.Show();
             }
+            else rapor.Activate();
         }
 
         private void AnaSayfa_Load(object sender, EventArgs e)

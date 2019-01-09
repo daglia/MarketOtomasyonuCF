@@ -320,6 +320,7 @@
             this.Controls.Add(this.txtBarkod);
             this.Controls.Add(this.lstUrunler);
             this.Controls.Add(this.lstSatis);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimizeBox = false;
             this.Name = "UrunSatis";
             this.Text = "Ürün Satış";
