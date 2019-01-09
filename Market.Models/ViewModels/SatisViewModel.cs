@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Market.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,7 @@ namespace Market.Models.ViewModels
     public class SatisViewModel
     {
         public int SatisId { get; set; }
-        public int UrunId { get; set; }
-        public string UrunAdi { get; set; }
-        public decimal BirimFiyati { get; set; }
-        public decimal KDV { get; set; }
-        public decimal Indirim { get; set; }
-        public int Adet { get; set; }
-        public override string ToString() => $"{UrunAdi} ⨯ {Adet}      %{KDV}      {Adet * BirimFiyati * Convert.ToDecimal(1-Indirim):c2}";
+        public DateTime SatisZamani { get; set; }
+        public OdemeYontemi OdemeYontemi { get; set; }
     }
 }
