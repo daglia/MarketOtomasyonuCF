@@ -9,23 +9,5 @@ namespace Market.BLL.Repository
 {
     public class SatisRepo : RepositoryBase<Satis,int>
     {
-        public override List<Satis> GetAll()
-        {
-            return base.GetAll();
-        }
-
-        public override int Insert(Satis entity)
-        {
-            try
-            {
-                var satis = db.Satislar.Find(entity.SatisId);
-                return base.Insert(satis);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            
-        }
     }
 }

@@ -78,6 +78,7 @@
             this.lstUrunler.Name = "lstUrunler";
             this.lstUrunler.Size = new System.Drawing.Size(571, 229);
             this.lstUrunler.TabIndex = 1;
+            this.lstUrunler.SelectedIndexChanged += new System.EventHandler(this.lstUrunler_SelectedIndexChanged);
             // 
             // txtBarkod
             // 
@@ -106,6 +107,7 @@
             this.btnEkle.TabIndex = 4;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // nudAdet
             // 
@@ -267,6 +269,7 @@
             this.nudAlinanPara.Size = new System.Drawing.Size(279, 31);
             this.nudAlinanPara.TabIndex = 16;
             this.nudAlinanPara.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudAlinanPara.KeyUp += new System.Windows.Forms.KeyEventHandler(this.nudAlinanPara_KeyUp);
             // 
             // contextMenuStrip1
             // 
