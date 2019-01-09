@@ -18,17 +18,10 @@ namespace Market.WFA
         {
             InitializeComponent();
         }
-
-        private void lstUrunler_ContextMenuStripChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             KategorileriGetir();
         }
-
         public void KategorileriGetir()
         {
             tvUrunler.Nodes.Clear();
@@ -38,7 +31,7 @@ namespace Market.WFA
                 TreeNode node = new TreeNode(kategori.KategoriAdi);
                 node.Tag = kategori.KategoriId;
                 tvUrunler.Nodes.Add(node);
-                if(kategori.Urunler.Count>0)
+                if (kategori.Urunler.Count > 0)
                 {
                     var urunler = new UrunRepo().GetAll(x => x.KategoriId == kategori.KategoriId).ToList();
                     foreach (var urun in urunler)
@@ -56,9 +49,16 @@ namespace Market.WFA
         private void btnBarkodOku_Click(object sender, EventArgs e)
         {
             BarkodOkuma barkod = new BarkodOkuma();
-            barkod.Show();
-        }
 
+            DialogResult cevap = barkod.ShowDialog();
+            if (cevap == DialogResult.OK)
+            {
+                UrunIslemleri urunIslemleri = new UrunIslemleri();
+                urunIslemleri.Barkod(barkod.Barkod, barkod.KutuAdet);
+                urunIslemleri.ShowDialog();
+                KategorileriGetir();
+            }
+        }
         private void btnEkle_Click(object sender, EventArgs e)
         {
             try
@@ -67,9 +67,8 @@ namespace Market.WFA
                 {
                     KategoriAdi = txtKategoriAdi.Text,
                     KDV = nudKDV.Value,
-                    Kar=nudKar.Value
+                    Kar = nudKar.Value
                 });
-
             }
             catch (Exception ex)
             {
@@ -82,18 +81,23 @@ namespace Market.WFA
         Urun urun;
         Kategori kategori;
         private void tvUrunler_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            urunId = (int)e.Node.Tag;
-            kategoriId = (int)e.Node.Tag;
-            urun = new UrunRepo().GetById(urunId);
-            kategori = new KategoriRepo().GetById(kategoriId);
-            txtKategoriAdi.Text = kategori.KategoriAdi;
-            nudKar.Value = kategori.Kar;
-            nudKDV.Value = kategori.KDV;
-
-            if (urun == null) return;
-
-            lblUrunBilgileri.Text= $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
+        {           
+            if (new UrunRepo().Queryable().FirstOrDefault(x=>x.UrunAdi==e.Node.Text)!=null)
+            {
+                urunId = (int)e.Node.Tag;
+                urun = new UrunRepo().GetById((urunId));
+                if (urun == null) return;
+                lblUrunBilgileri.Text = $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
+            }
+            if (new KategoriRepo().Queryable().FirstOrDefault(x => x.KategoriAdi == e.Node.Text) != null)
+            {
+                kategoriId = (int)e.Node.Tag;
+                kategori = new KategoriRepo().GetById(kategoriId);
+                if (kategori == null) return;
+                txtKategoriAdi.Text = kategori.KategoriAdi;
+                nudKar.Value = kategori.Kar;
+                nudKDV.Value = kategori.KDV;
+            }
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -109,6 +113,20 @@ namespace Market.WFA
         private void btnSil_Click(object sender, EventArgs e)
         {
             new KategoriRepo().Delete(kategori);
+            KategorileriGetir();
+        }
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UrunIslemleri urunIslemleri = new UrunIslemleri();
+            urunIslemleri.Urun = urun;
+            DialogResult cevap = urunIslemleri.ShowDialog();
+            if (cevap == DialogResult.OK)
+                KategorileriGetir();
+        }
+        private void silToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
+            new UrunRepo().Delete(urun);
             KategorileriGetir();
         }
     }
