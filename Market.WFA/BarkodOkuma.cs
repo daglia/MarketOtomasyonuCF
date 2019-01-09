@@ -18,7 +18,8 @@ namespace Market.WFA
         {
             InitializeComponent();
         }
-
+        public string Barkod { get; set; }
+        public int KutuAdet { get; set; }
         private void BarkodOkuma_Load(object sender, EventArgs e)
         {
             PrintDocument doc = new PrintDocument();
@@ -48,7 +49,6 @@ namespace Market.WFA
             int sayi = rnd.Next(10000, 10010);
             return sayi.ToString();
         }
-        int kutuAdet;
         private void txtBarkod_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -56,17 +56,18 @@ namespace Market.WFA
                 var urun = new UrunRepo().GetAll().FirstOrDefault(x => x.UrunBarkod == txtBarkod.Text);
                 if (urun == null)
                 {
-                    string barkod = txtBarkod.Text;
-                    kutuAdet = Convert.ToInt32(nudKutu.Value);
-                    UrunIslemleri urunIslemleri = new UrunIslemleri();
-                    urunIslemleri.Barkod(barkod, kutuAdet);
-                    urunIslemleri.Show();
+                    Barkod = txtBarkod.Text;
+                    KutuAdet = Convert.ToInt32(nudKutu.Value);
+                    DialogResult = DialogResult.OK;
                 }
 
-                else urun.Kutu += kutuAdet;
-
-
-                this.Close();
+                else
+                {
+                    KutuAdet = Convert.ToInt32(nudKutu.Value);
+                    urun.Kutu += KutuAdet;
+                    new UrunRepo().Update();
+                    DialogResult = DialogResult.Cancel;
+                }
             }
         }
     }

@@ -40,10 +40,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtBarkodNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudIndirim = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudBirimFiyat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKutuBasinaAdet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIndirim)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -153,23 +153,23 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "İndirim";
             // 
-            // numericUpDown1
+            // nudIndirim
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.nudIndirim.DecimalPlaces = 2;
+            this.nudIndirim.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDown1.Location = new System.Drawing.Point(107, 145);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nudIndirim.Location = new System.Drawing.Point(107, 145);
+            this.nudIndirim.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(121, 20);
-            this.numericUpDown1.TabIndex = 27;
+            this.nudIndirim.Name = "nudIndirim";
+            this.nudIndirim.Size = new System.Drawing.Size(121, 20);
+            this.nudIndirim.TabIndex = 27;
             // 
             // UrunIslemleri
             // 
@@ -177,7 +177,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 254);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nudIndirim);
             this.Controls.Add(this.txtBarkodNo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEkle);
@@ -197,7 +197,7 @@
             this.Load += new System.EventHandler(this.UrunIslemleri_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudBirimFiyat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKutuBasinaAdet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIndirim)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,6 +217,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBarkodNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudIndirim;
     }
 }

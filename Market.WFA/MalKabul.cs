@@ -18,17 +18,10 @@ namespace Market.WFA
         {
             InitializeComponent();
         }
-
-        private void lstUrunler_ContextMenuStripChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             KategorileriGetir();
         }
-
         public void KategorileriGetir()
         {
             tvUrunler.Nodes.Clear();
@@ -38,7 +31,7 @@ namespace Market.WFA
                 TreeNode node = new TreeNode(kategori.KategoriAdi);
                 node.Tag = kategori.KategoriId;
                 tvUrunler.Nodes.Add(node);
-                if(kategori.Urunler.Count>0)
+                if (kategori.Urunler.Count > 0)
                 {
                     var urunler = new UrunRepo().GetAll(x => x.KategoriId == kategori.KategoriId).ToList();
                     foreach (var urun in urunler)
@@ -56,9 +49,16 @@ namespace Market.WFA
         private void btnBarkodOku_Click(object sender, EventArgs e)
         {
             BarkodOkuma barkod = new BarkodOkuma();
-            barkod.Show();
-        }
 
+            DialogResult cevap = barkod.ShowDialog();
+            if (cevap == DialogResult.OK)
+            {
+                UrunIslemleri urunIslemleri = new UrunIslemleri();
+                urunIslemleri.Barkod(barkod.Barkod, barkod.KutuAdet);
+                urunIslemleri.ShowDialog();
+                KategorileriGetir();
+            }
+        }
         private void btnEkle_Click(object sender, EventArgs e)
         {
             try
@@ -67,9 +67,8 @@ namespace Market.WFA
                 {
                     KategoriAdi = txtKategoriAdi.Text,
                     KDV = nudKDV.Value,
-                    Kar=nudKar.Value
+                    Kar = nudKar.Value
                 });
-
             }
             catch (Exception ex)
             {
@@ -85,6 +84,20 @@ namespace Market.WFA
             urunId = (int)e.Node.Tag;
             kategoriId = (int)e.Node.Tag;
             urun = new UrunRepo().GetById(urunId);
+        }
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UrunIslemleri urunIslemleri = new UrunIslemleri();
+            urunIslemleri.Urun = urun;
+            DialogResult cevap = urunIslemleri.ShowDialog();
+            if (cevap == DialogResult.OK)
+                KategorileriGetir();
+        }
+        private void silToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
+            new UrunRepo().Delete(urun);
+            KategorileriGetir();
         }
     }
 }
