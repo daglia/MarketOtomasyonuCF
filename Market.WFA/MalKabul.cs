@@ -40,9 +40,12 @@ namespace Market.WFA
                 tvUrunler.Nodes.Add(node);
                 if(kategori.Urunler.Count>0)
                 {
-                    foreach (var urunler in kategori.Urunler)
+                    var urunler = new UrunRepo().GetAll(x => x.KategoriId == kategori.KategoriId).ToList();
+                    foreach (var urun in urunler)
                     {
-                        TreeNode subNode = new TreeNode(urunler.UrunAdi);
+                        TreeNode subNode = new TreeNode(urun.UrunAdi);
+                        subNode.ContextMenuStrip = cmsUrunIslemleri;
+                        subNode.Tag = urun.UrunId;
                         node.Nodes.Add(subNode);
                     }
                 }
@@ -74,11 +77,14 @@ namespace Market.WFA
             }
             KategorileriGetir();
         }
-        private int? kategoriId;
+        private int urunId;
+        private int kategoriId;
+        Urun urun;
         private void tvUrunler_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            urunId = (int)e.Node.Tag;
             kategoriId = (int)e.Node.Tag;
-            var kategori = new KategoriRepo().GetById(kategoriId.Value);
+            urun = new UrunRepo().GetById(urunId);
         }
     }
 }

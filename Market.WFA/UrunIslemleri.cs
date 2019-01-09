@@ -49,9 +49,10 @@ namespace Market.WFA
                     
                 });
 
-
                 MessageBox.Show("Ürün kaydı başarılı");
-                this.Close();
+                //var anaform = this.MdiParent as AnaSayfa;
+                //anaform.malKabul?.KategorileriGetir();
+                this.Close();               
             }
             catch (Exception ex)
             {

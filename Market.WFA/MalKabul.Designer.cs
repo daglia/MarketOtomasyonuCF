@@ -34,7 +34,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnEkle = new System.Windows.Forms.Button();
             this.btnBarkodOku = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsUrunIslemleri = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nudKar = new System.Windows.Forms.NumericUpDown();
@@ -50,7 +50,7 @@
             this.nudKutu = new System.Windows.Forms.NumericUpDown();
             this.btnStogaEkle = new System.Windows.Forms.Button();
             this.tvUrunler = new System.Windows.Forms.TreeView();
-            this.contextMenuStrip1.SuspendLayout();
+            this.cmsUrunIslemleri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudKar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKDV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKutu)).BeginInit();
@@ -101,24 +101,24 @@
             this.btnBarkodOku.UseVisualStyleBackColor = true;
             this.btnBarkodOku.Click += new System.EventHandler(this.btnBarkodOku_Click);
             // 
-            // contextMenuStrip1
+            // cmsUrunIslemleri
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsUrunIslemleri.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.güncelleToolStripMenuItem,
             this.silToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
+            this.cmsUrunIslemleri.Name = "contextMenuStrip1";
+            this.cmsUrunIslemleri.Size = new System.Drawing.Size(181, 70);
             // 
             // güncelleToolStripMenuItem
             // 
             this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
-            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.güncelleToolStripMenuItem.Text = "Güncelle";
             // 
             // silToolStripMenuItem
             // 
             this.silToolStripMenuItem.Name = "silToolStripMenuItem";
-            this.silToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.silToolStripMenuItem.Text = "Sil";
             // 
             // nudKar
@@ -280,7 +280,7 @@
             this.Name = "MalKabul";
             this.Text = "Mal Kabul";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.cmsUrunIslemleri.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudKar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKDV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKutu)).EndInit();
@@ -295,7 +295,7 @@
         private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnBarkodOku;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip cmsUrunIslemleri;
         private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown nudKar;

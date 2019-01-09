@@ -45,7 +45,7 @@ namespace Market.WFA
         private string UrunKodu()
         {
             Random rnd = new Random();
-            int sayi = rnd.Next(10000, 10006);
+            int sayi = rnd.Next(10000, 10010);
             return sayi.ToString();
         }
         int kutuAdet;

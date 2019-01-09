@@ -18,7 +18,7 @@ namespace Market.WFA
         }
 
         private UrunSatis urunSatis;
-        private MalKabul malKabul;
+        public MalKabul malKabul;
         private Rapor rapor;
 
         private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
