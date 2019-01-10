@@ -83,8 +83,8 @@ namespace Market.WFA
         Urun urun;
         Kategori kategori;
         private void tvUrunler_AfterSelect(object sender, TreeViewEventArgs e)
-        {           
-            if (new UrunRepo().Queryable().FirstOrDefault(x=>x.UrunAdi==e.Node.Text)!=null)
+        {
+            if (new UrunRepo().Queryable().FirstOrDefault(x => x.UrunAdi == e.Node.Text) != null)
             {
                 urunId = (int)e.Node.Tag;
                 urun = new UrunRepo().GetById((urunId));
@@ -130,6 +130,48 @@ namespace Market.WFA
             var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
             new UrunRepo().Delete(urun);
             KategorileriGetir();
+        }
+
+        private void txtAra_KeyUp(object sender, KeyEventArgs e)
+        {
+            string ara = txtAra.Text.ToLower();
+          
+            List<Urun> bulunanlar = new List<Urun>();
+            new UrunRepo().Queryable().Where(x => x.UrunAdi.ToLower().Contains(ara) || x.UrunBarkod.ToLower().Contains(ara))
+                .ToList()
+                .ForEach(x => bulunanlar.Add(new Urun()
+                {
+                    UrunId = x.UrunId,
+                    BirimFiyat = x.BirimFiyat,
+                    KategoriId = x.KategoriId,
+                    UrunAdi = x.UrunAdi,
+                    KutuBasinaAdet = x.KutuBasinaAdet,
+                    Indirim = x.Indirim,
+                    Kutu = x.Kutu
+                }));
+            tvUrunler.Nodes.Clear();
+            foreach (var bulunan in bulunanlar)
+            {
+                if (ara == "")
+                {
+                    tvUrunler.Nodes.Clear();
+                    KategorileriGetir();
+                }
+                else
+                {
+                    TreeNode node = new TreeNode(bulunan.UrunAdi);
+                    node.Tag = bulunan.UrunId;
+                    tvUrunler.Nodes.Add(node);                    
+                }
+            }
+            tvUrunler.ExpandAll();
+            
+        }
+
+        private void txtAra_TextChanged(object sender, EventArgs e)
+        {
+           
+                
         }
     }
 }
