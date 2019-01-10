@@ -44,7 +44,7 @@
             this.txtKategoriAdi = new System.Windows.Forms.TextBox();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
-            this.lblUrunBilgileri = new System.Windows.Forms.Label();
+            this.lblBilgileri = new System.Windows.Forms.Label();
             this.tvUrunler = new System.Windows.Forms.TreeView();
             this.cmsUrunIslemleri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudKar)).BeginInit();
@@ -58,7 +58,6 @@
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(315, 31);
             this.txtAra.TabIndex = 8;
-            this.txtAra.TextChanged += new System.EventHandler(this.txtAra_TextChanged);
             this.txtAra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAra_KeyUp);
             // 
             // label11
@@ -214,15 +213,15 @@
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
-            // lblUrunBilgileri
+            // lblBilgileri
             // 
-            this.lblUrunBilgileri.AutoSize = true;
-            this.lblUrunBilgileri.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUrunBilgileri.Location = new System.Drawing.Point(477, 267);
-            this.lblUrunBilgileri.Name = "lblUrunBilgileri";
-            this.lblUrunBilgileri.Size = new System.Drawing.Size(134, 25);
-            this.lblUrunBilgileri.TabIndex = 34;
-            this.lblUrunBilgileri.Text = "Ürün Bilgileri";
+            this.lblBilgileri.AutoSize = true;
+            this.lblBilgileri.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblBilgileri.Location = new System.Drawing.Point(477, 267);
+            this.lblBilgileri.Name = "lblBilgileri";
+            this.lblBilgileri.Size = new System.Drawing.Size(77, 25);
+            this.lblBilgileri.TabIndex = 34;
+            this.lblBilgileri.Text = "Bilgiler";
             // 
             // tvUrunler
             // 
@@ -239,7 +238,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1346, 702);
             this.Controls.Add(this.tvUrunler);
-            this.Controls.Add(this.lblUrunBilgileri);
+            this.Controls.Add(this.lblBilgileri);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.nudKar);
@@ -282,7 +281,7 @@
         private System.Windows.Forms.TextBox txtKategoriAdi;
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnSil;
-        private System.Windows.Forms.Label lblUrunBilgileri;
+        private System.Windows.Forms.Label lblBilgileri;
         private System.Windows.Forms.TreeView tvUrunler;
     }
 }
