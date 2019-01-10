@@ -161,17 +161,12 @@ namespace Market.WFA
                 {
                     TreeNode node = new TreeNode(bulunan.UrunAdi);
                     node.Tag = bulunan.UrunId;
-                    tvUrunler.Nodes.Add(node);                    
+                    node.ContextMenuStrip = cmsUrunIslemleri;
+                    tvUrunler.Nodes.Add(node);                 
                 }
             }
             tvUrunler.ExpandAll();
             
-        }
-
-        private void txtAra_TextChanged(object sender, EventArgs e)
-        {
-           
-                
         }
     }
 }

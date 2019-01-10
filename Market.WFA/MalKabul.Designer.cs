@@ -58,7 +58,6 @@
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(315, 31);
             this.txtAra.TabIndex = 8;
-            this.txtAra.TextChanged += new System.EventHandler(this.txtAra_TextChanged);
             this.txtAra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAra_KeyUp);
             // 
             // label11
