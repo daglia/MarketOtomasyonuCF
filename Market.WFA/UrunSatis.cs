@@ -174,7 +174,7 @@ namespace Market.WFA
             lstSatis.Items.Remove(seciliSatis);
             SatislariGetir();
         }
-
+        int yeniSatis;
         private void btnIslemiBitir_Click(object sender, EventArgs e)
         {
             var radioButtons = groupBox1.Controls.OfType<RadioButton>().ToArray();
@@ -182,7 +182,7 @@ namespace Market.WFA
 
             try
             {
-                new SatisRepo().Insert(new Satis()
+                var yeniSatis = new SatisRepo().Insert(new Satis()
                 {
                     OdemeYontemi = (OdemeYontemi)selectedIndex
                 });
@@ -210,16 +210,23 @@ namespace Market.WFA
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true })
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                Document doc = new Document(PageSize.A6.Rotate());
+                Document doc = new Document(PageSize.A5.Rotate());
                 try
                 {
                     PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
                     doc.Open();
                     var urunsatis = lstSatis.Items;
-                    foreach (var item in urunsatis)
+
+                        DateTime tarih = DateTime.Now;
+                        
+                        doc.Add(new Paragraph("ZAF BIRLESIK MAGAZALAR A.S \nBesiktas/ISTANBUL \nKuloglu Mh., Barbaros Blv. Yildiz IS Hani No:9"));
+                        doc.Add(new Paragraph($"\nFis No:{yeniSatis}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("hh.MM")}"));
+                        doc.Add(new Paragraph("\nUrun adı                                Adet    KDV    Fiyat\n"));
+                        foreach (var item in urunsatis)
                     {
                         doc.Add(new Paragraph(item.ToString()));
                     }
+                        doc.Add(new Paragraph($"\nToplam : {lblToplam.Text:c2}"));
                 }
                 catch (Exception ex)
                 {
