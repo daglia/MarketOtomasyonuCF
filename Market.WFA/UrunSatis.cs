@@ -237,7 +237,11 @@ namespace Market.WFA
                         doc.Add(new Paragraph(item.ToString()));
                     }
                         doc.Add(new Paragraph($"\nToplam : {lblToplam.Text:c2}"));
-                }
+                        if (rbNakit.Checked == true)
+                        {
+                            doc.Add(new Paragraph($"Alinan Miktar: {nudAlinanPara.Value.ToString()}\nPara Ustu:{lblParaUstu.Text:c2}"));
+                        }
+                    }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
