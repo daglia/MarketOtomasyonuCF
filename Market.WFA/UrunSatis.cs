@@ -1,4 +1,6 @@
-﻿using Market.BLL.Repository;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Market.BLL.Repository;
 using Market.Models.Entities;
 using Market.Models.ViewModels;
 using System;
@@ -7,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -144,7 +147,30 @@ namespace Market.WFA
 
         private void btnIslemiBitir_Click(object sender, EventArgs e)
         {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true }) 
+            if (sfd.ShowDialog()==DialogResult.OK)
+            {
+                Document doc = new Document(PageSize.A6.Rotate());
+                try
+                {
+                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                        doc.Open();
+                        var urunsatis = lstSatis.Items;
+                        foreach (var item in urunsatis)
+                        {
+                            doc.Add(new Paragraph(item.ToString()));
+                        }
+                }
+                catch (Exception ex)
+                {
 
+                    MessageBox.Show(ex.Message);
+                } 
+                    finally
+                    {
+                        doc.Close();
+                    }
+            }
         }
     }
 }
