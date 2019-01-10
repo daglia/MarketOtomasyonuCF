@@ -220,14 +220,18 @@ namespace Market.WFA
                         DateTime tarih = DateTime.Now;
                         
                         doc.Add(new Paragraph("ZAF BIRLESIK MAGAZALAR A.S \nBesiktas/ISTANBUL \nKuloglu Mh., Barbaros Blv. Yildiz IS Hani No:9"));
-                        doc.Add(new Paragraph($"\nFis No:{yeniSatis}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("hh.MM")}"));
+                        doc.Add(new Paragraph($"\nFis No:{new SatisRepo().GetAll().Last().SatisId}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("hh.mm")}"));
                         doc.Add(new Paragraph("\nUrun adı                                Adet    KDV    Fiyat\n"));
                         foreach (var item in urunsatis)
                     {
                         doc.Add(new Paragraph(item.ToString()));
                     }
                         doc.Add(new Paragraph($"\nToplam : {lblToplam.Text:c2}"));
-                }
+                        if (rbNakit.Checked == true)
+                        {
+                            doc.Add(new Paragraph($"Alinan Miktar: {nudAlinanPara.Value.ToString()}\nPara Ustu:{lblParaUstu.Text:c2}"));
+                        }
+                    }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
