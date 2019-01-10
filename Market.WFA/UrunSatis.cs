@@ -89,7 +89,7 @@ namespace Market.WFA
             }
             else {
                 nudPoset.Enabled = false;
-                nudPoset.Value = 1;
+                nudPoset.Value = 0;
                 if(satis.Contains(satis.Find(x => x.UrunId.Equals(0))))
                     satis.Remove(satis.Find(x => x.UrunId.Equals(0)));
             }
@@ -115,7 +115,11 @@ namespace Market.WFA
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (lstUrunler.SelectedItem == null || txtBarkod.Text == "") return;
+            if (lstUrunler.SelectedItem == null || txtBarkod.Text == "")
+            {
+                MessageBox.Show("Lütfen listeden bir ürün seçin ya da barkodu girin.");
+                return;
+            }
 
             var seciliUrun = lstUrunler.SelectedItem as Urun;
 
@@ -155,7 +159,7 @@ namespace Market.WFA
             {
                 lstSatis.Items.Add(item);
             }
-            var toplam = satis.Sum(x => x.SatisFiyati);
+            var toplam = satis.Sum(x => x.Toplam());
             lblToplam.Text = $"{toplam:c2}";
 
             return toplam;
@@ -204,7 +208,7 @@ namespace Market.WFA
                         Adet = _satis.Adet,
                         SatisFiyati = _satis.SatisFiyati
                     });
-                    new UrunRepo().GetById(_satis.UrunId).Stok -= 
+                    //new UrunRepo().GetById(_satis.UrunId).Stok -= _satis.Adet;
                 }
             }
 
@@ -226,7 +230,7 @@ namespace Market.WFA
                         DateTime tarih = DateTime.Now;
                         
                         doc.Add(new Paragraph("ZAF BIRLESIK MAGAZALAR A.S \nBesiktas/ISTANBUL \nKuloglu Mh., Barbaros Blv. Yildiz IS Hani No:9"));
-                        doc.Add(new Paragraph($"\nFis No:{new SatisRepo().GetAll().Last().SatisId}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("hh.MM")}"));
+                        doc.Add(new Paragraph($"\nFis No:{new SatisRepo().GetAll().Last().SatisId}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("HH:mm:ss")}"));
                         doc.Add(new Paragraph("\nUrun adı                                Adet    KDV    Fiyat\n"));
                         foreach (var item in urunsatis)
                     {
@@ -248,6 +252,7 @@ namespace Market.WFA
             MessageBox.Show("Satış başarılı");
             DialogResult = DialogResult.OK;
             ListeyiTemizle();
+            SatislariGetir();
         }
 
         private void nudPoset_ValueChanged(object sender, EventArgs e)
