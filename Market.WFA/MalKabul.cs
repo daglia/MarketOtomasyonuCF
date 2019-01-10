@@ -22,6 +22,7 @@ namespace Market.WFA
         {
             this.Dock = DockStyle.Fill;
             this.ControlBox = false;
+            lblBilgileri.Visible = false;
             KategorileriGetir();
         }
         public void KategorileriGetir()
@@ -84,12 +85,13 @@ namespace Market.WFA
         Kategori kategori;
         private void tvUrunler_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            lblBilgileri.Visible = true;
             if (new UrunRepo().Queryable().FirstOrDefault(x => x.UrunAdi == e.Node.Text) != null)
             {
                 urunId = (int)e.Node.Tag;
                 urun = new UrunRepo().GetById((urunId));
                 if (urun == null) return;
-                lblUrunBilgileri.Text = $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
+                lblBilgileri.Text = $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
             }
             if (new KategoriRepo().Queryable().FirstOrDefault(x => x.KategoriAdi == e.Node.Text) != null)
             {
@@ -99,6 +101,11 @@ namespace Market.WFA
                 txtKategoriAdi.Text = kategori.KategoriAdi;
                 nudKar.Value = kategori.Kar;
                 nudKDV.Value = kategori.KDV;
+                lblBilgileri.Text = $"Kategorideki ürünler:\n";
+                foreach (var item in new UrunRepo().GetAll(x=>x.KategoriId==kategori.KategoriId))
+                {
+                    lblBilgileri.Text += $"{item}   {item.Stok} Adet\n";
+                }
             }
         }
 
