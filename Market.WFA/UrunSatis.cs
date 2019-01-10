@@ -2,6 +2,7 @@
 using iTextSharp.text.pdf;
 using Market.BLL.Repository;
 using Market.Models.Entities;
+using Market.Models.Enums;
 using Market.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -147,30 +148,60 @@ namespace Market.WFA
 
         private void btnIslemiBitir_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true }) 
-            if (sfd.ShowDialog()==DialogResult.OK)
+            var radioButtons = groupBox1.Controls.OfType<RadioButton>().ToArray();
+            var selectedIndex = Array.IndexOf(radioButtons, radioButtons.Single(rb => rb.Checked));
+
+            try
+            {
+                var yeniSatis = new SatisRepo().Insert(new Satis()
+                {
+                    OdemeYontemi = (OdemeYontemi)selectedIndex,
+                });
+
+                foreach (var _satis in satis)
+                {
+                    new SatisDetayRepo().Insert(new SatisDetay()
+                    {
+                        SatisId = yeniSatis,
+                        UrunId = _satis.UrunId,
+                        Adet = _satis.Adet,
+                        SonFiyat = _satis.SonFiyat
+                    });
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true })
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
                 Document doc = new Document(PageSize.A6.Rotate());
                 try
                 {
-                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
-                        doc.Open();
-                        var urunsatis = lstSatis.Items;
-                        foreach (var item in urunsatis)
-                        {
-                            doc.Add(new Paragraph(item.ToString()));
-                        }
+                    PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                    doc.Open();
+                    var urunsatis = lstSatis.Items;
+                    foreach (var item in urunsatis)
+                    {
+                        doc.Add(new Paragraph(item.ToString()));
+                    }
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show(ex.Message);
-                } 
-                    finally
-                    {
-                        doc.Close();
-                    }
+                }
+
+                finally
+                {
+                    doc.Close();
+                }
             }
+
+            MessageBox.Show("Satış başarılı");
+            DialogResult = DialogResult.OK;
         }
     }
 }
