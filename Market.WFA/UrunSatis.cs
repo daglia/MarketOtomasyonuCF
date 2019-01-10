@@ -168,37 +168,40 @@ namespace Market.WFA
                         SonFiyat = _satis.SonFiyat
                     });
                 }
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true }) 
-            if (sfd.ShowDialog()==DialogResult.OK)
-            {
-                Document doc = new Document(PageSize.A6.Rotate());
-                try
-                {
-                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
-                        doc.Open();
-                        var urunsatis = lstSatis.Items;
-                        foreach (var item in urunsatis)
-                        {
-                            doc.Add(new Paragraph(item.ToString()));
-                        }
-                }
-                catch (Exception ex)
-                {
-
-                MessageBox.Show("Satış başarılı");
-                DialogResult = DialogResult.OK;
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-                    MessageBox.Show(ex.Message);
-                } 
-                    finally
+
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true })
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Document doc = new Document(PageSize.A6.Rotate());
+                try
+                {
+                    PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                    doc.Open();
+                    var urunsatis = lstSatis.Items;
+                    foreach (var item in urunsatis)
                     {
-                        doc.Close();
+                        doc.Add(new Paragraph(item.ToString()));
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                finally
+                {
+                    doc.Close();
+                }
             }
+
+            MessageBox.Show("Satış başarılı");
+            DialogResult = DialogResult.OK;
         }
     }
 }
