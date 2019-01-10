@@ -33,6 +33,20 @@ namespace Market.WFA
             this.ControlBox = false;
             UrunleriGetir();
             SatislariGetir();
+            ListeyiTemizle();
+        }
+
+        private void ListeyiTemizle()
+        {
+            nudAdet.Value = 1;
+            nudAlinanPara.Value = 0;
+            nudPoset.Value = 0;
+            txtBarkod.Clear();
+            lstSatis.Items.Clear();
+            cbPoset.CheckState = CheckState.Unchecked;
+            rbNakit.Checked = false;
+            rbKrediKarti.Checked = false;
+            satis = new List<SatisDetayViewModel>();
         }
 
         private void SatislariGetir()
@@ -55,16 +69,31 @@ namespace Market.WFA
             if (cbPoset.CheckState == CheckState.Checked)
             {
                 nudPoset.Enabled = true;
+
                 try
                 {
-                    
+                    satis.Add(new SatisDetayViewModel()
+                    {
+                        UrunId = 0,
+                        UrunAdi = "Poşet",
+                        Adet = (int)nudPoset.Value,
+                        SatisFiyati = (decimal)0.25,
+                        KDV = 0,
+                        Indirim = 0
+                    });
                 }
                 catch (Exception)
                 {
                     throw;
                 }
             }
-            else nudPoset.Enabled = false;
+            else {
+                nudPoset.Enabled = false;
+                nudPoset.Value = 1;
+                if(satis.Contains(satis.Find(x => x.UrunId.Equals(0))))
+                    satis.Remove(satis.Find(x => x.UrunId.Equals(0)));
+            }
+            SatislariGetir();
         }
 
         private void rbNakit_CheckedChanged(object sender, EventArgs e)
@@ -145,7 +174,7 @@ namespace Market.WFA
             lstSatis.Items.Remove(seciliSatis);
             SatislariGetir();
         }
-
+        int yeniSatis;
         private void btnIslemiBitir_Click(object sender, EventArgs e)
         {
             var radioButtons = groupBox1.Controls.OfType<RadioButton>().ToArray();
@@ -155,14 +184,17 @@ namespace Market.WFA
             {
                 var yeniSatis = new SatisRepo().Insert(new Satis()
                 {
-                    OdemeYontemi = (OdemeYontemi)selectedIndex,
+                    OdemeYontemi = (OdemeYontemi)selectedIndex
                 });
 
                 foreach (var _satis in satis)
                 {
                     new SatisDetayRepo().Insert(new SatisDetay()
                     {
-                        SatisId = yeniSatis,
+                        SatisId = new SatisRepo()
+                        .GetAll()
+                        .Last()
+                        .SatisId,
                         UrunId = _satis.UrunId,
                         Adet = _satis.Adet,
                         SonFiyat = _satis.SonFiyat
@@ -178,16 +210,23 @@ namespace Market.WFA
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true })
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                Document doc = new Document(PageSize.A6.Rotate());
+                Document doc = new Document(PageSize.A5.Rotate());
                 try
                 {
                     PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
                     doc.Open();
                     var urunsatis = lstSatis.Items;
-                    foreach (var item in urunsatis)
+
+                        DateTime tarih = DateTime.Now;
+                        
+                        doc.Add(new Paragraph("ZAF BIRLESIK MAGAZALAR A.S \nBesiktas/ISTANBUL \nKuloglu Mh., Barbaros Blv. Yildiz IS Hani No:9"));
+                        doc.Add(new Paragraph($"\nFis No:{yeniSatis}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("hh.MM")}"));
+                        doc.Add(new Paragraph("\nUrun adı                                Adet    KDV    Fiyat\n"));
+                        foreach (var item in urunsatis)
                     {
                         doc.Add(new Paragraph(item.ToString()));
                     }
+                        doc.Add(new Paragraph($"\nToplam : {lblToplam.Text:c2}"));
                 }
                 catch (Exception ex)
                 {
@@ -202,6 +241,15 @@ namespace Market.WFA
 
             MessageBox.Show("Satış başarılı");
             DialogResult = DialogResult.OK;
+            ListeyiTemizle();
+        }
+
+        private void nudPoset_ValueChanged(object sender, EventArgs e)
+        {
+            SatisDetayViewModel poset = satis.Find(x => x.UrunId.Equals(0));
+            poset.Adet = (int)nudPoset.Value;
+            SatislariGetir();
+            ToplamHesapla();
         }
     }
 }
