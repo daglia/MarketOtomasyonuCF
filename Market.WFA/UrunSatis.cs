@@ -1,5 +1,6 @@
 ﻿using Market.BLL.Repository;
 using Market.Models.Entities;
+using Market.Models.Enums;
 using Market.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -144,7 +145,34 @@ namespace Market.WFA
 
         private void btnIslemiBitir_Click(object sender, EventArgs e)
         {
+            var radioButtons = groupBox1.Controls.OfType<RadioButton>().ToArray();
+            var selectedIndex = Array.IndexOf(radioButtons, radioButtons.Single(rb => rb.Checked));
 
+            try
+            {
+                var yeniSatis = new SatisRepo().Insert(new Satis()
+                {
+                    OdemeYontemi = (OdemeYontemi)selectedIndex,
+                });
+
+                foreach (var _satis in satis)
+                {
+                    new SatisDetayRepo().Insert(new SatisDetay()
+                    {
+                        SatisId = yeniSatis,
+                        UrunId = _satis.UrunId,
+                        Adet = _satis.Adet,
+                        SonFiyat = _satis.SonFiyat
+                    });
+                }
+
+                MessageBox.Show("Satış başarılı");
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
