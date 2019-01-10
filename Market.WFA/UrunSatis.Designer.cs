@@ -159,20 +159,11 @@
             this.nudPoset.Enabled = false;
             this.nudPoset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudPoset.Location = new System.Drawing.Point(393, 358);
-            this.nudPoset.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.nudPoset.Name = "nudPoset";
             this.nudPoset.Size = new System.Drawing.Size(92, 31);
             this.nudPoset.TabIndex = 7;
             this.nudPoset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudPoset.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudPoset.ValueChanged += new System.EventHandler(this.nudPoset_ValueChanged);
             // 
             // groupBox1
             // 
