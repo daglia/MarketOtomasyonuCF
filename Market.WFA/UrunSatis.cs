@@ -141,7 +141,7 @@ namespace Market.WFA
                     KDV = seciliUrun.Kategori.KDV,
                     Adet = (int)nudAdet.Value,
                     UrunAdi = seciliUrun.UrunAdi,
-                    SatisFiyati = seciliUrun.BirimFiyat * (1 + seciliUrun.Kategori.KDV) * (1 - seciliUrun.Indirim)
+                    SatisFiyati = seciliUrun.BirimFiyat * (1 + seciliUrun.Kategori.KDV + seciliUrun.Kategori.Kar) * (1 - seciliUrun.Indirim)
                 });
             }
 
@@ -155,7 +155,7 @@ namespace Market.WFA
             {
                 lstSatis.Items.Add(item);
             }
-            var toplam = satis.Sum(x => x.SonFiyat);
+            var toplam = satis.Sum(x => x.SatisFiyati);
             lblToplam.Text = $"{toplam:c2}";
 
             return toplam;
@@ -174,10 +174,15 @@ namespace Market.WFA
             lstSatis.Items.Remove(seciliSatis);
             SatislariGetir();
         }
-        int yeniSatis;
+
         private void btnIslemiBitir_Click(object sender, EventArgs e)
         {
             var radioButtons = groupBox1.Controls.OfType<RadioButton>().ToArray();
+            if(!(rbNakit.Checked || rbKrediKarti.Checked))
+            {
+                MessageBox.Show("Lütfen önce bir ödeme yöntemi seçin.");
+                return;
+            }
             var selectedIndex = Array.IndexOf(radioButtons, radioButtons.Single(rb => rb.Checked));
 
             try
@@ -197,8 +202,9 @@ namespace Market.WFA
                         .SatisId,
                         UrunId = _satis.UrunId,
                         Adet = _satis.Adet,
-                        SonFiyat = _satis.SonFiyat
+                        SatisFiyati = _satis.SatisFiyati
                     });
+                    new UrunRepo().GetById(_satis.UrunId).Stok -= 
                 }
             }
 
@@ -220,7 +226,7 @@ namespace Market.WFA
                         DateTime tarih = DateTime.Now;
                         
                         doc.Add(new Paragraph("ZAF BIRLESIK MAGAZALAR A.S \nBesiktas/ISTANBUL \nKuloglu Mh., Barbaros Blv. Yildiz IS Hani No:9"));
-                        doc.Add(new Paragraph($"\nFis No:{yeniSatis}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("hh.MM")}"));
+                        doc.Add(new Paragraph($"\nFis No:{new SatisRepo().GetAll().Last().SatisId}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("hh.MM")}"));
                         doc.Add(new Paragraph("\nUrun adı                                Adet    KDV    Fiyat\n"));
                         foreach (var item in urunsatis)
                     {

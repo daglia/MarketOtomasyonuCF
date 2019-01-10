@@ -12,13 +12,9 @@ namespace Market.Models.ViewModels
         public int UrunId { get; set; }
         public string UrunAdi { get; set; }
         public decimal SatisFiyati { get; set; }
-        public decimal SonFiyat {
-            get => Adet * SatisFiyati;
-            private set { }
-        }
         public decimal KDV { get; set; }
         public decimal Indirim { get; set; }
         public int Adet { get; set; }
-        public override string ToString() => $"{UrunAdi,-40} ⨯ {Adet,-6} %{KDV,-6} {SonFiyat:c2}";
+        public override string ToString() => $"{UrunAdi,-40} ⨯ {Adet,-6} %{KDV,-6} {SatisFiyati:c2}";
     }
 }

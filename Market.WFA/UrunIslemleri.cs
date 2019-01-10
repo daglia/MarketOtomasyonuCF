@@ -62,7 +62,6 @@ namespace Market.WFA
                         UrunBarkod = txtBarkodNo.Text,
                         KategoriId = secili.KategoriId,
                         Kutu = kutuAdet
-
                     });
 
                     MessageBox.Show("Ürün kaydı başarılı");
