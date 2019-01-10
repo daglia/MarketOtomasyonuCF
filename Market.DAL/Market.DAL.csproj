@@ -50,13 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201901071035054_a1.cs" />
-    <Compile Include="Migrations\201901071035054_a1.Designer.cs">
-      <DependentUpon>201901071035054_a1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901101003592_a6.cs" />
-    <Compile Include="Migrations\201901101003592_a6.Designer.cs">
-      <DependentUpon>201901101003592_a6.cs</DependentUpon>
+    <Compile Include="Migrations\201901101122076_a1.cs" />
+    <Compile Include="Migrations\201901101122076_a1.Designer.cs">
+      <DependentUpon>201901101122076_a1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
@@ -73,11 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901071035054_a1.resx">
-      <DependentUpon>201901071035054_a1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901101003592_a6.resx">
-      <DependentUpon>201901101003592_a6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901101122076_a1.resx">
+      <DependentUpon>201901101122076_a1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

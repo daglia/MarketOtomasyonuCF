@@ -11,6 +11,8 @@ namespace Market.Models.Entities
     [Table("Urunler")]
     public class Urun
     {
+        private static int _kutu, _kutuBasinaAdet;
+
         [Key]
         public int UrunId { get; set; }
         [Required]
@@ -21,17 +23,37 @@ namespace Market.Models.Entities
         [StringLength(100)]
         public string UrunAdi { get; set; }
         [Required]
-        public int KutuBasinaAdet { get; set; }
+        public int KutuBasinaAdet {
+            get
+            {
+                return _kutuBasinaAdet;
+            }
+            set
+            {
+                _kutuBasinaAdet = value;
+            }
+        }
         [Required]
         public decimal BirimFiyat { get; set; }
         public decimal Indirim { get; set; } = 0;
-        public int Kutu { get; set; } = 0;
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public int Stok
-        {
-            get => Kutu * KutuBasinaAdet;
-            private set { }
+        public int Kutu {
+            get
+            {
+                return _kutu;
+            }
+            set
+            {
+                _kutu = value;
+            }
         }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        //public int Stok
+        //{
+        //    get => Kutu * KutuBasinaAdet;
+        //    set { }
+        //}
+
+        public int Stok { get; set; } = _kutu * _kutuBasinaAdet;
 
         public int KategoriId { get; set; }
         [ForeignKey("KategoriId")]

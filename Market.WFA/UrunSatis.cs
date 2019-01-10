@@ -208,7 +208,9 @@ namespace Market.WFA
                         Adet = _satis.Adet,
                         SatisFiyati = _satis.SatisFiyati
                     });
-                    //new UrunRepo().GetById(_satis.UrunId).Stok -= _satis.Adet;
+                    UrunRepo urun = new UrunRepo();
+                    urun.GetById(_satis.UrunId).Stok -= _satis.Adet;
+                    urun.Update();
                 }
             }
 

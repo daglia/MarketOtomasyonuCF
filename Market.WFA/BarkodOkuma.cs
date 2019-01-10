@@ -74,6 +74,7 @@ namespace Market.WFA
                     var eskiStok = urun.Stok;
                     KutuAdet = Convert.ToInt32(nudKutu.Value);
                     urun.Kutu += KutuAdet;
+                    urun.Stok += KutuAdet * urun.KutuBasinaAdet;
                     new UrunRepo().Update();
                     MessageBox.Show($"{urun.UrunAdi} ekleme işlemi başarılı.\nEski stok: {eskiStok}\nYeni stok: {urun.Stok}");
                     DialogResult = DialogResult.Cancel;

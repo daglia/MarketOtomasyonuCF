@@ -61,7 +61,8 @@ namespace Market.WFA
                         KutuBasinaAdet = Convert.ToInt32(nudKutuBasinaAdet.Value),
                         UrunBarkod = txtBarkodNo.Text,
                         KategoriId = secili.KategoriId,
-                        Kutu = kutuAdet
+                        Kutu = kutuAdet,
+                        Stok = kutuAdet * Convert.ToInt32(nudKutuBasinaAdet.Value)
                     });
 
                     MessageBox.Show("Ürün kaydı başarılı");
