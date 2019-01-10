@@ -123,6 +123,18 @@ namespace Market.WFA
 
             var seciliUrun = lstUrunler.SelectedItem as Urun;
 
+            if(seciliUrun.Stok == 0)
+            {
+                MessageBox.Show("Ürünün stoğu yok!");
+                return;
+            }
+
+            if(nudAdet.Value > seciliUrun.Stok)
+            {
+                MessageBox.Show("Stokta bu kadar ürün yok!");
+                return;
+            }
+
             bool listedeMi = false;
             var listedekiUrun = new SatisDetayViewModel();
             foreach (var satisViewModel in satis)
@@ -150,6 +162,7 @@ namespace Market.WFA
             }
 
             ToplamHesapla();
+            nudAdet.Value = 1;
         }
 
         private decimal ToplamHesapla()
@@ -174,8 +187,8 @@ namespace Market.WFA
         {
             if (lstSatis.SelectedItem == null) return;
 
-            var seciliSatis = lstSatis.SelectedItem as SatisViewModel;
-            lstSatis.Items.Remove(seciliSatis);
+            var seciliSatis = lstSatis.SelectedItem as SatisDetayViewModel;
+            satis.Remove(seciliSatis);
             SatislariGetir();
         }
 
@@ -210,6 +223,7 @@ namespace Market.WFA
                     });
                     UrunRepo urun = new UrunRepo();
                     urun.GetById(_satis.UrunId).Stok -= _satis.Adet;
+                    urun.GetById(_satis.UrunId).Kutu = urun.GetById(_satis.UrunId).Stok / urun.GetById(_satis.UrunId).KutuBasinaAdet;
                     urun.Update();
                 }
             }

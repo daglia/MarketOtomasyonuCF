@@ -8,6 +8,35 @@ namespace Market.DAL.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Kategoriler",
+                c => new
+                    {
+                        KategoriId = c.Int(nullable: false, identity: true),
+                        KategoriAdi = c.String(nullable: false, maxLength: 20),
+                        KDV = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Kar = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    })
+                .PrimaryKey(t => t.KategoriId);
+            
+            CreateTable(
+                "dbo.Urunler",
+                c => new
+                    {
+                        UrunId = c.Int(nullable: false, identity: true),
+                        UrunBarkod = c.String(nullable: false, maxLength: 13),
+                        UrunAdi = c.String(nullable: false, maxLength: 100),
+                        KutuBasinaAdet = c.Int(nullable: false),
+                        BirimFiyat = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Indirim = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Kutu = c.Int(nullable: false),
+                        Stok = c.Int(nullable: false),
+                        KategoriId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.UrunId)
+                .ForeignKey("dbo.Kategoriler", t => t.KategoriId, cascadeDelete: true)
+                .Index(t => t.KategoriId);
+            
+            CreateTable(
                 "dbo.SatisDetay",
                 c => new
                     {
@@ -32,20 +61,20 @@ namespace Market.DAL.Migrations
                     })
                 .PrimaryKey(t => t.SatisId);
             
-            AddColumn("dbo.Urunler", "Indirim", c => c.Decimal(nullable: false, precision: 18, scale: 2));
-            AlterColumn("dbo.Urunler", "Stok", c => c.Int(nullable: false));
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.SatisDetay", "UrunId", "dbo.Urunler");
             DropForeignKey("dbo.SatisDetay", "SatisId", "dbo.Satislar");
+            DropForeignKey("dbo.Urunler", "KategoriId", "dbo.Kategoriler");
             DropIndex("dbo.SatisDetay", new[] { "UrunId" });
             DropIndex("dbo.SatisDetay", new[] { "SatisId" });
-            AlterColumn("dbo.Urunler", "Stok", c => c.Int(nullable: false));
-            DropColumn("dbo.Urunler", "Indirim");
+            DropIndex("dbo.Urunler", new[] { "KategoriId" });
             DropTable("dbo.Satislar");
             DropTable("dbo.SatisDetay");
+            DropTable("dbo.Urunler");
+            DropTable("dbo.Kategoriler");
         }
     }
 }
