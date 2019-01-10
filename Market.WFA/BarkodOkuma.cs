@@ -1,4 +1,5 @@
 ﻿using Market.BLL.Repository;
+using Market.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace Market.WFA
         }
         public string Barkod { get; set; }
         public int KutuAdet { get; set; }
+        Urun urun;
         private void BarkodOkuma_Load(object sender, EventArgs e)
         {
             PrintDocument doc = new PrintDocument();
@@ -38,34 +40,42 @@ namespace Market.WFA
             barkod.ChecksumDigit = "0";
             pbBarkod.Image = barkod.CreateBitmap();
             txtBarkod.Text = barkod.ToString();
+            urun = new UrunRepo().GetAll().FirstOrDefault(x => x.UrunBarkod == txtBarkod.Text);
+            if (urun != null)
+            {
+                lblUrunAdi.Visible = true;
+                lblUrunAdi.Text = "Gelen ürün: "+urun.UrunAdi;
+                lblUrunAdi.Location = new Point((this.Width / 2)-5*(lblUrunAdi.Text.Length),lblUrunAdi.Location.Y);
+            }
             this.ActiveControl = txtBarkod;
             txtBarkod.Focus();
             txtBarkod.Select(0, 0);
             txtBarkod.SelectionStart = txtBarkod.MaxLength;
+
         }
         private string UrunKodu()
         {
             Random rnd = new Random();
-            int sayi = rnd.Next(10000, 10010);
+            int sayi = rnd.Next(10000, 10005);
             return sayi.ToString();
         }
         private void txtBarkod_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var urun = new UrunRepo().GetAll().FirstOrDefault(x => x.UrunBarkod == txtBarkod.Text);
                 if (urun == null)
                 {
                     Barkod = txtBarkod.Text;
                     KutuAdet = Convert.ToInt32(nudKutu.Value);
                     DialogResult = DialogResult.OK;
                 }
-
                 else
                 {
+                    var eskiStok = urun.Stok;
                     KutuAdet = Convert.ToInt32(nudKutu.Value);
                     urun.Kutu += KutuAdet;
                     new UrunRepo().Update();
+                    MessageBox.Show($"{urun.UrunAdi} ekleme işlemi başarılı.\nEski stok: {eskiStok}\nYeni stok: {urun.Stok}");
                     DialogResult = DialogResult.Cancel;
                 }
             }

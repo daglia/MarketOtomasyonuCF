@@ -28,6 +28,7 @@ namespace Market.WFA
         public void KategorileriGetir()
         {
             tvUrunler.Nodes.Clear();
+            FormuTemizle();
             var kategoriler = new KategoriRepo().GetAll().OrderBy(x => x.KategoriAdi).ToList();
             foreach (var kategori in kategoriler)
             {
@@ -72,12 +73,14 @@ namespace Market.WFA
                     KDV = nudKDV.Value,
                     Kar = nudKar.Value
                 });
+                MessageBox.Show("Kategori ekleme işlemi başarılı");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             KategorileriGetir();
+            FormuTemizle();
         }
         private int urunId;
         private int kategoriId;
@@ -86,6 +89,7 @@ namespace Market.WFA
         private void tvUrunler_AfterSelect(object sender, TreeViewEventArgs e)
         {
             lblBilgileri.Visible = true;
+            FormuTemizle();
             if (new UrunRepo().Queryable().FirstOrDefault(x => x.UrunAdi == e.Node.Text) != null)
             {
                 urunId = (int)e.Node.Tag;
@@ -111,18 +115,41 @@ namespace Market.WFA
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            var secilikategori = new KategoriRepo().Queryable().First(x => x.KategoriId == kategori.KategoriId);
-            secilikategori.KategoriAdi = txtKategoriAdi.Text;
-            secilikategori.KDV = nudKDV.Value;
-            secilikategori.Kar = nudKar.Value;
-            new KategoriRepo().Update();
+            try
+            {
+                var secilikategori = new KategoriRepo().Queryable().First(x => x.KategoriId == kategori.KategoriId);
+                secilikategori.KategoriAdi = txtKategoriAdi.Text;
+                secilikategori.KDV = nudKDV.Value;
+                secilikategori.Kar = nudKar.Value;
+                new KategoriRepo().Update();
+                MessageBox.Show("Kategori güncelleme işlemi başarılı");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             KategorileriGetir();
+            FormuTemizle();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            new KategoriRepo().Delete(kategori);
+            try
+            {
+                if (kategori.Urunler.Count != 0)
+                    MessageBox.Show("Bu kategori altında ürün olduğu için silemezsiniz");
+                else
+                {
+                    new KategoriRepo().Delete(kategori);
+                    MessageBox.Show("Silme işlemi başarılı");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             KategorileriGetir();
+            FormuTemizle();
         }
         private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -134,13 +161,22 @@ namespace Market.WFA
         }
         private void silToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
-            new UrunRepo().Delete(urun);
+            try
+            {
+                var urun = new UrunRepo().Queryable().First(x => x.UrunId == urunId);
+                new UrunRepo().Delete(urun);
+                MessageBox.Show("Silme işlemi başarılı");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             KategorileriGetir();
         }
 
         private void txtAra_KeyUp(object sender, KeyEventArgs e)
         {
+            FormuTemizle();
             string ara = txtAra.Text.ToLower();
           
             List<Urun> bulunanlar = new List<Urun>();
@@ -174,6 +210,22 @@ namespace Market.WFA
             }
             tvUrunler.ExpandAll();
             
+        }
+        private void FormuTemizle()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    if (control.Name == "txtAra")
+                        continue;
+                    control.Text = string.Empty;
+                }      
+                else if (control is NumericUpDown nud)
+                    nud.Value = 0;
+                else if (control is Label)
+                    control.Text = string.Empty;
+            }
         }
     }
 }
