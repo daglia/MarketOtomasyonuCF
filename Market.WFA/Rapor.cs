@@ -64,7 +64,7 @@ namespace Market.WFA
 
         private void Rapor_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'marketDbDataSet.Urunler' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'marketDbDataSet1.Urunler' table. You can move, or remove it, as needed.
             this.urunlerTableAdapter.Fill(this.marketDbDataSet.Urunler);
             this.Dock = DockStyle.Fill;
             this.ControlBox = false;

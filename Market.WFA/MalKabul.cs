@@ -95,7 +95,7 @@ namespace Market.WFA
                 urunId = (int)e.Node.Tag;
                 urun = new UrunRepo().GetById((urunId));
                 if (urun == null) return;
-                lblBilgileri.Text = $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Sayısı:{urun.Kutu}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
+                lblBilgileri.Text = $"Ürün Adı:{urun.UrunAdi}\nBarkod No:{urun.UrunBarkod}\nBirim Fiyatı:{urun.BirimFiyat:c2}" + $"\nStok Miktarı:{urun.Stok} adet\nÜrün Kategorisi: {urun.Kategori}\nKutu Başına Adet:{urun.KutuBasinaAdet}";
             }
             if (new KategoriRepo().Queryable().FirstOrDefault(x => x.KategoriAdi == e.Node.Text) != null)
             {
@@ -190,7 +190,7 @@ namespace Market.WFA
                     UrunAdi = x.UrunAdi,
                     KutuBasinaAdet = x.KutuBasinaAdet,
                     Indirim = x.Indirim,
-                    Kutu = x.Kutu
+                    Stok = x.Stok
                 }));
             tvUrunler.Nodes.Clear();
             foreach (var bulunan in bulunanlar)

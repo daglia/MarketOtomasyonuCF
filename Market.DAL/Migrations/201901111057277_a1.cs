@@ -28,7 +28,6 @@ namespace Market.DAL.Migrations
                         KutuBasinaAdet = c.Int(nullable: false),
                         BirimFiyat = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Indirim = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Kutu = c.Int(nullable: false),
                         Stok = c.Int(nullable: false),
                         KategoriId = c.Int(nullable: false),
                     })

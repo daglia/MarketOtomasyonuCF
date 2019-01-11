@@ -42,10 +42,10 @@
             this.txtBarkod.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtBarkod.Location = new System.Drawing.Point(186, 320);
             this.txtBarkod.Name = "txtBarkod";
-            this.txtBarkod.ReadOnly = true;
             this.txtBarkod.Size = new System.Drawing.Size(283, 32);
             this.txtBarkod.TabIndex = 7;
             this.txtBarkod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarkod_KeyDown);
+            this.txtBarkod.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBarkod_KeyUp);
             // 
             // pbBarkod
             // 

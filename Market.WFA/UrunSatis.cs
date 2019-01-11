@@ -223,8 +223,6 @@ namespace Market.WFA
                     });
                     UrunRepo urun = new UrunRepo();
                     urun.GetById(_satis.UrunId).Stok -= _satis.Adet;
-                    if (urun.GetById(_satis.UrunId).Stok % urun.GetById(_satis.UrunId).KutuBasinaAdet == 0) urun.GetById(_satis.UrunId).Kutu--;
-                    //urun.GetById(_satis.UrunId).Kutu = urun.GetById(_satis.UrunId).Stok / urun.GetById(_satis.UrunId).KutuBasinaAdet;
                     urun.Update();
                 }
             }

@@ -25,16 +25,7 @@ namespace Market.Models.Entities
         [Required]
         public decimal BirimFiyat { get; set; }
         public decimal Indirim { get; set; } = 0;
-        public int Kutu { get; set; }
-        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        //public int Stok
-        //{
-        //    get => Kutu * KutuBasinaAdet;
-        //    set { }
-        //}
-
         public int Stok { get; set; }
-
         public int KategoriId { get; set; }
         [ForeignKey("KategoriId")]
         public virtual Kategori Kategori { get; set; }
@@ -42,10 +33,5 @@ namespace Market.Models.Entities
         public virtual ICollection<SatisDetay> SatisDetaylari { get; set; } = new HashSet<SatisDetay>();
 
         public override string ToString() => $"{UrunAdi}";
-
-        public Urun()
-        {
-            this.Stok = this.Kutu * this.KutuBasinaAdet;
-        }
     }
 }

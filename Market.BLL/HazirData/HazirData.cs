@@ -39,10 +39,10 @@ namespace Market.BLL.HazirData
                                 KategoriId = 1,
                                 UrunAdi = "Ülker Çikolatalı Gofret",
                                 BirimFiyat = 0.90m,
-                                Kutu = 20,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.05m,
-                                UrunBarkod = "8690504016700"
+                                UrunBarkod = "8690504016700",
+                                Stok = 3000
                             };
                             break;
                         case 1:
@@ -51,10 +51,10 @@ namespace Market.BLL.HazirData
                                 KategoriId = 1,
                                 UrunAdi = "Ankara Burgu Makarna 500 gr",
                                 BirimFiyat = 1m,
-                                Kutu = 20,
                                 KutuBasinaAdet = 150,
                                 Indirim = 0.00m,
-                                UrunBarkod = "8690576029172"
+                                UrunBarkod = "8690576029172",
+                                Stok = 3000
                             };
                             break;
                         case 2:
@@ -63,10 +63,10 @@ namespace Market.BLL.HazirData
                                 KategoriId = 2,
                                 UrunAdi = "Cif Krem Limon Kokulu Yüzey Temizleyicisi 750 ml",
                                 BirimFiyat = 7m,
-                                Kutu = 20,
                                 KutuBasinaAdet = 180,
                                 Indirim = 0.00m,
-                                UrunBarkod = "8690637069840"
+                                UrunBarkod = "8690637069840",
+                                Stok = 3000
                             };
                             break;
                         case 3:
@@ -75,7 +75,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 2,
                                 UrunAdi = "Scotch-Brite 2'li Sünger",
                                 BirimFiyat = 1.2m,
-                                Kutu = 25,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8690734354764"
@@ -87,7 +87,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 3,
                                 UrunAdi = "Piranha Kablosuz Kulaklık",
                                 BirimFiyat = 30m,
-                                Kutu = 25,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8698720989471"
@@ -99,7 +99,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 3,
                                 UrunAdi = "Golyat 3'lü Priz",
                                 BirimFiyat = 20m,
-                                Kutu = 25,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8680304700442"
@@ -111,7 +111,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 4,
                                 UrunAdi = "Uykusuz",
                                 BirimFiyat = 4m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "9771307761178"
@@ -123,7 +123,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 4,
                                 UrunAdi = "Bilim Çocuk",
                                 BirimFiyat = 5m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "9771301746003"
@@ -135,7 +135,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 5,
                                 UrunAdi = "Faber Castell 6'lı Keçeli Kalem",
                                 BirimFiyat = 8m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8690826232000"
@@ -147,7 +147,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 5,
                                 UrunAdi = "Mopak Defter 80 Sayfa",
                                 BirimFiyat = 2m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8690830270135"
@@ -159,7 +159,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 6,
                                 UrunAdi = "Beyaz Ekmek",
                                 BirimFiyat = 0.90m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.0m,
                                 UrunBarkod = "8695077001207"
@@ -171,7 +171,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 6,
                                 UrunAdi = "Uno Kruvasan",
                                 BirimFiyat = 5m,
-                                Kutu = 20,
+                                Stok = 3000,
                                 KutuBasinaAdet = 150,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8690698503642"
@@ -183,7 +183,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 7,
                                 UrunAdi = "Pınar Mangal Keyfi Sucuk",
                                 BirimFiyat = 15m,
-                                Kutu = 20,
+                                Stok = 3000,
                                 KutuBasinaAdet = 180,
                                 Indirim = 0.10m,
                                 UrunBarkod = "8690527021088"
@@ -195,7 +195,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 7,
                                 UrunAdi = "Şenpiliç Bütün Tavuk",
                                 BirimFiyat = 13m,
-                                Kutu = 25,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8696415042623"
@@ -207,7 +207,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 8,
                                 UrunAdi = "Gillette Blue3 Yedek Tıraş Bıçağı 6'lı",
                                 BirimFiyat = 15m,
-                                Kutu = 25,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "7702018037216"
@@ -219,7 +219,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 8,
                                 UrunAdi = "Nivea Krem 150 ml",
                                 BirimFiyat = 10m,
-                                Kutu = 25,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "4005800001192"
@@ -231,7 +231,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 9,
                                 UrunAdi = "Le Cola 2,5 L",
                                 BirimFiyat = 2m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8695077305220"
@@ -243,7 +243,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 9,
                                 UrunAdi = "Le Porta 2,5 L",
                                 BirimFiyat = 2m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8695077305221"
@@ -255,7 +255,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 10,
                                 UrunAdi = "6'lı Yünlü Çorap",
                                 BirimFiyat = 12m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8690826232001"
@@ -267,7 +267,7 @@ namespace Market.BLL.HazirData
                                 KategoriId = 10,
                                 UrunAdi = "Beyaz Erkek İçlik",
                                 BirimFiyat = 14m,
-                                Kutu = 5,
+                                Stok = 3000,
                                 KutuBasinaAdet = 200,
                                 Indirim = 0.00m,
                                 UrunBarkod = "8690830270136"

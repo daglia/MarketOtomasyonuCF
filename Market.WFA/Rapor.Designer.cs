@@ -32,15 +32,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStok = new System.Windows.Forms.TabPage();
             this.dgvStok = new System.Windows.Forms.DataGridView();
+            this.urunlerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.marketDbDataSet = new Market.WFA.MarketDbDataSet();
             this.tabGunlukSatislar = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabAylikSatislar = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabYillikSatislar = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.marketDbDataSet = new Market.WFA.MarketDbDataSet();
-            this.urunlerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.urunlerTableAdapter = new Market.WFA.MarketDbDataSetTableAdapters.UrunlerTableAdapter();
+            this.marketDbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.urunIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.urunBarkodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.urunAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,14 +53,15 @@
             this.tabControl1.SuspendLayout();
             this.tabStok.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStok)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSet)).BeginInit();
             this.tabGunlukSatislar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabAylikSatislar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabYillikSatislar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,6 +120,16 @@
             this.dgvStok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStok.Size = new System.Drawing.Size(786, 406);
             this.dgvStok.TabIndex = 1;
+            // 
+            // urunlerBindingSource
+            // 
+            this.urunlerBindingSource.DataMember = "Urunler";
+            this.urunlerBindingSource.DataSource = this.marketDbDataSet;
+            // 
+            // marketDbDataSet
+            // 
+            this.marketDbDataSet.DataSetName = "MarketDbDataSet";
+            this.marketDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabGunlukSatislar
             // 
@@ -185,19 +197,14 @@
             this.dataGridView4.TabIndex = 0;
             this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
-            // marketDbDataSet
-            // 
-            this.marketDbDataSet.DataSetName = "MarketDbDataSet";
-            this.marketDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // urunlerBindingSource
-            // 
-            this.urunlerBindingSource.DataMember = "Urunler";
-            this.urunlerBindingSource.DataSource = this.marketDbDataSet;
-            // 
             // urunlerTableAdapter
             // 
             this.urunlerTableAdapter.ClearBeforeFill = true;
+            // 
+            // marketDbDataSetBindingSource
+            // 
+            this.marketDbDataSetBindingSource.DataSource = this.marketDbDataSet;
+            this.marketDbDataSetBindingSource.Position = 0;
             // 
             // urunIdDataGridViewTextBoxColumn
             // 
@@ -270,14 +277,15 @@
             this.tabControl1.ResumeLayout(false);
             this.tabStok.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStok)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSet)).EndInit();
             this.tabGunlukSatislar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabAylikSatislar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabYillikSatislar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -304,5 +312,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ındirimDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kutuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stokDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource marketDbDataSetBindingSource;
     }
 }

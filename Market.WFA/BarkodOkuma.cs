@@ -73,13 +73,27 @@ namespace Market.WFA
                 {
                     var eskiStok = urun.Stok;
                     KutuAdet = Convert.ToInt32(nudKutu.Value);
-                    urun.Kutu += KutuAdet;
                     urun.Stok += KutuAdet * urun.KutuBasinaAdet;
                     new UrunRepo().Update();
                     MessageBox.Show($"{urun.UrunAdi} ekleme işlemi başarılı.\nEski stok: {eskiStok}\nYeni stok: {urun.Stok}");
                     DialogResult = DialogResult.Cancel;
                 }
             }
+        }
+
+        private void txtBarkod_KeyUp(object sender, KeyEventArgs e)
+        {
+            urun = new UrunRepo().GetAll().FirstOrDefault(x => x.UrunBarkod == txtBarkod.Text);
+            if (urun != null)
+            {
+                lblUrunAdi.Visible = true;
+                lblUrunAdi.Text = "Gelen ürün: " + urun.UrunAdi;
+                lblUrunAdi.Location = new Point((this.Width / 2) - 5 * (lblUrunAdi.Text.Length), lblUrunAdi.Location.Y);
+            }
+            this.ActiveControl = txtBarkod;
+            txtBarkod.Focus();
+            txtBarkod.Select(0, 0);
+            txtBarkod.SelectionStart = txtBarkod.MaxLength;
         }
     }
 }
