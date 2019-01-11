@@ -223,14 +223,15 @@ namespace Market.WFA
                     });
                     UrunRepo urun = new UrunRepo();
                     urun.GetById(_satis.UrunId).Stok -= _satis.Adet;
-                    urun.GetById(_satis.UrunId).Kutu = urun.GetById(_satis.UrunId).Stok / urun.GetById(_satis.UrunId).KutuBasinaAdet;
+                    if (urun.GetById(_satis.UrunId).Stok % urun.GetById(_satis.UrunId).KutuBasinaAdet == 0) urun.GetById(_satis.UrunId).Kutu--;
+                    //urun.GetById(_satis.UrunId).Kutu = urun.GetById(_satis.UrunId).Stok / urun.GetById(_satis.UrunId).KutuBasinaAdet;
                     urun.Update();
                 }
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw ex;
             }
 
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true })

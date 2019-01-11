@@ -223,9 +223,8 @@ namespace Market.WFA
                 }      
                 else if (control is NumericUpDown nud)
                     nud.Value = 0;
-                else if (control is Label)
-                    control.Text = string.Empty;
             }
+            lblBilgileri.Text = string.Empty;
         }
     }
 }

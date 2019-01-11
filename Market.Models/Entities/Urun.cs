@@ -11,8 +11,6 @@ namespace Market.Models.Entities
     [Table("Urunler")]
     public class Urun
     {
-        private static int _kutu, _kutuBasinaAdet;
-
         [Key]
         public int UrunId { get; set; }
         [Required]
@@ -23,29 +21,11 @@ namespace Market.Models.Entities
         [StringLength(100)]
         public string UrunAdi { get; set; }
         [Required]
-        public int KutuBasinaAdet {
-            get
-            {
-                return _kutuBasinaAdet;
-            }
-            set
-            {
-                _kutuBasinaAdet = value;
-            }
-        }
+        public int KutuBasinaAdet { get; set; }
         [Required]
         public decimal BirimFiyat { get; set; }
         public decimal Indirim { get; set; } = 0;
-        public int Kutu {
-            get
-            {
-                return _kutu;
-            }
-            set
-            {
-                _kutu = value;
-            }
-        }
+        public int Kutu { get; set; }
         //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         //public int Stok
         //{
@@ -53,7 +33,7 @@ namespace Market.Models.Entities
         //    set { }
         //}
 
-        public int Stok { get; set; } = _kutu * _kutuBasinaAdet;
+        public int Stok { get; set; }
 
         public int KategoriId { get; set; }
         [ForeignKey("KategoriId")]
@@ -62,5 +42,10 @@ namespace Market.Models.Entities
         public virtual ICollection<SatisDetay> SatisDetaylari { get; set; } = new HashSet<SatisDetay>();
 
         public override string ToString() => $"{UrunAdi}";
+
+        public Urun()
+        {
+            this.Stok = this.Kutu * this.KutuBasinaAdet;
+        }
     }
 }

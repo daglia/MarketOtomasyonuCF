@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Market.BLL.HazirData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,13 +62,15 @@ namespace Market.WFA
                     MdiParent = this
                 };
                 rapor.Show();
+                //malKabul.Dispose();
             }
             else rapor.Activate();
+            //else rapor.Dispose();
         }
 
         private void AnaSayfa_Load(object sender, EventArgs e)
         {
-
+            new HazirData().VeriUret();
         }
     }
 }
