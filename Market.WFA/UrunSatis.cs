@@ -206,11 +206,13 @@ namespace Market.WFA
             {
                 var yeniSatis = new SatisRepo().Insert(new Satis()
                 {
-                    OdemeYontemi = (OdemeYontemi)selectedIndex
+                    OdemeYontemi = (OdemeYontemi)selectedIndex,
+                    SatisZamani = new SatisRepo().SatısTarihi()
                 });
 
                 foreach (var _satis in satis)
                 {
+                    if (_satis.UrunId == 0) continue;
                     new SatisDetayRepo().Insert(new SatisDetay()
                     {
                         SatisId = new SatisRepo()
@@ -229,7 +231,7 @@ namespace Market.WFA
 
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
 
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true })

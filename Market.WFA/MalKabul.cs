@@ -90,6 +90,7 @@ namespace Market.WFA
         {
             lblBilgileri.Visible = true;
             FormuTemizle();
+            if (e.Node == null) return;
             if (new UrunRepo().Queryable().FirstOrDefault(x => x.UrunAdi == e.Node.Text) != null)
             {
                 urunId = (int)e.Node.Tag;

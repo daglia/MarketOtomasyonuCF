@@ -8,7 +8,7 @@ namespace Market.Models.Enums
 {
     public enum OdemeYontemi
     {
-        Nakit,
-        KrediKartı
+        KrediKartı,
+        Nakit
     }
 }

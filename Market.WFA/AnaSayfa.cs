@@ -63,7 +63,7 @@ namespace Market.WFA
                 };
                 rapor.Show();
                 //malKabul.Dispose();
-            }
+            }          
             else rapor.Activate();
             //else rapor.Dispose();
         }

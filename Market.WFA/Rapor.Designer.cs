@@ -28,41 +28,183 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabStok = new System.Windows.Forms.TabPage();
-            this.dgvStok = new System.Windows.Forms.DataGridView();
-            this.urunlerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.marketDbDataSet = new Market.WFA.MarketDbDataSet();
-            this.tabGunlukSatislar = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabOdemeYontemi = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbKrediKarti = new System.Windows.Forms.RadioButton();
+            this.rbNakit = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvOdemeYontemi = new System.Windows.Forms.DataGridView();
             this.tabAylikSatislar = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.tabGunlukSatislar = new System.Windows.Forms.TabPage();
+            this.dtpTarih = new System.Windows.Forms.DateTimePicker();
+            this.dgvGunlukSatis = new System.Windows.Forms.DataGridView();
+            this.tabStok = new System.Windows.Forms.TabPage();
+            this.dgvStok = new System.Windows.Forms.DataGridView();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabYillikSatislar = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.urunlerTableAdapter = new Market.WFA.MarketDbDataSetTableAdapters.UrunlerTableAdapter();
-            this.marketDbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.urunIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunBarkodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kutuBasinaAdetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birimFiyatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ındirimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kutuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stokDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1.SuspendLayout();
-            this.tabStok.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStok)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSet)).BeginInit();
-            this.tabGunlukSatislar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbYillar = new System.Windows.Forms.ComboBox();
+            this.dgvYillikSatislar = new System.Windows.Forms.DataGridView();
+            this.tabOdemeYontemi.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOdemeYontemi)).BeginInit();
             this.tabAylikSatislar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tabGunlukSatislar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGunlukSatis)).BeginInit();
+            this.tabStok.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStok)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.tabYillikSatislar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvYillikSatislar)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tabOdemeYontemi
+            // 
+            this.tabOdemeYontemi.Controls.Add(this.panel1);
+            this.tabOdemeYontemi.Controls.Add(this.label1);
+            this.tabOdemeYontemi.Controls.Add(this.dgvOdemeYontemi);
+            this.tabOdemeYontemi.Location = new System.Drawing.Point(4, 4);
+            this.tabOdemeYontemi.Name = "tabOdemeYontemi";
+            this.tabOdemeYontemi.Size = new System.Drawing.Size(1338, 664);
+            this.tabOdemeYontemi.TabIndex = 3;
+            this.tabOdemeYontemi.Text = "Ödeme Yöntemi";
+            this.tabOdemeYontemi.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbKrediKarti);
+            this.panel1.Controls.Add(this.rbNakit);
+            this.panel1.Location = new System.Drawing.Point(256, 23);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(349, 35);
+            this.panel1.TabIndex = 3;
+            // 
+            // rbKrediKarti
+            // 
+            this.rbKrediKarti.AutoSize = true;
+            this.rbKrediKarti.Location = new System.Drawing.Point(19, 3);
+            this.rbKrediKarti.Name = "rbKrediKarti";
+            this.rbKrediKarti.Size = new System.Drawing.Size(132, 30);
+            this.rbKrediKarti.TabIndex = 2;
+            this.rbKrediKarti.TabStop = true;
+            this.rbKrediKarti.Text = "Kredi Kartı";
+            this.rbKrediKarti.UseVisualStyleBackColor = true;
+            this.rbKrediKarti.CheckedChanged += new System.EventHandler(this.rbKrediKarti_CheckedChanged);
+            // 
+            // rbNakit
+            // 
+            this.rbNakit.AutoSize = true;
+            this.rbNakit.Location = new System.Drawing.Point(167, 3);
+            this.rbNakit.Name = "rbNakit";
+            this.rbNakit.Size = new System.Drawing.Size(80, 30);
+            this.rbNakit.TabIndex = 2;
+            this.rbNakit.TabStop = true;
+            this.rbNakit.Text = "Nakit";
+            this.rbNakit.UseVisualStyleBackColor = true;
+            this.rbNakit.CheckedChanged += new System.EventHandler(this.rbNakit_CheckedChanged_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(69, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(172, 26);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ödeme Yöntemi";
+            // 
+            // dgvOdemeYontemi
+            // 
+            this.dgvOdemeYontemi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvOdemeYontemi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvOdemeYontemi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOdemeYontemi.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvOdemeYontemi.Location = new System.Drawing.Point(0, 55);
+            this.dgvOdemeYontemi.Name = "dgvOdemeYontemi";
+            this.dgvOdemeYontemi.Size = new System.Drawing.Size(1338, 609);
+            this.dgvOdemeYontemi.TabIndex = 0;
+            // 
+            // tabAylikSatislar
+            // 
+            this.tabAylikSatislar.Controls.Add(this.dataGridView3);
+            this.tabAylikSatislar.Location = new System.Drawing.Point(4, 4);
+            this.tabAylikSatislar.Name = "tabAylikSatislar";
+            this.tabAylikSatislar.Size = new System.Drawing.Size(1338, 664);
+            this.tabAylikSatislar.TabIndex = 2;
+            this.tabAylikSatislar.Text = "Aylık Satışlar";
+            this.tabAylikSatislar.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(1338, 664);
+            this.dataGridView3.TabIndex = 1;
+            // 
+            // tabGunlukSatislar
+            // 
+            this.tabGunlukSatislar.Controls.Add(this.dtpTarih);
+            this.tabGunlukSatislar.Controls.Add(this.dgvGunlukSatis);
+            this.tabGunlukSatislar.Location = new System.Drawing.Point(4, 4);
+            this.tabGunlukSatislar.Name = "tabGunlukSatislar";
+            this.tabGunlukSatislar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGunlukSatislar.Size = new System.Drawing.Size(1338, 664);
+            this.tabGunlukSatislar.TabIndex = 1;
+            this.tabGunlukSatislar.Text = "Günlük Satışlar";
+            this.tabGunlukSatislar.UseVisualStyleBackColor = true;
+            // 
+            // dtpTarih
+            // 
+            this.dtpTarih.CustomFormat = "dd.mm.yyyy";
+            this.dtpTarih.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTarih.Location = new System.Drawing.Point(8, 14);
+            this.dtpTarih.Name = "dtpTarih";
+            this.dtpTarih.Size = new System.Drawing.Size(290, 32);
+            this.dtpTarih.TabIndex = 6;
+            // 
+            // dgvGunlukSatis
+            // 
+            this.dgvGunlukSatis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvGunlukSatis.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvGunlukSatis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGunlukSatis.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvGunlukSatis.Location = new System.Drawing.Point(3, 52);
+            this.dgvGunlukSatis.Name = "dgvGunlukSatis";
+            this.dgvGunlukSatis.Size = new System.Drawing.Size(1332, 609);
+            this.dgvGunlukSatis.TabIndex = 4;
+            // 
+            // tabStok
+            // 
+            this.tabStok.Controls.Add(this.dgvStok);
+            this.tabStok.Location = new System.Drawing.Point(4, 4);
+            this.tabStok.Name = "tabStok";
+            this.tabStok.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStok.Size = new System.Drawing.Size(1338, 664);
+            this.tabStok.TabIndex = 0;
+            this.tabStok.Text = "Stok";
+            this.tabStok.UseVisualStyleBackColor = true;
+            // 
+            // dgvStok
+            // 
+            this.dgvStok.AllowUserToAddRows = false;
+            this.dgvStok.AllowUserToDeleteRows = false;
+            this.dgvStok.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvStok.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvStok.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvStok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStok.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStok.Location = new System.Drawing.Point(3, 3);
+            this.dgvStok.Name = "dgvStok";
+            this.dgvStok.Size = new System.Drawing.Size(1332, 658);
+            this.dgvStok.TabIndex = 2;
             // 
             // tabControl1
             // 
@@ -71,247 +213,112 @@
             this.tabControl1.Controls.Add(this.tabGunlukSatislar);
             this.tabControl1.Controls.Add(this.tabAylikSatislar);
             this.tabControl1.Controls.Add(this.tabYillikSatislar);
+            this.tabControl1.Controls.Add(this.tabOdemeYontemi);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(1346, 702);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tabStok
-            // 
-            this.tabStok.Controls.Add(this.dgvStok);
-            this.tabStok.Location = new System.Drawing.Point(4, 4);
-            this.tabStok.Name = "tabStok";
-            this.tabStok.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStok.Size = new System.Drawing.Size(792, 412);
-            this.tabStok.TabIndex = 0;
-            this.tabStok.Text = "Stok";
-            this.tabStok.UseVisualStyleBackColor = true;
-            this.tabStok.Click += new System.EventHandler(this.tabStok_Click);
-            // 
-            // dgvStok
-            // 
-            this.dgvStok.AutoGenerateColumns = false;
-            this.dgvStok.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStok.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvStok.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
-            this.dgvStok.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dgvStok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStok.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.urunIdDataGridViewTextBoxColumn,
-            this.urunBarkodDataGridViewTextBoxColumn,
-            this.urunAdiDataGridViewTextBoxColumn,
-            this.kutuBasinaAdetDataGridViewTextBoxColumn,
-            this.birimFiyatDataGridViewTextBoxColumn,
-            this.ındirimDataGridViewTextBoxColumn,
-            this.kutuDataGridViewTextBoxColumn,
-            this.stokDataGridViewTextBoxColumn});
-            this.dgvStok.DataSource = this.urunlerBindingSource;
-            this.dgvStok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStok.Location = new System.Drawing.Point(3, 3);
-            this.dgvStok.MultiSelect = false;
-            this.dgvStok.Name = "dgvStok";
-            this.dgvStok.ReadOnly = true;
-            this.dgvStok.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvStok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStok.Size = new System.Drawing.Size(786, 406);
-            this.dgvStok.TabIndex = 1;
-            // 
-            // urunlerBindingSource
-            // 
-            this.urunlerBindingSource.DataMember = "Urunler";
-            this.urunlerBindingSource.DataSource = this.marketDbDataSet;
-            // 
-            // marketDbDataSet
-            // 
-            this.marketDbDataSet.DataSetName = "MarketDbDataSet";
-            this.marketDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tabGunlukSatislar
-            // 
-            this.tabGunlukSatislar.Controls.Add(this.dataGridView2);
-            this.tabGunlukSatislar.Location = new System.Drawing.Point(4, 4);
-            this.tabGunlukSatislar.Name = "tabGunlukSatislar";
-            this.tabGunlukSatislar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGunlukSatislar.Size = new System.Drawing.Size(792, 412);
-            this.tabGunlukSatislar.TabIndex = 1;
-            this.tabGunlukSatislar.Text = "Günlük Satışlar";
-            this.tabGunlukSatislar.UseVisualStyleBackColor = true;
-            this.tabGunlukSatislar.Click += new System.EventHandler(this.tabGunlukSatislar_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(786, 406);
-            this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // tabAylikSatislar
-            // 
-            this.tabAylikSatislar.Controls.Add(this.dataGridView3);
-            this.tabAylikSatislar.Location = new System.Drawing.Point(4, 4);
-            this.tabAylikSatislar.Name = "tabAylikSatislar";
-            this.tabAylikSatislar.Size = new System.Drawing.Size(792, 412);
-            this.tabAylikSatislar.TabIndex = 2;
-            this.tabAylikSatislar.Text = "Aylık Satışlar";
-            this.tabAylikSatislar.UseVisualStyleBackColor = true;
-            this.tabAylikSatislar.Click += new System.EventHandler(this.tabAylikSatislar_Click);
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(792, 412);
-            this.dataGridView3.TabIndex = 1;
-            // 
             // tabYillikSatislar
             // 
-            this.tabYillikSatislar.Controls.Add(this.dataGridView4);
+            this.tabYillikSatislar.Controls.Add(this.label2);
+            this.tabYillikSatislar.Controls.Add(this.cmbYillar);
+            this.tabYillikSatislar.Controls.Add(this.dgvYillikSatislar);
             this.tabYillikSatislar.Location = new System.Drawing.Point(4, 4);
             this.tabYillikSatislar.Name = "tabYillikSatislar";
-            this.tabYillikSatislar.Size = new System.Drawing.Size(792, 412);
-            this.tabYillikSatislar.TabIndex = 3;
+            this.tabYillikSatislar.Size = new System.Drawing.Size(1338, 664);
+            this.tabYillikSatislar.TabIndex = 4;
             this.tabYillikSatislar.Text = "Yıllık Satışlar";
             this.tabYillikSatislar.UseVisualStyleBackColor = true;
-            this.tabYillikSatislar.Click += new System.EventHandler(this.tabYillikSatislar_Click);
             // 
-            // dataGridView4
+            // label2
             // 
-            this.dataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(792, 412);
-            this.dataGridView4.TabIndex = 0;
-            this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 26);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Yıl Seçiniz:";
             // 
-            // urunlerTableAdapter
+            // cmbYillar
             // 
-            this.urunlerTableAdapter.ClearBeforeFill = true;
+            this.cmbYillar.FormattingEnabled = true;
+            this.cmbYillar.Location = new System.Drawing.Point(135, 13);
+            this.cmbYillar.Name = "cmbYillar";
+            this.cmbYillar.Size = new System.Drawing.Size(204, 33);
+            this.cmbYillar.TabIndex = 8;
+            this.cmbYillar.SelectedIndexChanged += new System.EventHandler(this.cmbYillar_SelectedIndexChanged);
             // 
-            // marketDbDataSetBindingSource
+            // dgvYillikSatislar
             // 
-            this.marketDbDataSetBindingSource.DataSource = this.marketDbDataSet;
-            this.marketDbDataSetBindingSource.Position = 0;
-            // 
-            // urunIdDataGridViewTextBoxColumn
-            // 
-            this.urunIdDataGridViewTextBoxColumn.DataPropertyName = "UrunId";
-            this.urunIdDataGridViewTextBoxColumn.HeaderText = "UrunId";
-            this.urunIdDataGridViewTextBoxColumn.Name = "urunIdDataGridViewTextBoxColumn";
-            this.urunIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // urunBarkodDataGridViewTextBoxColumn
-            // 
-            this.urunBarkodDataGridViewTextBoxColumn.DataPropertyName = "UrunBarkod";
-            this.urunBarkodDataGridViewTextBoxColumn.HeaderText = "UrunBarkod";
-            this.urunBarkodDataGridViewTextBoxColumn.Name = "urunBarkodDataGridViewTextBoxColumn";
-            this.urunBarkodDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // urunAdiDataGridViewTextBoxColumn
-            // 
-            this.urunAdiDataGridViewTextBoxColumn.DataPropertyName = "UrunAdi";
-            this.urunAdiDataGridViewTextBoxColumn.HeaderText = "UrunAdi";
-            this.urunAdiDataGridViewTextBoxColumn.Name = "urunAdiDataGridViewTextBoxColumn";
-            this.urunAdiDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kutuBasinaAdetDataGridViewTextBoxColumn
-            // 
-            this.kutuBasinaAdetDataGridViewTextBoxColumn.DataPropertyName = "KutuBasinaAdet";
-            this.kutuBasinaAdetDataGridViewTextBoxColumn.HeaderText = "KutuBasinaAdet";
-            this.kutuBasinaAdetDataGridViewTextBoxColumn.Name = "kutuBasinaAdetDataGridViewTextBoxColumn";
-            this.kutuBasinaAdetDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // birimFiyatDataGridViewTextBoxColumn
-            // 
-            this.birimFiyatDataGridViewTextBoxColumn.DataPropertyName = "BirimFiyat";
-            this.birimFiyatDataGridViewTextBoxColumn.HeaderText = "BirimFiyat";
-            this.birimFiyatDataGridViewTextBoxColumn.Name = "birimFiyatDataGridViewTextBoxColumn";
-            this.birimFiyatDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ındirimDataGridViewTextBoxColumn
-            // 
-            this.ındirimDataGridViewTextBoxColumn.DataPropertyName = "Indirim";
-            this.ındirimDataGridViewTextBoxColumn.HeaderText = "Indirim";
-            this.ındirimDataGridViewTextBoxColumn.Name = "ındirimDataGridViewTextBoxColumn";
-            this.ındirimDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kutuDataGridViewTextBoxColumn
-            // 
-            this.kutuDataGridViewTextBoxColumn.DataPropertyName = "Kutu";
-            this.kutuDataGridViewTextBoxColumn.HeaderText = "Kutu";
-            this.kutuDataGridViewTextBoxColumn.Name = "kutuDataGridViewTextBoxColumn";
-            this.kutuDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stokDataGridViewTextBoxColumn
-            // 
-            this.stokDataGridViewTextBoxColumn.DataPropertyName = "Stok";
-            this.stokDataGridViewTextBoxColumn.HeaderText = "Stok";
-            this.stokDataGridViewTextBoxColumn.Name = "stokDataGridViewTextBoxColumn";
-            this.stokDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dgvYillikSatislar.AllowUserToAddRows = false;
+            this.dgvYillikSatislar.AllowUserToDeleteRows = false;
+            this.dgvYillikSatislar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvYillikSatislar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvYillikSatislar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvYillikSatislar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvYillikSatislar.Location = new System.Drawing.Point(0, 55);
+            this.dgvYillikSatislar.Name = "dgvYillikSatislar";
+            this.dgvYillikSatislar.ReadOnly = true;
+            this.dgvYillikSatislar.Size = new System.Drawing.Size(1338, 609);
+            this.dgvYillikSatislar.TabIndex = 7;
             // 
             // Rapor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1346, 702);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Rapor";
             this.Text = "Rapor";
+            this.Activated += new System.EventHandler(this.Rapor_Activated);
             this.Load += new System.EventHandler(this.Rapor_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabStok.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStok)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSet)).EndInit();
-            this.tabGunlukSatislar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabOdemeYontemi.ResumeLayout(false);
+            this.tabOdemeYontemi.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOdemeYontemi)).EndInit();
             this.tabAylikSatislar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tabGunlukSatislar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGunlukSatis)).EndInit();
+            this.tabStok.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStok)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.tabYillikSatislar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.marketDbDataSetBindingSource)).EndInit();
+            this.tabYillikSatislar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvYillikSatislar)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabStok;
-        private System.Windows.Forms.TabPage tabGunlukSatislar;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TabPage tabAylikSatislar;
-        private System.Windows.Forms.TabPage tabYillikSatislar;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridView dgvStok;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private MarketDbDataSet marketDbDataSet;
-        private System.Windows.Forms.BindingSource urunlerBindingSource;
-        private MarketDbDataSetTableAdapters.UrunlerTableAdapter urunlerTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunBarkodDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunAdiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kutuBasinaAdetDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birimFiyatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ındirimDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kutuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stokDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource marketDbDataSetBindingSource;
+        private System.Windows.Forms.TabPage tabOdemeYontemi;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbKrediKarti;
+        private System.Windows.Forms.RadioButton rbNakit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvOdemeYontemi;
+        private System.Windows.Forms.TabPage tabAylikSatislar;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TabPage tabGunlukSatislar;
+        private System.Windows.Forms.TabPage tabStok;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabYillikSatislar;
+        private System.Windows.Forms.DateTimePicker dtpTarih;
+        private System.Windows.Forms.DataGridView dgvGunlukSatis;
+        private System.Windows.Forms.DataGridView dgvStok;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbYillar;
+        private System.Windows.Forms.DataGridView dgvYillikSatislar;
     }
 }
