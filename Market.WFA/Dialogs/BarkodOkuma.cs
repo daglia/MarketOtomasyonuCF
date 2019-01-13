@@ -31,7 +31,7 @@ namespace Market.WFA
             barkod.Width = 70f;
             barkod.FontSize = 16f;
             //bu kod barkodun ilk 2 hanesi -ülke kodu
-            barkod.CountryCode = "90";
+            barkod.CountryCode = "86";
             //Bu kod üretici-imalatçı numarası -bu kısımın legal illegal gibi durumları da var
             barkod.ManufacturerCode = "95525";
             //Bu kod ürün kodu

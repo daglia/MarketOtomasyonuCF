@@ -98,7 +98,7 @@
             0});
             this.nudBirimFiyat.Name = "nudBirimFiyat";
             this.nudBirimFiyat.Size = new System.Drawing.Size(242, 32);
-            this.nudBirimFiyat.TabIndex = 20;
+            this.nudBirimFiyat.TabIndex = 4;
             // 
             // nudKutuBasinaAdet
             // 
@@ -111,7 +111,7 @@
             0});
             this.nudKutuBasinaAdet.Name = "nudKutuBasinaAdet";
             this.nudKutuBasinaAdet.Size = new System.Drawing.Size(242, 32);
-            this.nudKutuBasinaAdet.TabIndex = 18;
+            this.nudKutuBasinaAdet.TabIndex = 3;
             // 
             // txtUrunAdi
             // 
@@ -119,7 +119,7 @@
             this.txtUrunAdi.Location = new System.Drawing.Point(213, 115);
             this.txtUrunAdi.Name = "txtUrunAdi";
             this.txtUrunAdi.Size = new System.Drawing.Size(242, 32);
-            this.txtUrunAdi.TabIndex = 19;
+            this.txtUrunAdi.TabIndex = 2;
             // 
             // cbKategori
             // 
@@ -128,7 +128,7 @@
             this.cbKategori.Location = new System.Drawing.Point(213, 64);
             this.cbKategori.Name = "cbKategori";
             this.cbKategori.Size = new System.Drawing.Size(242, 33);
-            this.cbKategori.TabIndex = 16;
+            this.cbKategori.TabIndex = 1;
             // 
             // btnEkle
             // 
@@ -136,7 +136,7 @@
             this.btnEkle.Location = new System.Drawing.Point(140, 316);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(210, 46);
-            this.btnEkle.TabIndex = 24;
+            this.btnEkle.TabIndex = 6;
             this.btnEkle.Text = "İşlemi Tamamla";
             this.btnEkle.UseVisualStyleBackColor = true;
             this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
@@ -158,7 +158,7 @@
             this.txtBarkodNo.Name = "txtBarkodNo";
             this.txtBarkodNo.ReadOnly = true;
             this.txtBarkodNo.Size = new System.Drawing.Size(242, 32);
-            this.txtBarkodNo.TabIndex = 26;
+            this.txtBarkodNo.TabIndex = 0;
             // 
             // label2
             // 
@@ -187,7 +187,7 @@
             0});
             this.nudIndirim.Name = "nudIndirim";
             this.nudIndirim.Size = new System.Drawing.Size(242, 32);
-            this.nudIndirim.TabIndex = 27;
+            this.nudIndirim.TabIndex = 5;
             // 
             // UrunIslemleri
             // 

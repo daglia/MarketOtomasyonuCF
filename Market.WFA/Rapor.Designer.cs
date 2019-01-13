@@ -35,7 +35,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvOdemeYontemi = new System.Windows.Forms.DataGridView();
             this.tabAylikSatislar = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbYillarAylik = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbAylar = new System.Windows.Forms.ComboBox();
+            this.dgvAylikSatislar = new System.Windows.Forms.DataGridView();
             this.tabGunlukSatislar = new System.Windows.Forms.TabPage();
             this.dtpTarih = new System.Windows.Forms.DateTimePicker();
             this.dgvGunlukSatis = new System.Windows.Forms.DataGridView();
@@ -50,7 +54,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOdemeYontemi)).BeginInit();
             this.tabAylikSatislar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAylikSatislar)).BeginInit();
             this.tabGunlukSatislar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGunlukSatis)).BeginInit();
             this.tabStok.SuspendLayout();
@@ -127,7 +131,11 @@
             // 
             // tabAylikSatislar
             // 
-            this.tabAylikSatislar.Controls.Add(this.dataGridView3);
+            this.tabAylikSatislar.Controls.Add(this.label4);
+            this.tabAylikSatislar.Controls.Add(this.cmbYillarAylik);
+            this.tabAylikSatislar.Controls.Add(this.label3);
+            this.tabAylikSatislar.Controls.Add(this.cmbAylar);
+            this.tabAylikSatislar.Controls.Add(this.dgvAylikSatislar);
             this.tabAylikSatislar.Location = new System.Drawing.Point(4, 4);
             this.tabAylikSatislar.Name = "tabAylikSatislar";
             this.tabAylikSatislar.Size = new System.Drawing.Size(1338, 664);
@@ -135,19 +143,73 @@
             this.tabAylikSatislar.Text = "Aylık Satışlar";
             this.tabAylikSatislar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // label4
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(1338, 664);
-            this.dataGridView3.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(33, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(121, 26);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Yıl Seçiniz:";
+            // 
+            // cmbYillarAylik
+            // 
+            this.cmbYillarAylik.FormattingEnabled = true;
+            this.cmbYillarAylik.Items.AddRange(new object[] {
+            "2016",
+            "2017",
+            "2018",
+            "2019"});
+            this.cmbYillarAylik.Location = new System.Drawing.Point(160, 8);
+            this.cmbYillarAylik.Name = "cmbYillarAylik";
+            this.cmbYillarAylik.Size = new System.Drawing.Size(204, 33);
+            this.cmbYillarAylik.TabIndex = 13;
+            this.cmbYillarAylik.SelectedIndexChanged += new System.EventHandler(this.cmbYillarAylik_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(400, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 26);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Ay Seçiniz:";
+            // 
+            // cmbAylar
+            // 
+            this.cmbAylar.FormattingEnabled = true;
+            this.cmbAylar.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cmbAylar.Location = new System.Drawing.Point(527, 8);
+            this.cmbAylar.Name = "cmbAylar";
+            this.cmbAylar.Size = new System.Drawing.Size(204, 33);
+            this.cmbAylar.TabIndex = 11;
+            this.cmbAylar.SelectedIndexChanged += new System.EventHandler(this.cmbAylar_SelectedIndexChanged);
+            // 
+            // dgvAylikSatislar
+            // 
+            this.dgvAylikSatislar.AllowUserToAddRows = false;
+            this.dgvAylikSatislar.AllowUserToDeleteRows = false;
+            this.dgvAylikSatislar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAylikSatislar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAylikSatislar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAylikSatislar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvAylikSatislar.Location = new System.Drawing.Point(0, 55);
+            this.dgvAylikSatislar.Name = "dgvAylikSatislar";
+            this.dgvAylikSatislar.ReadOnly = true;
+            this.dgvAylikSatislar.Size = new System.Drawing.Size(1338, 609);
+            this.dgvAylikSatislar.TabIndex = 10;
             // 
             // tabGunlukSatislar
             // 
@@ -163,12 +225,13 @@
             // 
             // dtpTarih
             // 
-            this.dtpTarih.CustomFormat = "dd.mm.yyyy";
+            this.dtpTarih.CustomFormat = "dd.MM.yyyy";
             this.dtpTarih.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTarih.Location = new System.Drawing.Point(8, 14);
             this.dtpTarih.Name = "dtpTarih";
             this.dtpTarih.Size = new System.Drawing.Size(290, 32);
             this.dtpTarih.TabIndex = 6;
+            this.dtpTarih.ValueChanged += new System.EventHandler(this.dtpTarih_ValueChanged);
             // 
             // dgvGunlukSatis
             // 
@@ -248,6 +311,11 @@
             // cmbYillar
             // 
             this.cmbYillar.FormattingEnabled = true;
+            this.cmbYillar.Items.AddRange(new object[] {
+            "2016",
+            "2017",
+            "2018",
+            "2019"});
             this.cmbYillar.Location = new System.Drawing.Point(135, 13);
             this.cmbYillar.Name = "cmbYillar";
             this.cmbYillar.Size = new System.Drawing.Size(204, 33);
@@ -287,7 +355,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOdemeYontemi)).EndInit();
             this.tabAylikSatislar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tabAylikSatislar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAylikSatislar)).EndInit();
             this.tabGunlukSatislar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGunlukSatis)).EndInit();
             this.tabStok.ResumeLayout(false);
@@ -309,7 +378,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvOdemeYontemi;
         private System.Windows.Forms.TabPage tabAylikSatislar;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TabPage tabGunlukSatislar;
         private System.Windows.Forms.TabPage tabStok;
         private System.Windows.Forms.TabControl tabControl1;
@@ -320,5 +388,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbYillar;
         private System.Windows.Forms.DataGridView dgvYillikSatislar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbAylar;
+        private System.Windows.Forms.DataGridView dgvAylikSatislar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbYillarAylik;
     }
 }

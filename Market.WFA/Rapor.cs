@@ -29,6 +29,10 @@ namespace Market.WFA
         private void Rapor_Activated(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = -1;
+            cmbYillar.SelectedIndex = -1;
+            cmbAylar.SelectedIndex = -1;
+            cmbYillarAylik.SelectedIndex = -1;
+            dtpTarih.Value = DateTime.Now;
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -40,16 +44,22 @@ namespace Market.WFA
                     Stok();
                     break;
                 case 1:
+                    dtpTarih.Value = DateTime.Now;
+                    GunlukSatislar(dtpTarih.Value);
                     break;
                 case 2:
+                    cmbYillarAylik.SelectedIndex = -1;
+                    cmbAylar.SelectedIndex = -1;
+                    dgvAylikSatislar.Columns.Clear();                    
+                    if (cmbAylar.SelectedItem == null && cmbYillarAylik.SelectedItem==null)
+                    {
+                        MessageBox.Show("Lütfen yıl ve ay seçiniz");
+                        return;
+                    }
                     break;
                 case 3:
-                    cmbYillar.Items.Clear();
-                    dgvYillikSatislar.Columns.Clear();
-                    for (int i = 2016; i <= 2019; i++)
-                    {
-                        cmbYillar.Items.Add(i.ToString());
-                    }
+                    cmbYillar.SelectedIndex = -1;
+                    dgvYillikSatislar.Columns.Clear();                    
                     if (cmbYillar.SelectedItem == null)
                     {
                         MessageBox.Show("Lütfen yıl seçiniz");
@@ -89,13 +99,100 @@ namespace Market.WFA
                             };
             dgvStok.DataSource = urunliste.ToList();
         }
-        public void GunlukSatislar()
-        {
-
+        private void dtpTarih_ValueChanged(object sender, EventArgs e)
+        {          
+           var tarih = dtpTarih.Value;
+            GunlukSatislar(tarih);
         }
-        public void AylikSatislar()
+        public void GunlukSatislar(DateTime tarih)
         {
+            var kategoriler = new KategoriRepo().GetAll();
+            var satis = new SatisRepo().GetAll();
+            var satisDetay = new SatisDetayRepo().GetAll();
+            var urunler = new UrunRepo().GetAll();
 
+            var gunlukSatisListesi = from u in urunler
+                                    join k in kategoriler on u.KategoriId equals k.KategoriId
+                                    join sd in satisDetay on u.UrunId equals sd.UrunId
+                                    join s in satis on sd.SatisId equals s.SatisId
+                                    where s.SatisZamani.ToShortDateString() == tarih.ToShortDateString()
+                                    group new
+                                    {
+                                        k,
+                                        u,
+                                        sd,
+                                        s
+                                    } by new
+                                    {
+                                        u.UrunBarkod,
+                                        k.KategoriAdi,
+                                        u.UrunAdi
+                                    }
+                                     into gp
+                                    orderby gp.Key.KategoriAdi
+                                    select new
+                                    {
+                                        gp.Key.UrunBarkod,
+                                        gp.Key.KategoriAdi,
+                                        gp.Key.UrunAdi,
+                                        Toplam = gp.Sum(x => x.sd.Adet)
+                                    };
+
+            dgvGunlukSatis.DataSource = gunlukSatisListesi.ToList();
+        }
+        private void cmbAylar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var seciliYil = Convert.ToInt32(cmbYillarAylik.SelectedItem);
+            if (cmbYillarAylik.SelectedItem == null)
+            {
+                if (cmbAylar.SelectedIndex != -1) {cmbAylar.SelectedIndex= -1;  return; }
+                MessageBox.Show("Lütfen önce yıl seçiniz");
+                return;
+            }         
+            var seciliAy = Convert.ToInt32(cmbAylar.SelectedItem);    
+            AylikSatislar(seciliAy,seciliYil);            
+        }
+        private void cmbYillarAylik_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvAylikSatislar.ColumnHeadersVisible = false;
+            dgvAylikSatislar.Columns.Clear();
+            cmbAylar.SelectedIndex = -1;
+        }
+        public void AylikSatislar(int ay,int yil)
+        {
+            var kategoriler = new KategoriRepo().GetAll();
+            var satis = new SatisRepo().GetAll();
+            var satisDetay = new SatisDetayRepo().GetAll();
+            var urunler = new UrunRepo().GetAll();
+
+            var aylikSatisListesi = from u in urunler
+                                    join k in kategoriler on u.KategoriId equals k.KategoriId
+                                    join sd in satisDetay on u.UrunId equals sd.UrunId
+                                    join s in satis on sd.SatisId equals s.SatisId
+                                    where s.SatisZamani.Month == ay && s.SatisZamani.Year==yil
+                                    group new
+                                    {
+                                        k,
+                                        u,
+                                        sd,
+                                        s
+                                    } by new
+                                    {
+                                        u.UrunBarkod,
+                                        k.KategoriAdi,
+                                        u.UrunAdi
+                                    }
+                                     into gp
+                                    orderby gp.Key.KategoriAdi
+                                    select new
+                                    {
+                                        gp.Key.UrunBarkod,
+                                        gp.Key.KategoriAdi,
+                                        gp.Key.UrunAdi,
+                                        Toplam = gp.Sum(x => x.sd.Adet)
+                                    };
+
+            dgvAylikSatislar.DataSource = aylikSatisListesi.ToList();
         }
         private void cmbYillar_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -143,7 +240,6 @@ namespace Market.WFA
             var secilirb = OdemeYontemi.Nakit;
             OdemeYontemiGetir(secilirb);
         }
-
         private void rbKrediKarti_CheckedChanged(object sender, EventArgs e)
         {
             var secilirb = OdemeYontemi.KrediKartı;
@@ -170,6 +266,6 @@ namespace Market.WFA
             dgvOdemeYontemi.DataSource = kksatisliste.ToList();
         }
 
-
+        
     }
 }
