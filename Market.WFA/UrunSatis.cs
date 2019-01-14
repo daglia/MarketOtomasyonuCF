@@ -88,10 +88,11 @@ namespace Market.WFA
                     throw;
                 }
             }
-            else {
+            else
+            {
                 nudPoset.Enabled = false;
                 nudPoset.Value = 0;
-                if(satis.Contains(satis.Find(x => x.UrunId.Equals(0))))
+                if (satis.Contains(satis.Find(x => x.UrunId.Equals(0))))
                     satis.Remove(satis.Find(x => x.UrunId.Equals(0)));
             }
             SatislariGetir();
@@ -119,7 +120,7 @@ namespace Market.WFA
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private decimal ToplamHesapla()
@@ -145,6 +146,8 @@ namespace Market.WFA
             if (lstSatis.SelectedItem == null) return;
 
             var seciliSatis = lstSatis.SelectedItem as SatisDetayViewModel;
+            new UrunRepo().GetById(seciliSatis.UrunId).Stok += seciliSatis.Adet;
+            new UrunRepo().Update();
             satis.Remove(seciliSatis);
             SatislariGetir();
         }
@@ -152,7 +155,7 @@ namespace Market.WFA
         private void btnIslemiBitir_Click(object sender, EventArgs e)
         {
             var radioButtons = groupBox1.Controls.OfType<RadioButton>().ToArray();
-            if(!(rbNakit.Checked || rbKrediKarti.Checked))
+            if (!(rbNakit.Checked || rbKrediKarti.Checked))
             {
                 MessageBox.Show("Lütfen önce bir ödeme yöntemi seçin.");
                 return;
@@ -180,9 +183,9 @@ namespace Market.WFA
                         Adet = _satis.Adet,
                         SatisFiyati = _satis.SatisFiyati
                     });
-                    UrunRepo urun = new UrunRepo();
-                    urun.GetById(_satis.UrunId).Stok -= _satis.Adet;
-                    urun.Update();
+                    //UrunRepo urun = new UrunRepo();
+                    //urun.GetById(_satis.UrunId).Stok -= _satis.Adet;
+                    //urun.Update();
                 }
             }
 
@@ -192,14 +195,14 @@ namespace Market.WFA
             }
 
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF File|*.pdf", ValidateNames = true })
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                Document doc = new Document(PageSize.A5.Rotate());
-                try
+                if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
-                    doc.Open();
-                    var urunsatis = lstSatis.Items;
+                    Document doc = new Document(PageSize.A5.Rotate());
+                    try
+                    {
+                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                        doc.Open();
+                        var urunsatis = lstSatis.Items;
 
                         DateTime tarih = DateTime.Now;
 
@@ -220,16 +223,16 @@ namespace Market.WFA
                             doc.Add(new Paragraph($"Alınan Miktar: {nudAlinanPara.Value.ToString()}\nPara Üstü:{lblParaUstu.Text:c2}",font));
                         }
                     }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
 
-                finally
-                {
-                    doc.Close();
+                    finally
+                    {
+                        doc.Close();
+                    }
                 }
-            }
 
             MessageBox.Show("Satış başarılı");
             DialogResult = DialogResult.OK;
@@ -247,7 +250,7 @@ namespace Market.WFA
 
         private void txtBarkod_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 if (lstUrunler.SelectedItem == null || txtBarkod.Text == "")
                 {
@@ -263,7 +266,7 @@ namespace Market.WFA
                     return;
                 }
 
-                if (nudAdet.Value > seciliUrun.Stok)
+                if ((int)nudAdet.Value > seciliUrun.Stok)
                 {
                     MessageBox.Show("Stokta bu kadar ürün yok!");
                     return;
@@ -281,7 +284,24 @@ namespace Market.WFA
                     }
                 }
 
-                if (listedeMi) listedekiUrun.Adet += (int)nudAdet.Value;
+                if (listedeMi)
+                {
+
+                    var urun= new UrunRepo().GetById(seciliUrun.UrunId);
+
+                    if (((int)nudAdet.Value <= urun.Stok))
+                    {
+                        listedekiUrun.Adet += (int)nudAdet.Value;
+                        urun.Stok -= (int)nudAdet.Value;
+                        new UrunRepo().Update();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Stokta bu kadar ürün yok!");
+                        return;
+                    }
+
+                }
                 else
                 {
                     satis.Add(new SatisDetayViewModel()
@@ -291,8 +311,11 @@ namespace Market.WFA
                         KDV = new KategoriRepo().GetById(seciliUrun.KategoriId).KDV,
                         Adet = (int)nudAdet.Value,
                         UrunAdi = seciliUrun.UrunAdi,
-                        SatisFiyati = seciliUrun.BirimFiyat * (1 + seciliUrun.Kategori.KDV + seciliUrun.Kategori.Kar) * (1 - seciliUrun.Indirim)
+                        SatisFiyati = seciliUrun.BirimFiyat * (1 + seciliUrun.Kategori.KDV + seciliUrun.Kategori.Kar) * (1 - seciliUrun.Indirim),
+
                     });
+                    seciliUrun.Stok -= (int)nudAdet.Value;
+                    new UrunRepo().Update();
                 }
 
                 ToplamHesapla();
