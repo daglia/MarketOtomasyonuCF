@@ -95,5 +95,13 @@ namespace Market.WFA
             txtBarkod.Select(0, 0);
             txtBarkod.SelectionStart = txtBarkod.MaxLength;
         }
+
+        private void nudKutu_ValueChanged(object sender, EventArgs e)
+        {
+            this.ActiveControl = txtBarkod;
+            txtBarkod.Focus();
+            txtBarkod.Select(0, 0);
+            txtBarkod.SelectionStart = txtBarkod.MaxLength;
+        }
     }
 }

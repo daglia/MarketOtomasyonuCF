@@ -47,9 +47,15 @@
             this.dgvStok = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabYillikSatislar = new System.Windows.Forms.TabPage();
+            this.btnYıllıkExcel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbYillar = new System.Windows.Forms.ComboBox();
             this.dgvYillikSatislar = new System.Windows.Forms.DataGridView();
+            this.btnAylıkExcel = new System.Windows.Forms.Button();
+            this.btnGunluk = new System.Windows.Forms.Button();
+            this.btnStok = new System.Windows.Forms.Button();
+            this.btnOdemeYontemi = new System.Windows.Forms.Button();
+            this.tabOdemeYontemi.SuspendLayout();
             this.cbKategorilerGunluk = new System.Windows.Forms.CheckBox();
             this.cbKategorilerAylik = new System.Windows.Forms.CheckBox();
             this.cbKategorilerYillik = new System.Windows.Forms.CheckBox();
@@ -83,7 +89,7 @@
             // 
             this.panel1.Controls.Add(this.rbKrediKarti);
             this.panel1.Controls.Add(this.rbNakit);
-            this.panel1.Location = new System.Drawing.Point(256, 23);
+            this.panel1.Location = new System.Drawing.Point(195, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(349, 35);
             this.panel1.TabIndex = 3;
@@ -115,7 +121,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 26);
+            this.label1.Location = new System.Drawing.Point(8, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 26);
             this.label1.TabIndex = 1;
@@ -137,6 +143,7 @@
             // 
             // tabAylikSatislar
             // 
+            this.tabAylikSatislar.Controls.Add(this.btnAylıkExcel);
             this.tabAylikSatislar.Controls.Add(this.cbKategorilerAylik);
             this.tabAylikSatislar.Controls.Add(this.label4);
             this.tabAylikSatislar.Controls.Add(this.cmbYillarAylik);
@@ -223,6 +230,7 @@
             // tabGunlukSatislar
             // 
             this.tabGunlukSatislar.Controls.Add(this.cbKategorilerGunluk);
+            this.tabGunlukSatislar.Controls.Add(this.btnGunluk);
             this.tabGunlukSatislar.Controls.Add(this.dtpTarih);
             this.tabGunlukSatislar.Controls.Add(this.dgvGunlukSatis);
             this.tabGunlukSatislar.Location = new System.Drawing.Point(4, 4);
@@ -259,6 +267,7 @@
             // 
             // tabStok
             // 
+            this.tabStok.Controls.Add(this.btnStok);
             this.tabStok.Controls.Add(this.dgvStok);
             this.tabStok.Location = new System.Drawing.Point(4, 4);
             this.tabStok.Name = "tabStok";
@@ -305,6 +314,7 @@
             // tabYillikSatislar
             // 
             this.tabYillikSatislar.Controls.Add(this.cbKategorilerYillik);
+            this.tabYillikSatislar.Controls.Add(this.btnYıllıkExcel);
             this.tabYillikSatislar.Controls.Add(this.label2);
             this.tabYillikSatislar.Controls.Add(this.cmbYillar);
             this.tabYillikSatislar.Controls.Add(this.dgvYillikSatislar);
@@ -314,6 +324,16 @@
             this.tabYillikSatislar.TabIndex = 4;
             this.tabYillikSatislar.Text = "Yıllık Satışlar";
             this.tabYillikSatislar.UseVisualStyleBackColor = true;
+            // 
+            // btnYıllıkExcel
+            // 
+            this.btnYıllıkExcel.Location = new System.Drawing.Point(364, 12);
+            this.btnYıllıkExcel.Name = "btnYıllıkExcel";
+            this.btnYıllıkExcel.Size = new System.Drawing.Size(111, 34);
+            this.btnYıllıkExcel.TabIndex = 10;
+            this.btnYıllıkExcel.Text = "Excel";
+            this.btnYıllıkExcel.UseVisualStyleBackColor = true;
+            this.btnYıllıkExcel.Click += new System.EventHandler(this.btnYıllıkExcel_Click);
             // 
             // label2
             // 
@@ -390,6 +410,46 @@
             this.cbKategorilerYillik.UseVisualStyleBackColor = true;
             this.cbKategorilerYillik.CheckedChanged += new System.EventHandler(this.cbKategorilerYillik_CheckedChanged);
             // 
+            // btnAylıkExcel
+            // 
+            this.btnAylıkExcel.Location = new System.Drawing.Point(764, 8);
+            this.btnAylıkExcel.Name = "btnAylıkExcel";
+            this.btnAylıkExcel.Size = new System.Drawing.Size(111, 34);
+            this.btnAylıkExcel.TabIndex = 15;
+            this.btnAylıkExcel.Text = "Excel";
+            this.btnAylıkExcel.UseVisualStyleBackColor = true;
+            this.btnAylıkExcel.Click += new System.EventHandler(this.btnAylıkExcel_Click);
+            // 
+            // btnGunluk
+            // 
+            this.btnGunluk.Location = new System.Drawing.Point(320, 12);
+            this.btnGunluk.Name = "btnGunluk";
+            this.btnGunluk.Size = new System.Drawing.Size(111, 34);
+            this.btnGunluk.TabIndex = 16;
+            this.btnGunluk.Text = "Excel";
+            this.btnGunluk.UseVisualStyleBackColor = true;
+            this.btnGunluk.Click += new System.EventHandler(this.btnGunluk_Click);
+            // 
+            // btnStok
+            // 
+            this.btnStok.Location = new System.Drawing.Point(28, 8);
+            this.btnStok.Name = "btnStok";
+            this.btnStok.Size = new System.Drawing.Size(111, 34);
+            this.btnStok.TabIndex = 17;
+            this.btnStok.Text = "Excel";
+            this.btnStok.UseVisualStyleBackColor = true;
+            this.btnStok.Click += new System.EventHandler(this.btnStok_Click);
+            // 
+            // btnOdemeYontemi
+            // 
+            this.btnOdemeYontemi.Location = new System.Drawing.Point(562, 21);
+            this.btnOdemeYontemi.Name = "btnOdemeYontemi";
+            this.btnOdemeYontemi.Size = new System.Drawing.Size(111, 34);
+            this.btnOdemeYontemi.TabIndex = 18;
+            this.btnOdemeYontemi.Text = "Excel";
+            this.btnOdemeYontemi.UseVisualStyleBackColor = true;
+            this.btnOdemeYontemi.Click += new System.EventHandler(this.btnOdemeYontemi_Click);
+            // 
             // Rapor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,5 +511,10 @@
         private System.Windows.Forms.CheckBox cbKategorilerGunluk;
         private System.Windows.Forms.CheckBox cbKategorilerAylik;
         private System.Windows.Forms.CheckBox cbKategorilerYillik;
+        private System.Windows.Forms.Button btnYıllıkExcel;
+        private System.Windows.Forms.Button btnAylıkExcel;
+        private System.Windows.Forms.Button btnGunluk;
+        private System.Windows.Forms.Button btnStok;
+        private System.Windows.Forms.Button btnOdemeYontemi;
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -413,20 +414,123 @@ namespace Market.WFA
                                };
             dgvOdemeYontemi.DataSource = kksatisliste.ToList();
         }
-
-        private void cbKategorilerGunluk_CheckedChanged(object sender, EventArgs e)
+        private void btnGunluk_Click(object sender, EventArgs e)
         {
-            GunlukSatislar(dtpTarih.Value);
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel Documents (*.xls)|*.xls";
+                sfd.FileName = "";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    ToCsv(dgvGunlukSatis, sfd.FileName);
+                    MessageBox.Show("Excel e aktarma başarılı");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
-        private void cbKategorilerAylik_CheckedChanged(object sender, EventArgs e)
+        private void btnStok_Click(object sender, EventArgs e)
         {
-            cmbAylar_SelectedIndexChanged(sender, e);
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel Documents (*.xls)|*.xls";
+                sfd.FileName = "";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    ToCsv(dgvStok, sfd.FileName);
+                    MessageBox.Show("Excel e aktarma başarılı");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
-        private void cbKategorilerYillik_CheckedChanged(object sender, EventArgs e)
+        private void btnAylıkExcel_Click(object sender, EventArgs e)
         {
-            cmbYillar_SelectedIndexChanged(sender, e);
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel Documents (*.xls)|*.xls";
+                sfd.FileName = "";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    ToCsv(dgvAylikSatislar, sfd.FileName);
+                    MessageBox.Show("Excel e aktarma başarılı");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void btnYıllıkExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel Documents (*.xls)|*.xls";
+                sfd.FileName = "";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    ToCsv(dgvYillikSatislar, sfd.FileName);
+                    MessageBox.Show("Excel e aktarma başarılı");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void btnOdemeYontemi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel Documents (*.xls)|*.xls";
+                sfd.FileName = "";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    ToCsv(dgvOdemeYontemi, sfd.FileName);
+                    MessageBox.Show("Excel e aktarma başarılı");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void ToCsv(DataGridView dGv, string filename)
+        {
+            string stOutput = "";
+            string sHeaders = "";
+            for (int j = 0; j < dGv.Columns.Count; j++)
+            {
+                sHeaders = sHeaders.ToString() + Convert.ToString(dGv.Columns[j].HeaderText) + "\t";
+            }
+            stOutput += sHeaders + "\r\n";
+            for (int i = 0; i < dGv.RowCount - 1; i++)
+            {
+                string stLine = "";
+                for (int j = 0; j < dGv.Rows[i].Cells.Count; j++)
+                {
+                    stLine = stLine.ToString() + Convert.ToString(dGv.Rows[i].Cells[j].Value) + "\t";
+                }
+                stOutput += stLine + "\r\n";
+            }
+
+            Encoding utf16 = Encoding.GetEncoding(1254);
+            byte[] output = utf16.GetBytes(stOutput);
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write(output, 0, output.Length);
+            bw.Flush();
+            bw.Close();
+            fs.Close();
         }
     }
 }

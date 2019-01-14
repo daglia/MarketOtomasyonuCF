@@ -72,6 +72,7 @@
             0,
             0,
             0});
+            this.nudKutu.ValueChanged += new System.EventHandler(this.nudKutu_ValueChanged);
             // 
             // label9
             // 
