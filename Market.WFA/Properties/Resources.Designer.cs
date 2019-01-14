@@ -61,6 +61,26 @@ namespace Market.WFA.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bim_logo_0CC436083A_seeklogo_com {
+            get {
+                object obj = ResourceManager.GetObject("Bim-logo-0CC436083A-seeklogo.com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bim_logo_0cc436083a_seeklogo_com_bpf_icon {
+            get {
+                object obj = ResourceManager.GetObject("bim_logo_0cc436083a_seeklogo_com_bpf_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon bim_logo_0cc436083a_seeklogo_com_Zqj_icon {
@@ -77,6 +97,36 @@ namespace Market.WFA.Properties {
             get {
                 object obj = ResourceManager.GetObject("content_20-ekim-2017-cuma-bim-aktuel-urunler-katalogu-bu-hafta-indirim_10ukU5EuiC" +
                         "370Vk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap money_graph_with_up_arrow {
+            get {
+                object obj = ResourceManager.GetObject("money-graph-with-up-arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_bag {
+            get {
+                object obj = ResourceManager.GetObject("shopping-bag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap worker_loading_boxes {
+            get {
+                object obj = ResourceManager.GetObject("worker-loading-boxes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

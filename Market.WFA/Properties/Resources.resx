@@ -118,10 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="content_20-ekim-2017-cuma-bim-aktuel-urunler-katalogu-bu-hafta-indirim_10ukU5EuiC370Vk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\content_20-ekim-2017-cuma-bim-aktuel-urunler-katalogu-bu-hafta-indirim_10ukU5EuiC370Vk.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shopping-bag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping-bag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="worker-loading-boxes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\worker-loading-boxes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="money-graph-with-up-arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\money-graph-with-up-arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bim_logo_0cc436083a_seeklogo_com_Zqj_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bim_logo_0cc436083a_seeklogo_com_Zqj_icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bim-logo-0CC436083A-seeklogo.com" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bim-logo-0CC436083A-seeklogo.com1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="content_20-ekim-2017-cuma-bim-aktuel-urunler-katalogu-bu-hafta-indirim_10ukU5EuiC370Vk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\content_20-ekim-2017-cuma-bim-aktuel-urunler-katalogu-bu-hafta-indirim_10ukU5EuiC370Vk.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bim_logo_0cc436083a_seeklogo_com_bpf_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bim_logo_0cc436083a_seeklogo_com_bpf_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

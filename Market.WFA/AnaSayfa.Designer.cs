@@ -34,10 +34,6 @@
             this.satışİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.malKabulİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.raporGörüntüleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dışarıAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pDFDosyasıOlarakAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excelDosyasıOlarakAktarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,12 +57,14 @@
             this.satışİşlemleriToolStripMenuItem,
             this.malKabulİşlemleriToolStripMenuItem,
             this.raporİşlemleriToolStripMenuItem});
+            this.işlemlerToolStripMenuItem.Image = global::Market.WFA.Properties.Resources.bim_logo_0cc436083a_seeklogo_com_bpf_icon;
             this.işlemlerToolStripMenuItem.Name = "işlemlerToolStripMenuItem";
-            this.işlemlerToolStripMenuItem.Size = new System.Drawing.Size(95, 30);
+            this.işlemlerToolStripMenuItem.Size = new System.Drawing.Size(111, 30);
             this.işlemlerToolStripMenuItem.Text = "İşlemler";
             // 
             // satışİşlemleriToolStripMenuItem
             // 
+            this.satışİşlemleriToolStripMenuItem.Image = global::Market.WFA.Properties.Resources.shopping_bag;
             this.satışİşlemleriToolStripMenuItem.Name = "satışİşlemleriToolStripMenuItem";
             this.satışİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
             this.satışİşlemleriToolStripMenuItem.Text = "Satış İşlemleri";
@@ -74,6 +72,7 @@
             // 
             // malKabulİşlemleriToolStripMenuItem
             // 
+            this.malKabulİşlemleriToolStripMenuItem.Image = global::Market.WFA.Properties.Resources.worker_loading_boxes;
             this.malKabulİşlemleriToolStripMenuItem.Name = "malKabulİşlemleriToolStripMenuItem";
             this.malKabulİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
             this.malKabulİşlemleriToolStripMenuItem.Text = "Mal Kabul İşlemleri";
@@ -81,40 +80,11 @@
             // 
             // raporİşlemleriToolStripMenuItem
             // 
-            this.raporİşlemleriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.raporGörüntüleToolStripMenuItem,
-            this.dışarıAktarToolStripMenuItem});
+            this.raporİşlemleriToolStripMenuItem.Image = global::Market.WFA.Properties.Resources.money_graph_with_up_arrow;
             this.raporİşlemleriToolStripMenuItem.Name = "raporİşlemleriToolStripMenuItem";
             this.raporİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
-            this.raporİşlemleriToolStripMenuItem.Text = "Rapor İşlemleri";
-            // 
-            // raporGörüntüleToolStripMenuItem
-            // 
-            this.raporGörüntüleToolStripMenuItem.Name = "raporGörüntüleToolStripMenuItem";
-            this.raporGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
-            this.raporGörüntüleToolStripMenuItem.Text = "Rapor Görüntüle";
-            this.raporGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.raporGörüntüleToolStripMenuItem_Click);
-            // 
-            // dışarıAktarToolStripMenuItem
-            // 
-            this.dışarıAktarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pDFDosyasıOlarakAktarToolStripMenuItem,
-            this.excelDosyasıOlarakAktarToolStripMenuItem});
-            this.dışarıAktarToolStripMenuItem.Name = "dışarıAktarToolStripMenuItem";
-            this.dışarıAktarToolStripMenuItem.Size = new System.Drawing.Size(229, 30);
-            this.dışarıAktarToolStripMenuItem.Text = "Dışarı Aktar";
-            // 
-            // pDFDosyasıOlarakAktarToolStripMenuItem
-            // 
-            this.pDFDosyasıOlarakAktarToolStripMenuItem.Name = "pDFDosyasıOlarakAktarToolStripMenuItem";
-            this.pDFDosyasıOlarakAktarToolStripMenuItem.Size = new System.Drawing.Size(320, 30);
-            this.pDFDosyasıOlarakAktarToolStripMenuItem.Text = "PDF Dosyası Olarak Aktar";
-            // 
-            // excelDosyasıOlarakAktarToolStripMenuItem
-            // 
-            this.excelDosyasıOlarakAktarToolStripMenuItem.Name = "excelDosyasıOlarakAktarToolStripMenuItem";
-            this.excelDosyasıOlarakAktarToolStripMenuItem.Size = new System.Drawing.Size(320, 30);
-            this.excelDosyasıOlarakAktarToolStripMenuItem.Text = "Excel Dosyası Olarak Aktar";
+            this.raporİşlemleriToolStripMenuItem.Text = "Rapor Görüntüle";
+            this.raporİşlemleriToolStripMenuItem.Click += new System.EventHandler(this.raporİşlemleriToolStripMenuItem_Click);
             // 
             // çıkışToolStripMenuItem
             // 
@@ -158,9 +128,5 @@
         private System.Windows.Forms.ToolStripMenuItem malKabulİşlemleriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem raporİşlemleriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem çıkışToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem raporGörüntüleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dışarıAktarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pDFDosyasıOlarakAktarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem excelDosyasıOlarakAktarToolStripMenuItem;
     }
 }

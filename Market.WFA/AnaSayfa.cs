@@ -53,24 +53,25 @@ namespace Market.WFA
             else malKabul.Activate();
         }
 
-        private void raporGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AnaSayfa_Load(object sender, EventArgs e)
+        {
+            new HazirData().VeriUret();
+        }
+
+        private void raporİşlemleriToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (rapor == null || rapor.IsDisposed)
             {
                 rapor = new Rapor
                 {
                     MdiParent = this
+
                 };
                 rapor.Show();
                 //malKabul.Dispose();
-            }          
+            }
             else rapor.Activate();
             //else rapor.Dispose();
-        }
-
-        private void AnaSayfa_Load(object sender, EventArgs e)
-        {
-            new HazirData().VeriUret();
         }
     }
 }

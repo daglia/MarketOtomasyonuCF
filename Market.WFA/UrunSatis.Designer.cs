@@ -35,7 +35,6 @@
             this.lstUrunler = new System.Windows.Forms.ListBox();
             this.txtBarkod = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEkle = new System.Windows.Forms.Button();
             this.nudAdet = new System.Windows.Forms.NumericUpDown();
             this.cbPoset = new System.Windows.Forms.CheckBox();
             this.nudPoset = new System.Windows.Forms.NumericUpDown();
@@ -101,6 +100,7 @@
             this.txtBarkod.Name = "txtBarkod";
             this.txtBarkod.Size = new System.Drawing.Size(279, 31);
             this.txtBarkod.TabIndex = 2;
+            this.txtBarkod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarkod_KeyDown);
             // 
             // label1
             // 
@@ -111,17 +111,6 @@
             this.label1.Size = new System.Drawing.Size(80, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Barkod";
-            // 
-            // btnEkle
-            // 
-            this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEkle.Location = new System.Drawing.Point(491, 311);
-            this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(107, 31);
-            this.btnEkle.TabIndex = 4;
-            this.btnEkle.Text = "Ekle";
-            this.btnEkle.UseVisualStyleBackColor = true;
-            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // nudAdet
             // 
@@ -141,6 +130,7 @@
             0,
             0,
             0});
+            this.nudAdet.ValueChanged += new System.EventHandler(this.nudAdet_ValueChanged);
             // 
             // cbPoset
             // 
@@ -306,7 +296,6 @@
             this.Controls.Add(this.nudPoset);
             this.Controls.Add(this.cbPoset);
             this.Controls.Add(this.nudAdet);
-            this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBarkod);
             this.Controls.Add(this.lstUrunler);
@@ -335,7 +324,6 @@
         private System.Windows.Forms.ListBox lstUrunler;
         private System.Windows.Forms.TextBox txtBarkod;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.NumericUpDown nudAdet;
         private System.Windows.Forms.CheckBox cbPoset;
         private System.Windows.Forms.NumericUpDown nudPoset;

@@ -111,58 +111,14 @@ namespace Market.WFA
         {
             var urun = lstUrunler.SelectedItem as Urun;
             txtBarkod.Text = new UrunRepo().GetById(urun.UrunId).UrunBarkod.ToString();
+            txtBarkod.Focus();
+            txtBarkod.Select(0, 0);
+            txtBarkod.SelectionStart = txtBarkod.MaxLength;
         }
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (lstUrunler.SelectedItem == null || txtBarkod.Text == "")
-            {
-                MessageBox.Show("Lütfen listeden bir ürün seçin ya da barkodu girin.");
-                return;
-            }
-
-            var seciliUrun = lstUrunler.SelectedItem as Urun;
-
-            if(seciliUrun.Stok == 0)
-            {
-                MessageBox.Show("Ürünün stoğu yok!");
-                return;
-            }
-
-            if(nudAdet.Value > seciliUrun.Stok)
-            {
-                MessageBox.Show("Stokta bu kadar ürün yok!");
-                return;
-            }
-
-            bool listedeMi = false;
-            var listedekiUrun = new SatisDetayViewModel();
-            foreach (var satisViewModel in satis)
-            {
-                if(seciliUrun.UrunId == satisViewModel.UrunId)
-                {
-                    listedeMi = true;
-                    listedekiUrun = satisViewModel;
-                    break;
-                }
-            }
-
-            if (listedeMi) listedekiUrun.Adet += (int)nudAdet.Value;
-            else
-            {
-                satis.Add(new SatisDetayViewModel()
-                {
-                    UrunId = seciliUrun.UrunId,
-                    Indirim = seciliUrun.Indirim,
-                    KDV = seciliUrun.Kategori.KDV,
-                    Adet = (int)nudAdet.Value,
-                    UrunAdi = seciliUrun.UrunAdi,
-                    SatisFiyati = seciliUrun.BirimFiyat * (1 + seciliUrun.Kategori.KDV + seciliUrun.Kategori.Kar) * (1 - seciliUrun.Indirim)
-                });
-            }
-
-            ToplamHesapla();
-            nudAdet.Value = 1;
+            
         }
 
         private decimal ToplamHesapla()
@@ -282,6 +238,68 @@ namespace Market.WFA
             poset.Adet = (int)nudPoset.Value;
             SatislariGetir();
             ToplamHesapla();
+        }
+
+        private void txtBarkod_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (lstUrunler.SelectedItem == null || txtBarkod.Text == "")
+                {
+                    MessageBox.Show("Lütfen listeden bir ürün seçin ya da barkodu girin.");
+                    return;
+                }
+
+                var seciliUrun = lstUrunler.SelectedItem as Urun;
+
+                if (seciliUrun.Stok == 0)
+                {
+                    MessageBox.Show("Ürünün stoğu yok!");
+                    return;
+                }
+
+                if (nudAdet.Value > seciliUrun.Stok)
+                {
+                    MessageBox.Show("Stokta bu kadar ürün yok!");
+                    return;
+                }
+
+                bool listedeMi = false;
+                var listedekiUrun = new SatisDetayViewModel();
+                foreach (var satisViewModel in satis)
+                {
+                    if (seciliUrun.UrunId == satisViewModel.UrunId)
+                    {
+                        listedeMi = true;
+                        listedekiUrun = satisViewModel;
+                        break;
+                    }
+                }
+
+                if (listedeMi) listedekiUrun.Adet += (int)nudAdet.Value;
+                else
+                {
+                    satis.Add(new SatisDetayViewModel()
+                    {
+                        UrunId = seciliUrun.UrunId,
+                        Indirim = seciliUrun.Indirim,
+                        KDV = seciliUrun.Kategori.KDV,
+                        Adet = (int)nudAdet.Value,
+                        UrunAdi = seciliUrun.UrunAdi,
+                        SatisFiyati = seciliUrun.BirimFiyat * (1 + seciliUrun.Kategori.KDV + seciliUrun.Kategori.Kar) * (1 - seciliUrun.Indirim)
+                    });
+                }
+
+                ToplamHesapla();
+                nudAdet.Value = 1;
+            }
+        }
+
+        private void nudAdet_ValueChanged(object sender, EventArgs e)
+        {
+            txtBarkod.Focus();
+            txtBarkod.Select(0, 0);
+            txtBarkod.SelectionStart = txtBarkod.MaxLength;
         }
     }
 }

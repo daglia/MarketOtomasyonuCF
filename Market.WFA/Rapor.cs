@@ -53,7 +53,7 @@ namespace Market.WFA
                     dgvAylikSatislar.Columns.Clear();                    
                     if (cmbAylar.SelectedItem == null && cmbYillarAylik.SelectedItem==null)
                     {
-                        MessageBox.Show("Lütfen yıl ve ay seçiniz");
+                        //MessageBox.Show("Lütfen yıl ve ay seçiniz");
                         return;
                     }
                     break;
@@ -62,7 +62,7 @@ namespace Market.WFA
                     dgvYillikSatislar.Columns.Clear();                    
                     if (cmbYillar.SelectedItem == null)
                     {
-                        MessageBox.Show("Lütfen yıl seçiniz");
+                        //MessageBox.Show("Lütfen yıl seçiniz");
                         return;
                     }
                     break;
@@ -72,7 +72,7 @@ namespace Market.WFA
                     dgvOdemeYontemi.Columns.Clear();
                     if (!(rbKrediKarti.Checked || rbNakit.Checked))
                     {
-                        MessageBox.Show("Lütfen bir ödeme yöntemi seçin.");
+                        //MessageBox.Show("Lütfen bir ödeme yöntemi seçin.");
                         return;
                     }
                     break;
@@ -98,6 +98,12 @@ namespace Market.WFA
                                 u.Stok
                             };
             dgvStok.DataSource = urunliste.ToList();
+
+            foreach (DataGridViewRow satir in dgvStok.Rows)
+                if (Convert.ToInt32(satir.Cells[6].Value) < 100)
+                {
+                    satir.DefaultCellStyle.BackColor = Color.DarkSalmon;
+                }
         }
         private void dtpTarih_ValueChanged(object sender, EventArgs e)
         {          
@@ -111,34 +117,74 @@ namespace Market.WFA
             var satisDetay = new SatisDetayRepo().GetAll();
             var urunler = new UrunRepo().GetAll();
 
-            var gunlukSatisListesi = from u in urunler
-                                    join k in kategoriler on u.KategoriId equals k.KategoriId
-                                    join sd in satisDetay on u.UrunId equals sd.UrunId
-                                    join s in satis on sd.SatisId equals s.SatisId
-                                    where s.SatisZamani.ToShortDateString() == tarih.ToShortDateString()
-                                    group new
-                                    {
-                                        k,
-                                        u,
-                                        sd,
-                                        s
-                                    } by new
-                                    {
-                                        u.UrunBarkod,
-                                        k.KategoriAdi,
-                                        u.UrunAdi
-                                    }
+            if (cbKategorilerGunluk.Checked)
+            {
+                var gunlukSatisListesi = from u in urunler
+                                         join k in kategoriler on u.KategoriId equals k.KategoriId
+                                         join sd in satisDetay on u.UrunId equals sd.UrunId
+                                         join s in satis on sd.SatisId equals s.SatisId
+                                         where s.SatisZamani.ToShortDateString() == tarih.ToShortDateString()
+                                         group new
+                                         {
+                                             k,
+                                             sd,
+                                             u,
+                                             s
+                                         } by new
+                                         {
+                                             k.KategoriAdi,
+                                             k.Kar,
+                                             k.KategoriId,
+                                             u.BirimFiyat
+                                         }
                                      into gp
-                                    orderby gp.Key.KategoriAdi
-                                    select new
-                                    {
-                                        gp.Key.UrunBarkod,
-                                        gp.Key.KategoriAdi,
-                                        gp.Key.UrunAdi,
-                                        Toplam = gp.Sum(x => x.sd.Adet)
-                                    };
+                                         orderby gp.Key.KategoriAdi
+                                         select new
+                                         {
+                                             gp.Key.KategoriId,
+                                             gp.Key.KategoriAdi,
+                                             Toplam = gp.Sum(x => x.sd.Adet),
+                                             ToplamKar = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * gp.Key.Kar), 2)
+                                         };
+                dgvGunlukSatis.DataSource = gunlukSatisListesi.ToList();
+            }
+            else
+            {
+                var gunlukSatisListesi = from u in urunler
+                                         join k in kategoriler on u.KategoriId equals k.KategoriId
+                                         join sd in satisDetay on u.UrunId equals sd.UrunId
+                                         join s in satis on sd.SatisId equals s.SatisId
+                                         where s.SatisZamani.ToShortDateString() == tarih.ToShortDateString()
+                                         group new
+                                         {
+                                             k,
+                                             u,
+                                             sd,
+                                             s
+                                         } by new
+                                         {
+                                             u.UrunBarkod,
+                                             k.KategoriAdi,
+                                             u.UrunAdi,
+                                             k.Kar,
+                                             u.BirimFiyat,
+                                             u.UrunId
+                                         }
+                                     into gp
+                                         orderby gp.Key.UrunId
+                                         select new
+                                         {
+                                             gp.Key.UrunId,
+                                             gp.Key.UrunBarkod,
+                                             gp.Key.UrunAdi,
+                                             gp.Key.KategoriAdi,
+                                             SatisAdedi = gp.Sum(x => x.sd.Adet),
+                                             ToplamKar = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * gp.Key.Kar), 2)
+                                         };
+                dgvGunlukSatis.DataSource = gunlukSatisListesi.ToList();
+            }
 
-            dgvGunlukSatis.DataSource = gunlukSatisListesi.ToList();
+            
         }
         private void cmbAylar_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -146,7 +192,7 @@ namespace Market.WFA
             if (cmbYillarAylik.SelectedItem == null)
             {
                 if (cmbAylar.SelectedIndex != -1) {cmbAylar.SelectedIndex= -1;  return; }
-                MessageBox.Show("Lütfen önce yıl seçiniz");
+                //MessageBox.Show("Lütfen önce yıl seçiniz");
                 return;
             }         
             var seciliAy = Convert.ToInt32(cmbAylar.SelectedItem);    
@@ -154,7 +200,6 @@ namespace Market.WFA
         }
         private void cmbYillarAylik_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvAylikSatislar.ColumnHeadersVisible = false;
             dgvAylikSatislar.Columns.Clear();
             cmbAylar.SelectedIndex = -1;
         }
@@ -165,34 +210,74 @@ namespace Market.WFA
             var satisDetay = new SatisDetayRepo().GetAll();
             var urunler = new UrunRepo().GetAll();
 
-            var aylikSatisListesi = from u in urunler
-                                    join k in kategoriler on u.KategoriId equals k.KategoriId
-                                    join sd in satisDetay on u.UrunId equals sd.UrunId
-                                    join s in satis on sd.SatisId equals s.SatisId
-                                    where s.SatisZamani.Month == ay && s.SatisZamani.Year==yil
-                                    group new
-                                    {
-                                        k,
-                                        u,
-                                        sd,
-                                        s
-                                    } by new
-                                    {
-                                        u.UrunBarkod,
-                                        k.KategoriAdi,
-                                        u.UrunAdi
-                                    }
+            if (cbKategorilerAylik.Checked)
+            {
+                var aylikSatisListesi = from u in urunler
+                                        join k in kategoriler on u.KategoriId equals k.KategoriId
+                                        join sd in satisDetay on u.UrunId equals sd.UrunId
+                                        join s in satis on sd.SatisId equals s.SatisId
+                                        where s.SatisZamani.Month == ay && s.SatisZamani.Year == yil
+                                        group new
+                                        {
+                                            k,
+                                            u,
+                                            sd,
+                                            s
+                                        } by new
+                                        {
+                                            k.KategoriId,
+                                            k.KategoriAdi,
+                                            u.BirimFiyat,
+                                            k.Kar
+                                        }
                                      into gp
-                                    orderby gp.Key.KategoriAdi
-                                    select new
-                                    {
-                                        gp.Key.UrunBarkod,
-                                        gp.Key.KategoriAdi,
-                                        gp.Key.UrunAdi,
-                                        Toplam = gp.Sum(x => x.sd.Adet)
-                                    };
+                                        orderby gp.Key.KategoriId
+                                        select new
+                                        {
+                                            gp.Key.KategoriId,
+                                            gp.Key.KategoriAdi,
+                                            ToplamAdet = gp.Sum(x => x.sd.Adet),
+                                            ToplamKar = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * gp.Key.Kar), 2)
+                                        };
 
-            dgvAylikSatislar.DataSource = aylikSatisListesi.ToList();
+                dgvAylikSatislar.DataSource = aylikSatisListesi.ToList();
+            }
+            else
+            {
+                var aylikSatisListesi = from u in urunler
+                                        join k in kategoriler on u.KategoriId equals k.KategoriId
+                                        join sd in satisDetay on u.UrunId equals sd.UrunId
+                                        join s in satis on sd.SatisId equals s.SatisId
+                                        where s.SatisZamani.Month == ay && s.SatisZamani.Year == yil
+                                        group new
+                                        {
+                                            k,
+                                            u,
+                                            sd,
+                                            s
+                                        } by new
+                                        {
+                                            u.UrunBarkod,
+                                            k.KategoriAdi,
+                                            u.UrunAdi,
+                                            u.BirimFiyat,
+                                            k.Kar
+                                        }
+                                     into gp
+                                        orderby gp.Key.KategoriAdi
+                                        select new
+                                        {
+                                            gp.Key.UrunBarkod,
+                                            gp.Key.KategoriAdi,
+                                            gp.Key.UrunAdi,
+                                            Toplam = gp.Sum(x => x.sd.Adet),
+                                            ToplamKar = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * gp.Key.Kar), 2)
+                                        };
+
+                dgvAylikSatislar.DataSource = aylikSatisListesi.ToList();
+            }
+
+            
         }
         private void cmbYillar_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -206,34 +291,75 @@ namespace Market.WFA
             var satisDetay = new SatisDetayRepo().GetAll();
             var urunler = new UrunRepo().GetAll();
 
-            var yillikSatisListesi = from u in urunler
-                                     join k in kategoriler on u.KategoriId equals k.KategoriId
-                                     join sd in satisDetay on u.UrunId equals sd.UrunId
-                                     join s in satis on sd.SatisId equals s.SatisId
-                                     where s.SatisZamani.Year == yil
-                                     group new
-                                     {
-                                         k,
-                                         u,
-                                         sd,
-                                         s
-                                     } by new
-                                     {
-                                         u.UrunBarkod,
-                                         k.KategoriAdi,
-                                         u.UrunAdi
-                                     }
+            if (cbKategorilerYillik.Checked)
+            {
+                var yillikSatisListesi = from u in urunler
+                                         join k in kategoriler on u.KategoriId equals k.KategoriId
+                                         join sd in satisDetay on u.UrunId equals sd.UrunId
+                                         join s in satis on sd.SatisId equals s.SatisId
+                                         where s.SatisZamani.Year == yil
+                                         group new
+                                         {
+                                             k,
+                                             u,
+                                             sd,
+                                             s
+                                         } by new
+                                         {
+                                             k.KategoriId,
+                                             k.KategoriAdi,
+                                             u.BirimFiyat,
+                                             k.Kar
+                                         }
                                      into gp
-                                     orderby gp.Key.KategoriAdi
-                                     select new
-                                     {
-                                         gp.Key.UrunBarkod,
-                                         gp.Key.KategoriAdi,
-                                         gp.Key.UrunAdi,
-                                         Toplam = gp.Sum(x => x.sd.Adet)
-                                     };
+                                         orderby gp.Key.KategoriAdi
+                                         select new
+                                         {
+                                             gp.Key.KategoriId,
+                                             gp.Key.KategoriAdi,
+                                             Toplam = gp.Sum(x => x.sd.Adet),
+                                             ToplamKar = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * gp.Key.Kar), 2)
+                                         };
 
-            dgvYillikSatislar.DataSource = yillikSatisListesi.ToList();
+                dgvYillikSatislar.DataSource = yillikSatisListesi.ToList();
+            }
+            else
+            {
+                var yillikSatisListesi = from u in urunler
+                                         join k in kategoriler on u.KategoriId equals k.KategoriId
+                                         join sd in satisDetay on u.UrunId equals sd.UrunId
+                                         join s in satis on sd.SatisId equals s.SatisId
+                                         where s.SatisZamani.Year == yil
+                                         group new
+                                         {
+                                             k,
+                                             u,
+                                             sd,
+                                             s
+                                         } by new
+                                         {
+                                             u.UrunId,
+                                             u.UrunBarkod,
+                                             k.KategoriAdi,
+                                             u.UrunAdi,
+                                             u.BirimFiyat,
+                                             k.Kar
+                                         }
+                                     into gp
+                                         orderby gp.Key.KategoriAdi
+                                         select new
+                                         {
+                                             gp.Key.UrunId,
+                                             gp.Key.UrunBarkod,
+                                             gp.Key.UrunAdi,
+                                             Toplam = gp.Sum(x => x.sd.Adet),
+                                             ToplamKar = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * gp.Key.Kar), 2)
+                                         };
+
+                dgvYillikSatislar.DataSource = yillikSatisListesi.ToList();
+            }
+
+            
         }
         private void rbNakit_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -250,22 +376,57 @@ namespace Market.WFA
             var satis = new SatisRepo().GetAll();
             var satisDetay = new SatisDetayRepo().GetAll();
             var urun = new UrunRepo().GetAll();
+            var kategoriler = new KategoriRepo().GetAll();
 
             var kksatisliste = from s in satis
                                join sd in satisDetay on s.SatisId equals sd.SatisId
                                join u in urun on sd.UrunId equals u.UrunId
+                               join k in kategoriler on u.KategoriId equals k.KategoriId
                                where s.OdemeYontemi == odeme
-                               select new
+                               group new
+                               {
+                                   s,
+                                   sd,
+                                   u,
+                                   k
+                               }
+                               by new
                                {
                                    s.SatisId,
-                                   u.UrunAdi,
+                                   s.SatisZamani,
+                                   s.OdemeYontemi,
+                                   u.BirimFiyat,
+                                   k.Kar,
+                                   k.KDV,
                                    sd.Adet,
-                                   SatısZamanı = s.SatisZamani,
-                                   OdemeYontemi = s.OdemeYontemi,
+                                   u.Indirim
+                               }
+                               into gp
+                               orderby gp.Key.SatisId
+                               select new
+                               {
+                                   gp.Key.SatisId,
+                                   ToplamAdet = gp.Sum(x => x.sd.Adet),
+                                   gp.Key.SatisZamani,
+                                   gp.Key.OdemeYontemi,
+                                   ToplamSatis = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * (1+gp.Key.KDV) * gp.Key.Kar * (1-gp.Key.Indirim)), 2)
                                };
             dgvOdemeYontemi.DataSource = kksatisliste.ToList();
         }
 
-        
+        private void cbKategorilerGunluk_CheckedChanged(object sender, EventArgs e)
+        {
+            GunlukSatislar(dtpTarih.Value);
+        }
+
+        private void cbKategorilerAylik_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbAylar_SelectedIndexChanged(sender, e);
+        }
+
+        private void cbKategorilerYillik_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbYillar_SelectedIndexChanged(sender, e);
+        }
     }
 }
