@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Font = iTextSharp.text.Font;
 
 namespace Market.WFA
 {
@@ -201,18 +202,22 @@ namespace Market.WFA
                     var urunsatis = lstSatis.Items;
 
                         DateTime tarih = DateTime.Now;
-                        
-                        doc.Add(new Paragraph("ZAF BIRLESIK MAGAZALAR A.S \nBesiktas/ISTANBUL \nKuloglu Mh., Barbaros Blv. Yildiz IS Hani No:9"));
-                        doc.Add(new Paragraph($"\nFis No:{new SatisRepo().GetAll().Last().SatisId}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("HH:mm:ss")}"));
-                        doc.Add(new Paragraph("\nUrun adı                                Adet    KDV    Fiyat\n"));
+
+                        iTextSharp.text.pdf.BaseFont Courier_Turkish = iTextSharp.text.pdf.BaseFont.CreateFont("Courier", "CP1254", iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED);
+
+                        iTextSharp.text.Font font = new iTextSharp.text.Font(Courier_Turkish, 12, iTextSharp.text.Font.NORMAL);
+
+                        doc.Add(new Paragraph("ZAF BIRLESIK MAGAZALAR A.S \nBesiktas/ISTANBUL \nKuloglu Mh., Barbaros Blv. Yıldız Is Hanı No:9",font));
+                        doc.Add(new Paragraph($"\nFis No:{new SatisRepo().GetAll().Last().SatisId}\nTarih:{tarih.ToString("dd.MM.yyyy")}\n Saat:{tarih.ToString("HH:mm:ss")}",font));
+                        doc.Add(new Paragraph("\nÜrün adı                        Adet    KDV    Fiyat\n",font));
                         foreach (var item in urunsatis)
                     {
-                        doc.Add(new Paragraph(item.ToString()));
+                        doc.Add(new Paragraph(item.ToString(),font));
                     }
-                        doc.Add(new Paragraph($"\nToplam : {lblToplam.Text:c2}"));
+                        doc.Add(new Paragraph($"\nToplam : {lblToplam.Text:c2}",font));
                         if (rbNakit.Checked == true)
                         {
-                            doc.Add(new Paragraph($"Alinan Miktar: {nudAlinanPara.Value.ToString()}\nPara Ustu:{lblParaUstu.Text:c2}"));
+                            doc.Add(new Paragraph($"Alınan Miktar: {nudAlinanPara.Value.ToString()}\nPara Üstü:{lblParaUstu.Text:c2}",font));
                         }
                     }
                 catch (Exception ex)
