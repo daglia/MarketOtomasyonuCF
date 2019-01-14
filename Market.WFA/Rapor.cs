@@ -70,7 +70,7 @@ namespace Market.WFA
                 case 4:
                     rbKrediKarti.Checked = false;
                     rbNakit.Checked = false;
-                    dgvOdemeYontemi.Columns.Clear();
+                    dgvOdemeDetaylari.Columns.Clear();
                     if (!(rbKrediKarti.Checked || rbNakit.Checked))
                     {
                         //MessageBox.Show("Lütfen bir ödeme yöntemi seçin.");
@@ -412,7 +412,7 @@ namespace Market.WFA
                                    gp.Key.OdemeYontemi,
                                    ToplamSatis = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * (1+gp.Key.KDV) * gp.Key.Kar * (1-gp.Key.Indirim)), 2)
                                };
-            dgvOdemeYontemi.DataSource = kksatisliste.ToList();
+            dgvOdemeDetaylari.DataSource = kksatisliste.ToList();
         }
         private void btnGunluk_Click(object sender, EventArgs e)
         {
@@ -486,24 +486,7 @@ namespace Market.WFA
                 MessageBox.Show(ex.Message);
             }
         }
-        private void btnOdemeYontemi_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "Excel Documents (*.xls)|*.xls";
-                sfd.FileName = "";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    ToCsv(dgvOdemeYontemi, sfd.FileName);
-                    MessageBox.Show("Excel e aktarma başarılı");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+
         private void ToCsv(DataGridView dGv, string filename)
         {
             string stOutput = "";
@@ -531,6 +514,40 @@ namespace Market.WFA
             bw.Flush();
             bw.Close();
             fs.Close();
+        }
+
+        private void cbKategorilerGunluk_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpTarih_ValueChanged(sender, e);
+        }
+
+        private void cbKategorilerAylik_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbAylar_SelectedIndexChanged(sender, e);
+        }
+
+        private void cbKategorilerYillik_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbYillar_SelectedIndexChanged(sender, e);
+        }
+
+        private void btnOdemeDetaylariExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel Documents (*.xls)|*.xls";
+                sfd.FileName = "";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    ToCsv(dgvOdemeDetaylari, sfd.FileName);
+                    MessageBox.Show("Excel e aktarma başarılı");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

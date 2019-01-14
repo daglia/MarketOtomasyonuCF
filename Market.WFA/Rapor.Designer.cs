@@ -33,35 +33,34 @@
             this.rbKrediKarti = new System.Windows.Forms.RadioButton();
             this.rbNakit = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvOdemeYontemi = new System.Windows.Forms.DataGridView();
+            this.dgvOdemeDetaylari = new System.Windows.Forms.DataGridView();
             this.tabAylikSatislar = new System.Windows.Forms.TabPage();
+            this.btnAylıkExcel = new System.Windows.Forms.Button();
+            this.cbKategorilerAylik = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbYillarAylik = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbAylar = new System.Windows.Forms.ComboBox();
             this.dgvAylikSatislar = new System.Windows.Forms.DataGridView();
             this.tabGunlukSatislar = new System.Windows.Forms.TabPage();
+            this.cbKategorilerGunluk = new System.Windows.Forms.CheckBox();
+            this.btnGunluk = new System.Windows.Forms.Button();
             this.dtpTarih = new System.Windows.Forms.DateTimePicker();
             this.dgvGunlukSatis = new System.Windows.Forms.DataGridView();
             this.tabStok = new System.Windows.Forms.TabPage();
+            this.btnStok = new System.Windows.Forms.Button();
             this.dgvStok = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabYillikSatislar = new System.Windows.Forms.TabPage();
+            this.cbKategorilerYillik = new System.Windows.Forms.CheckBox();
             this.btnYıllıkExcel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbYillar = new System.Windows.Forms.ComboBox();
             this.dgvYillikSatislar = new System.Windows.Forms.DataGridView();
-            this.btnAylıkExcel = new System.Windows.Forms.Button();
-            this.btnGunluk = new System.Windows.Forms.Button();
-            this.btnStok = new System.Windows.Forms.Button();
-            this.btnOdemeYontemi = new System.Windows.Forms.Button();
-            this.tabOdemeYontemi.SuspendLayout();
-            this.cbKategorilerGunluk = new System.Windows.Forms.CheckBox();
-            this.cbKategorilerAylik = new System.Windows.Forms.CheckBox();
-            this.cbKategorilerYillik = new System.Windows.Forms.CheckBox();
+            this.btnOdemeDetaylariExcel = new System.Windows.Forms.Button();
             this.tabOdemeDetaylari.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOdemeYontemi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOdemeDetaylari)).BeginInit();
             this.tabAylikSatislar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAylikSatislar)).BeginInit();
             this.tabGunlukSatislar.SuspendLayout();
@@ -75,9 +74,10 @@
             // 
             // tabOdemeDetaylari
             // 
+            this.tabOdemeDetaylari.Controls.Add(this.btnOdemeDetaylariExcel);
             this.tabOdemeDetaylari.Controls.Add(this.panel1);
             this.tabOdemeDetaylari.Controls.Add(this.label1);
-            this.tabOdemeDetaylari.Controls.Add(this.dgvOdemeYontemi);
+            this.tabOdemeDetaylari.Controls.Add(this.dgvOdemeDetaylari);
             this.tabOdemeDetaylari.Location = new System.Drawing.Point(4, 4);
             this.tabOdemeDetaylari.Name = "tabOdemeDetaylari";
             this.tabOdemeDetaylari.Size = new System.Drawing.Size(1338, 664);
@@ -89,7 +89,7 @@
             // 
             this.panel1.Controls.Add(this.rbKrediKarti);
             this.panel1.Controls.Add(this.rbNakit);
-            this.panel1.Location = new System.Drawing.Point(195, 23);
+            this.panel1.Location = new System.Drawing.Point(315, 11);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(349, 35);
             this.panel1.TabIndex = 3;
@@ -121,25 +121,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 26);
+            this.label1.Location = new System.Drawing.Point(125, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ödeme Yöntemi";
             // 
-            // dgvOdemeYontemi
+            // dgvOdemeDetaylari
             // 
-            this.dgvOdemeYontemi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOdemeYontemi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvOdemeYontemi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOdemeYontemi.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvOdemeYontemi.Location = new System.Drawing.Point(0, 55);
-            this.dgvOdemeYontemi.MultiSelect = false;
-            this.dgvOdemeYontemi.Name = "dgvOdemeYontemi";
-            this.dgvOdemeYontemi.ReadOnly = true;
-            this.dgvOdemeYontemi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOdemeYontemi.Size = new System.Drawing.Size(1338, 609);
-            this.dgvOdemeYontemi.TabIndex = 0;
+            this.dgvOdemeDetaylari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOdemeDetaylari.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvOdemeDetaylari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOdemeDetaylari.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvOdemeDetaylari.Location = new System.Drawing.Point(0, 55);
+            this.dgvOdemeDetaylari.MultiSelect = false;
+            this.dgvOdemeDetaylari.Name = "dgvOdemeDetaylari";
+            this.dgvOdemeDetaylari.ReadOnly = true;
+            this.dgvOdemeDetaylari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOdemeDetaylari.Size = new System.Drawing.Size(1338, 609);
+            this.dgvOdemeDetaylari.TabIndex = 0;
             // 
             // tabAylikSatislar
             // 
@@ -157,10 +157,32 @@
             this.tabAylikSatislar.Text = "Aylık Satışlar";
             this.tabAylikSatislar.UseVisualStyleBackColor = true;
             // 
+            // btnAylıkExcel
+            // 
+            this.btnAylıkExcel.Location = new System.Drawing.Point(8, 10);
+            this.btnAylıkExcel.Name = "btnAylıkExcel";
+            this.btnAylıkExcel.Size = new System.Drawing.Size(111, 34);
+            this.btnAylıkExcel.TabIndex = 15;
+            this.btnAylıkExcel.Text = "Excel";
+            this.btnAylıkExcel.UseVisualStyleBackColor = true;
+            this.btnAylıkExcel.Click += new System.EventHandler(this.btnAylıkExcel_Click);
+            // 
+            // cbKategorilerAylik
+            // 
+            this.cbKategorilerAylik.AutoSize = true;
+            this.cbKategorilerAylik.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbKategorilerAylik.Location = new System.Drawing.Point(1134, 10);
+            this.cbKategorilerAylik.Name = "cbKategorilerAylik";
+            this.cbKategorilerAylik.Size = new System.Drawing.Size(196, 29);
+            this.cbKategorilerAylik.TabIndex = 15;
+            this.cbKategorilerAylik.Text = "Kategorilere göre";
+            this.cbKategorilerAylik.UseVisualStyleBackColor = true;
+            this.cbKategorilerAylik.CheckedChanged += new System.EventHandler(this.cbKategorilerAylik_CheckedChanged);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 11);
+            this.label4.Location = new System.Drawing.Point(125, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 26);
             this.label4.TabIndex = 14;
@@ -174,7 +196,7 @@
             "2017",
             "2018",
             "2019"});
-            this.cmbYillarAylik.Location = new System.Drawing.Point(160, 8);
+            this.cmbYillarAylik.Location = new System.Drawing.Point(252, 12);
             this.cmbYillarAylik.Name = "cmbYillarAylik";
             this.cmbYillarAylik.Size = new System.Drawing.Size(204, 33);
             this.cmbYillarAylik.TabIndex = 13;
@@ -183,7 +205,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(400, 11);
+            this.label3.Location = new System.Drawing.Point(492, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 26);
             this.label3.TabIndex = 12;
@@ -205,7 +227,7 @@
             "10",
             "11",
             "12"});
-            this.cmbAylar.Location = new System.Drawing.Point(527, 8);
+            this.cmbAylar.Location = new System.Drawing.Point(619, 12);
             this.cmbAylar.Name = "cmbAylar";
             this.cmbAylar.Size = new System.Drawing.Size(204, 33);
             this.cmbAylar.TabIndex = 11;
@@ -241,11 +263,33 @@
             this.tabGunlukSatislar.Text = "Günlük Satışlar";
             this.tabGunlukSatislar.UseVisualStyleBackColor = true;
             // 
+            // cbKategorilerGunluk
+            // 
+            this.cbKategorilerGunluk.AutoSize = true;
+            this.cbKategorilerGunluk.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbKategorilerGunluk.Location = new System.Drawing.Point(1134, 19);
+            this.cbKategorilerGunluk.Name = "cbKategorilerGunluk";
+            this.cbKategorilerGunluk.Size = new System.Drawing.Size(196, 29);
+            this.cbKategorilerGunluk.TabIndex = 7;
+            this.cbKategorilerGunluk.Text = "Kategorilere göre";
+            this.cbKategorilerGunluk.UseVisualStyleBackColor = true;
+            this.cbKategorilerGunluk.CheckedChanged += new System.EventHandler(this.cbKategorilerGunluk_CheckedChanged);
+            // 
+            // btnGunluk
+            // 
+            this.btnGunluk.Location = new System.Drawing.Point(8, 12);
+            this.btnGunluk.Name = "btnGunluk";
+            this.btnGunluk.Size = new System.Drawing.Size(111, 34);
+            this.btnGunluk.TabIndex = 16;
+            this.btnGunluk.Text = "Excel";
+            this.btnGunluk.UseVisualStyleBackColor = true;
+            this.btnGunluk.Click += new System.EventHandler(this.btnGunluk_Click);
+            // 
             // dtpTarih
             // 
             this.dtpTarih.CustomFormat = "dd.MM.yyyy";
             this.dtpTarih.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTarih.Location = new System.Drawing.Point(8, 14);
+            this.dtpTarih.Location = new System.Drawing.Point(125, 14);
             this.dtpTarih.Name = "dtpTarih";
             this.dtpTarih.Size = new System.Drawing.Size(290, 32);
             this.dtpTarih.TabIndex = 6;
@@ -277,6 +321,16 @@
             this.tabStok.Text = "Stok";
             this.tabStok.UseVisualStyleBackColor = true;
             // 
+            // btnStok
+            // 
+            this.btnStok.Location = new System.Drawing.Point(8, 8);
+            this.btnStok.Name = "btnStok";
+            this.btnStok.Size = new System.Drawing.Size(111, 34);
+            this.btnStok.TabIndex = 17;
+            this.btnStok.Text = "Excel";
+            this.btnStok.UseVisualStyleBackColor = true;
+            this.btnStok.Click += new System.EventHandler(this.btnStok_Click);
+            // 
             // dgvStok
             // 
             this.dgvStok.AllowUserToAddRows = false;
@@ -285,13 +339,13 @@
             this.dgvStok.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvStok.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvStok.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStok.Location = new System.Drawing.Point(3, 3);
+            this.dgvStok.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvStok.Location = new System.Drawing.Point(3, 48);
             this.dgvStok.MultiSelect = false;
             this.dgvStok.Name = "dgvStok";
             this.dgvStok.ReadOnly = true;
             this.dgvStok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStok.Size = new System.Drawing.Size(1332, 658);
+            this.dgvStok.Size = new System.Drawing.Size(1332, 613);
             this.dgvStok.TabIndex = 2;
             // 
             // tabControl1
@@ -325,9 +379,21 @@
             this.tabYillikSatislar.Text = "Yıllık Satışlar";
             this.tabYillikSatislar.UseVisualStyleBackColor = true;
             // 
+            // cbKategorilerYillik
+            // 
+            this.cbKategorilerYillik.AutoSize = true;
+            this.cbKategorilerYillik.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbKategorilerYillik.Location = new System.Drawing.Point(1134, 15);
+            this.cbKategorilerYillik.Name = "cbKategorilerYillik";
+            this.cbKategorilerYillik.Size = new System.Drawing.Size(196, 29);
+            this.cbKategorilerYillik.TabIndex = 10;
+            this.cbKategorilerYillik.Text = "Kategorilere göre";
+            this.cbKategorilerYillik.UseVisualStyleBackColor = true;
+            this.cbKategorilerYillik.CheckedChanged += new System.EventHandler(this.cbKategorilerYillik_CheckedChanged);
+            // 
             // btnYıllıkExcel
             // 
-            this.btnYıllıkExcel.Location = new System.Drawing.Point(364, 12);
+            this.btnYıllıkExcel.Location = new System.Drawing.Point(8, 7);
             this.btnYıllıkExcel.Name = "btnYıllıkExcel";
             this.btnYıllıkExcel.Size = new System.Drawing.Size(111, 34);
             this.btnYıllıkExcel.TabIndex = 10;
@@ -338,7 +404,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 16);
+            this.label2.Location = new System.Drawing.Point(125, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 26);
             this.label2.TabIndex = 9;
@@ -352,7 +418,7 @@
             "2017",
             "2018",
             "2019"});
-            this.cmbYillar.Location = new System.Drawing.Point(135, 13);
+            this.cmbYillar.Location = new System.Drawing.Point(252, 9);
             this.cmbYillar.Name = "cmbYillar";
             this.cmbYillar.Size = new System.Drawing.Size(204, 33);
             this.cmbYillar.TabIndex = 8;
@@ -374,81 +440,15 @@
             this.dgvYillikSatislar.Size = new System.Drawing.Size(1338, 609);
             this.dgvYillikSatislar.TabIndex = 7;
             // 
-            // cbKategorilerGunluk
+            // btnOdemeDetaylariExcel
             // 
-            this.cbKategorilerGunluk.AutoSize = true;
-            this.cbKategorilerGunluk.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbKategorilerGunluk.Location = new System.Drawing.Point(1134, 19);
-            this.cbKategorilerGunluk.Name = "cbKategorilerGunluk";
-            this.cbKategorilerGunluk.Size = new System.Drawing.Size(196, 29);
-            this.cbKategorilerGunluk.TabIndex = 7;
-            this.cbKategorilerGunluk.Text = "Kategorilere göre";
-            this.cbKategorilerGunluk.UseVisualStyleBackColor = true;
-            this.cbKategorilerGunluk.CheckedChanged += new System.EventHandler(this.cbKategorilerGunluk_CheckedChanged);
-            // 
-            // cbKategorilerAylik
-            // 
-            this.cbKategorilerAylik.AutoSize = true;
-            this.cbKategorilerAylik.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbKategorilerAylik.Location = new System.Drawing.Point(1134, 10);
-            this.cbKategorilerAylik.Name = "cbKategorilerAylik";
-            this.cbKategorilerAylik.Size = new System.Drawing.Size(196, 29);
-            this.cbKategorilerAylik.TabIndex = 15;
-            this.cbKategorilerAylik.Text = "Kategorilere göre";
-            this.cbKategorilerAylik.UseVisualStyleBackColor = true;
-            this.cbKategorilerAylik.CheckedChanged += new System.EventHandler(this.cbKategorilerAylik_CheckedChanged);
-            // 
-            // cbKategorilerYillik
-            // 
-            this.cbKategorilerYillik.AutoSize = true;
-            this.cbKategorilerYillik.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbKategorilerYillik.Location = new System.Drawing.Point(1134, 15);
-            this.cbKategorilerYillik.Name = "cbKategorilerYillik";
-            this.cbKategorilerYillik.Size = new System.Drawing.Size(196, 29);
-            this.cbKategorilerYillik.TabIndex = 10;
-            this.cbKategorilerYillik.Text = "Kategorilere göre";
-            this.cbKategorilerYillik.UseVisualStyleBackColor = true;
-            this.cbKategorilerYillik.CheckedChanged += new System.EventHandler(this.cbKategorilerYillik_CheckedChanged);
-            // 
-            // btnAylıkExcel
-            // 
-            this.btnAylıkExcel.Location = new System.Drawing.Point(764, 8);
-            this.btnAylıkExcel.Name = "btnAylıkExcel";
-            this.btnAylıkExcel.Size = new System.Drawing.Size(111, 34);
-            this.btnAylıkExcel.TabIndex = 15;
-            this.btnAylıkExcel.Text = "Excel";
-            this.btnAylıkExcel.UseVisualStyleBackColor = true;
-            this.btnAylıkExcel.Click += new System.EventHandler(this.btnAylıkExcel_Click);
-            // 
-            // btnGunluk
-            // 
-            this.btnGunluk.Location = new System.Drawing.Point(320, 12);
-            this.btnGunluk.Name = "btnGunluk";
-            this.btnGunluk.Size = new System.Drawing.Size(111, 34);
-            this.btnGunluk.TabIndex = 16;
-            this.btnGunluk.Text = "Excel";
-            this.btnGunluk.UseVisualStyleBackColor = true;
-            this.btnGunluk.Click += new System.EventHandler(this.btnGunluk_Click);
-            // 
-            // btnStok
-            // 
-            this.btnStok.Location = new System.Drawing.Point(28, 8);
-            this.btnStok.Name = "btnStok";
-            this.btnStok.Size = new System.Drawing.Size(111, 34);
-            this.btnStok.TabIndex = 17;
-            this.btnStok.Text = "Excel";
-            this.btnStok.UseVisualStyleBackColor = true;
-            this.btnStok.Click += new System.EventHandler(this.btnStok_Click);
-            // 
-            // btnOdemeYontemi
-            // 
-            this.btnOdemeYontemi.Location = new System.Drawing.Point(562, 21);
-            this.btnOdemeYontemi.Name = "btnOdemeYontemi";
-            this.btnOdemeYontemi.Size = new System.Drawing.Size(111, 34);
-            this.btnOdemeYontemi.TabIndex = 18;
-            this.btnOdemeYontemi.Text = "Excel";
-            this.btnOdemeYontemi.UseVisualStyleBackColor = true;
-            this.btnOdemeYontemi.Click += new System.EventHandler(this.btnOdemeYontemi_Click);
+            this.btnOdemeDetaylariExcel.Location = new System.Drawing.Point(8, 12);
+            this.btnOdemeDetaylariExcel.Name = "btnOdemeDetaylariExcel";
+            this.btnOdemeDetaylariExcel.Size = new System.Drawing.Size(111, 34);
+            this.btnOdemeDetaylariExcel.TabIndex = 11;
+            this.btnOdemeDetaylariExcel.Text = "Excel";
+            this.btnOdemeDetaylariExcel.UseVisualStyleBackColor = true;
+            this.btnOdemeDetaylariExcel.Click += new System.EventHandler(this.btnOdemeDetaylariExcel_Click);
             // 
             // Rapor
             // 
@@ -467,7 +467,7 @@
             this.tabOdemeDetaylari.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOdemeYontemi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOdemeDetaylari)).EndInit();
             this.tabAylikSatislar.ResumeLayout(false);
             this.tabAylikSatislar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAylikSatislar)).EndInit();
@@ -488,10 +488,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kutuDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tabOdemeDetaylari;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton rbKrediKarti;
-        private System.Windows.Forms.RadioButton rbNakit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvOdemeYontemi;
+        private System.Windows.Forms.DataGridView dgvOdemeDetaylari;
         private System.Windows.Forms.TabPage tabAylikSatislar;
         private System.Windows.Forms.TabPage tabGunlukSatislar;
         private System.Windows.Forms.TabPage tabStok;
@@ -515,6 +513,8 @@
         private System.Windows.Forms.Button btnAylıkExcel;
         private System.Windows.Forms.Button btnGunluk;
         private System.Windows.Forms.Button btnStok;
-        private System.Windows.Forms.Button btnOdemeYontemi;
+        private System.Windows.Forms.RadioButton rbKrediKarti;
+        private System.Windows.Forms.RadioButton rbNakit;
+        private System.Windows.Forms.Button btnOdemeDetaylariExcel;
     }
 }

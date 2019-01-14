@@ -218,6 +218,7 @@
             this.lblBilgileri.AutoSize = true;
             this.lblBilgileri.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblBilgileri.Location = new System.Drawing.Point(477, 267);
+            this.lblBilgileri.MaximumSize = new System.Drawing.Size(300, 0);
             this.lblBilgileri.Name = "lblBilgileri";
             this.lblBilgileri.Size = new System.Drawing.Size(77, 25);
             this.lblBilgileri.TabIndex = 34;

@@ -283,7 +283,7 @@ namespace Market.WFA
                     {
                         UrunId = seciliUrun.UrunId,
                         Indirim = seciliUrun.Indirim,
-                        KDV = seciliUrun.Kategori.KDV,
+                        KDV = new KategoriRepo().GetById(seciliUrun.KategoriId).KDV,
                         Adet = (int)nudAdet.Value,
                         UrunAdi = seciliUrun.UrunAdi,
                         SatisFiyati = seciliUrun.BirimFiyat * (1 + seciliUrun.Kategori.KDV + seciliUrun.Kategori.Kar) * (1 - seciliUrun.Indirim)
