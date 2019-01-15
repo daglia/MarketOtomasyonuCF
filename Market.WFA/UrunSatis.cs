@@ -167,7 +167,7 @@ namespace Market.WFA
                 var yeniSatis = new SatisRepo().Insert(new Satis()
                 {
                     OdemeYontemi = (OdemeYontemi)selectedIndex,
-                    SatisZamani = new SatisRepo().SatısTarihi()
+                    //SatisZamani = new SatisRepo().SatısTarihi()
                 });
 
                 foreach (var _satis in satis)

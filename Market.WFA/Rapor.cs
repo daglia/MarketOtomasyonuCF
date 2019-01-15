@@ -410,7 +410,7 @@ namespace Market.WFA
                                    ToplamAdet = gp.Sum(x => x.sd.Adet),
                                    gp.Key.SatisZamani,
                                    gp.Key.OdemeYontemi,
-                                   ToplamSatis = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * (1+gp.Key.KDV) * gp.Key.Kar * (1-gp.Key.Indirim)), 2)
+                                   ToplamSatis = Math.Round((gp.Sum(x => x.sd.Adet) * gp.Key.BirimFiyat * (1+gp.Key.KDV) * (1 + gp.Key.Kar) * (1-gp.Key.Indirim)), 2)
                                };
             dgvOdemeDetaylari.DataSource = kksatisliste.ToList();
         }
